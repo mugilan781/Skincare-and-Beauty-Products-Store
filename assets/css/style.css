@@ -1471,13 +1471,32 @@ select.form-control { appearance: none; cursor: pointer; }
 }
 
 
-/* ── Restored Original Product Grid & Card Sizing ─────────── */
+/* ── Fan Favourites: 2 Rows x 3 Columns & Straight Content Alignment ── */
+.bestsellers .product-grid,
 .product-grid {
   display: grid !important;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)) !important;
+  grid-template-columns: repeat(3, 1fr) !important;
   gap: 2rem !important;
   width: 100% !important;
+  align-items: stretch !important;
 }
+
+@media (max-width: 991px) and (min-width: 601px) {
+  .bestsellers .product-grid,
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1.5rem !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .bestsellers .product-grid,
+  .product-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+}
+
 .product-card {
   background: var(--bg-secondary) !important;
   border: 1px solid var(--border-color) !important;
@@ -1486,21 +1505,118 @@ select.form-control { appearance: none; cursor: pointer; }
   transition: all var(--dur-normal) var(--ease-smooth) !important;
   display: flex !important;
   flex-direction: column !important;
+  height: 100% !important;
   width: 100% !important;
   max-width: none !important;
   flex: none !important;
 }
+
 .product-card-image {
-  height: 280px !important;
+  position: relative !important;
+  height: 270px !important;
   width: 100% !important;
   overflow: hidden !important;
-  position: relative !important;
+  background: var(--bg-primary) !important;
+  flex-shrink: 0 !important;
 }
+
 .product-card-image img {
   width: 100% !important;
   height: 100% !important;
   object-fit: cover !important;
+  display: block !important;
   transition: transform var(--dur-slow) var(--ease-smooth) !important;
+}
+
+.product-card:hover .product-card-image img {
+  transform: scale(1.06) !important;
+}
+
+.product-card-body {
+  padding: 1.4rem 1.4rem 0.5rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 0 auto !important;
+}
+
+.product-card-category {
+  font-size: 0.72rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  color: var(--champagne) !important;
+  margin: 0 0 0.35rem !important;
+  line-height: 1.2 !important;
+}
+
+.product-card-title {
+  font-family: var(--font-display) !important;
+  font-size: 1.18rem !important;
+  font-weight: 600 !important;
+  line-height: 1.32 !important;
+  color: var(--text-primary) !important;
+  margin: 0 0 0.5rem !important;
+  height: 3.1rem !important;
+  min-height: 3.1rem !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important;
+  line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+}
+
+.product-card-stars {
+  display: flex !important;
+  align-items: center !important;
+  gap: 3px !important;
+  color: var(--champagne) !important;
+  margin-bottom: 0.75rem !important;
+  height: 1.2rem !important;
+}
+
+.product-card-stars svg {
+  width: 14px !important;
+  height: 14px !important;
+  fill: currentColor !important;
+}
+
+.product-card-price {
+  display: flex !important;
+  align-items: baseline !important;
+  gap: 0.6rem !important;
+  margin-top: auto !important;
+  margin-bottom: 0.5rem !important;
+  height: 1.6rem !important;
+}
+
+.price-current {
+  font-size: 1.25rem !important;
+  font-weight: 700 !important;
+  color: var(--rosewood) !important;
+}
+
+[data-theme="dark"] .price-current {
+  color: var(--champagne) !important;
+}
+
+.price-original {
+  font-size: 0.95rem !important;
+  text-decoration: line-through !important;
+  color: var(--text-muted) !important;
+}
+
+.product-card-footer {
+  padding: 0.5rem 1.4rem 1.4rem !important;
+  margin-top: auto !important;
+}
+
+.product-card-footer .btn {
+  width: 100% !important;
+  justify-content: center !important;
+  padding: 0.75rem 1.2rem !important;
+  font-size: 0.78rem !important;
+  letter-spacing: 0.08em !important;
+  font-weight: 700 !important;
 }
 
 /* ── Hero Title 2-Line Alignment Constraint ───────────────── */
