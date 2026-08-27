@@ -309,6 +309,112 @@ const initAddToCart = () => {
   });
 };
 
+/* ── Cart Drawer ─────────────────────────────────────────── */
+let cartDrawer, cartOverlay, cartItemsEl, cartFooterEl, cartSubtotalEl, cartCountLabel;
+
+const money = n => '$' + Number(n).toFixed(2);
+
+const openCart = () => {
+  renderCart();
+  cartDrawer.classList.add('open');
+  cartOverlay.classList.add('show');
+  cartDrawer.setAttribute('aria-hidden', 'false');
+  cartOverlay.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+};
+
+const closeCart = () => {
+  cartDrawer.classList.remove('open');
+  cartOverlay.classList.remove('show');
+  cartDrawer.setAttribute('aria-hidden', 'true');
+  cartOverlay.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+};
+
+const renderCart = () => {
+  if (!cartItemsEl) return;
+  if (!cart.length) {
+    cartItemsEl.innerHTML = `<div class="cart-empty">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="width:42px;height:42px;opacity:.4"><path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+      <p>Your cart is empty.</p>
+      <button class="btn btn-outline-dark btn-sm" data-cart-close>Start Shopping</button>
+    </div>`;
+    cartFooterEl.style.display = 'none';
+    return;
+  }
+  cartFooterEl.style.display = '';
+  cartCountLabel.textContent = `(${cart.reduce((s, i) => s + i.qty, 0)})`;
+  cartItemsEl.innerHTML = cart.map(item => `
+    <div class="cart-item" data-cart-item="${item.id}">
+      <div class="cart-item-info">
+        <p class="cart-item-name">${item.name}</p>
+        <p class="cart-item-price">${money(item.price)}</p>
+      </div>
+      <div class="cart-item-actions">
+        <div class="qty-control" style="margin:0">
+          <button type="button" data-cart-dec aria-label="Decrease">−</button>
+          <span class="qty-value">${item.qty}</span>
+          <button type="button" data-cart-inc aria-label="Increase">+</button>
+        </div>
+        <button class="cart-item-remove" data-cart-remove aria-label="Remove item">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </div>
+    </div>
+  `).join('');
+  const subtotal = cart.reduce((s, i) => s + Number(i.price) * i.qty, 0);
+  cartSubtotalEl.textContent = money(subtotal);
+};
+
+const changeQty = (id, delta) => {
+  const item = cart.find(i => i.id === id);
+  if (!item) return;
+  item.qty += delta;
+  if (item.qty <= 0) cart = cart.filter(i => i.id !== id);
+  store.set('velour-cart', cart);
+  updateCartBadge();
+  renderCart();
+};
+
+const removeFromCart = id => {
+  cart = cart.filter(i => i.id !== id);
+  store.set('velour-cart', cart);
+  updateCartBadge();
+  renderCart();
+};
+
+const initCartDrawer = () => {
+  cartDrawer = $('#cartDrawer');
+  cartOverlay = $('#cartOverlay');
+  cartItemsEl = $('#cartItems');
+  cartFooterEl = $('#cartFooter');
+  cartSubtotalEl = $('#cartSubtotal');
+  cartCountLabel = $('#cartCountLabel');
+  if (!cartDrawer) return;
+  on(cartOverlay, 'click', closeCart);
+  $$('[data-cart-open]').forEach(btn => on(btn, 'click', openCart));
+  on(cartDrawer, 'click', e => { if (e.target.closest('[data-cart-close]')) closeCart(); });
+  on(document, 'keydown', e => { if (e.key === 'Escape' && cartDrawer.classList.contains('open')) closeCart(); });
+
+  on(cartItemsEl, 'click', e => {
+    const inc = e.target.closest('[data-cart-inc]');
+    const dec = e.target.closest('[data-cart-dec]');
+    const rem = e.target.closest('[data-cart-remove]');
+    const row = e.target.closest('[data-cart-item]');
+    if (!row) return;
+    const id = row.dataset.cartItem;
+    if (inc) changeQty(id, 1);
+    else if (dec) changeQty(id, -1);
+    else if (rem) removeFromCart(id);
+  });
+
+  $$('[data-cart-checkout]').forEach(btn => on(btn, 'click', () => {
+    if (!cart.length) { showToast('Your cart is empty'); return; }
+    showToast('Proceeding to checkout…');
+    setTimeout(closeCart, 400);
+  }));
+};
+
 /* ── Wishlist ─────────────────────────────────────────────── */
 let wishlist = store.get('velour-wishlist') || [];
 
@@ -598,6 +704,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initBackToTop();
   initSearch();
   initAddToCart();
+  initCartDrawer();
   initWishlist();
   initForms();
   initNewsletter();
@@ -664,4 +771,4 @@ const initParticles = () => {
 };
 
 /* ── Expose globals if needed ─────────────────────────────── */
-window.VelourSkin = { showToast, addToCart, store };
+window.VelourSkin = { showToast, addToCart, store, openCart, closeCart };

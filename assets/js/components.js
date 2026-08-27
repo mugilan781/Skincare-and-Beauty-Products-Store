@@ -87,7 +87,7 @@ const NAV_HTML = `
           <button class="nav-icon-btn wishlist-icon" data-wishlist="nav" aria-label="Wishlist">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
           </button>
-          <button class="nav-icon-btn" aria-label="Shopping cart" style="position:relative">
+          <button class="nav-icon-btn" data-cart-open aria-label="Shopping cart" style="position:relative">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
             <span class="cart-badge" style="display:none">0</span>
           </button>
@@ -185,6 +185,29 @@ const FOOTER_HTML = `
 </footer>
 `;
 
+/* ── Cart Drawer ─────────────────────────────────────────── */
+const CART_HTML = `
+<!-- Cart Drawer -->
+<div id="cartOverlay" class="cart-overlay" aria-hidden="true"></div>
+<aside id="cartDrawer" class="cart-drawer" aria-hidden="true" aria-label="Shopping cart" role="dialog">
+  <div class="cart-drawer-header">
+    <h3 class="cart-drawer-title">Your Cart <span class="cart-drawer-count" id="cartCountLabel"></span></h3>
+    <button class="cart-drawer-close" data-cart-close aria-label="Close cart">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <div class="cart-drawer-body" id="cartItems"></div>
+  <div class="cart-drawer-footer" id="cartFooter">
+    <div class="cart-subtotal">
+      <span>Subtotal</span>
+      <strong id="cartSubtotal">$0.00</strong>
+    </div>
+    <button class="btn btn-primary" style="width:100%;justify-content:center" data-cart-checkout>Checkout</button>
+    <button class="btn btn-outline-dark btn-sm" style="width:100%;justify-content:center;margin-top:.6rem" data-cart-close>Continue Shopping</button>
+  </div>
+</aside>
+`;
+
 /* ── Inject Components ────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
   // Inject nav before first child of body
@@ -193,4 +216,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const footerMount = document.getElementById('footerMount');
   if (footerMount) footerMount.innerHTML = FOOTER_HTML;
+
+  const bodyMount = document.createElement('div');
+  bodyMount.innerHTML = CART_HTML;
+  while (bodyMount.firstChild) document.body.appendChild(bodyMount.firstChild);
 });
