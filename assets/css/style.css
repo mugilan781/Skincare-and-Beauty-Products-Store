@@ -1471,18 +1471,24 @@ select.form-control { appearance: none; cursor: pointer; }
 }
 
 
-/* ── Filter Grid Center Alignment Fix ────────────────────── */
+/* ── Restored Original Product Grid & Card Sizing ─────────── */
 .product-grid {
-  display: flex !important;
-  flex-wrap: wrap !important;
-  justify-content: center !important;
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)) !important;
   gap: 2rem !important;
   width: 100% !important;
 }
 .product-card {
-  flex: 0 1 300px !important;
-  max-width: 320px !important;
+  background: var(--bg-secondary) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: var(--radius-xl) !important;
+  overflow: hidden !important;
+  transition: all var(--dur-normal) var(--ease-smooth) !important;
+  display: flex !important;
+  flex-direction: column !important;
   width: 100% !important;
+  max-width: none !important;
+  flex: none !important;
 }
 .product-card-image {
   height: 280px !important;
@@ -1494,6 +1500,16 @@ select.form-control { appearance: none; cursor: pointer; }
   width: 100% !important;
   height: 100% !important;
   object-fit: cover !important;
+  transition: transform var(--dur-slow) var(--ease-smooth) !important;
+}
+
+/* ── Hero Title 2-Line Alignment Constraint ───────────────── */
+.hero-content {
+  max-width: 800px !important;
+}
+.hero-title {
+  font-size: clamp(2.4rem, 4.8vw, 4.4rem) !important;
+  line-height: 1.12 !important;
 }
 
 /* ── Filter Tabs Dark Mode Contrast Fix ───────────────────── */

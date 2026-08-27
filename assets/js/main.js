@@ -424,7 +424,7 @@ const PRODUCTS_DB = {
   'moisturizer-ha': { id: 'moisturizer-ha', name: 'Hyaluronic Hydrating Cream', price: 78, category: 'Moisturizers', image: 'assets/images/moisturizer-product.jpg' },
   'mask-rose': { id: 'mask-rose', name: 'Rose Kaolin Clay Mask', price: 52, category: 'Face Masks', image: 'assets/images/facemask-product.jpg' },
   'sunscreen-spf50': { id: 'sunscreen-spf50', name: 'Invisible Shield Sunscreen SPF 50+', price: 48, category: 'Sunscreens', image: 'assets/images/sunscreen-product.jpg' },
-  'oil-rosehip': { id: 'oil-rosehip', name: 'Rosehip Radiance Facial Oil', price: 74, category: 'Serums', image: 'assets/images/serum-closeup.jpg' }
+  'oil-rosehip': { id: 'oil-rosehip', name: 'Rosehip Radiance Facial Oil', price: 74, category: 'Serums', image: 'assets/images/rosehip-oil.jpg' }
 };
 
 const SVG_HEART_OUTLINE = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>`;
