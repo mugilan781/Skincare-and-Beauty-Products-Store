@@ -128,56 +128,82 @@ const FOOTER_HTML = `
 <footer class="footer" role="contentinfo">
   <div class="container">
     <div class="footer-grid">
+
+      <!-- Column 1: Company -->
       <div class="footer-brand">
         <a href="index.html" class="nav-logo">Velour<span>Skin</span></a>
-        <p style="margin-top:1rem">Luxury skincare rooted in botanical science. Crafted for those who believe beauty is a ritual, not a routine.</p>
+        <p class="footer-desc">Luxury skincare rooted in botanical science. We craft clean, high-performance formulas for those who believe beauty is a ritual, not a routine.</p>
         <div class="footer-social">
-          <a href="#" class="social-btn" aria-label="Instagram">IG</a>
-          <a href="#" class="social-btn" aria-label="Pinterest">Pt</a>
-          <a href="#" class="social-btn" aria-label="TikTok">Tk</a>
-          <a href="#" class="social-btn" aria-label="YouTube">YT</a>
-          <a href="#" class="social-btn" aria-label="Facebook">Fb</a>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="social-btn" aria-label="VelourSkin on Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zm0 1.8c-3.15 0-3.52.01-4.76.07-.9.04-1.38.19-1.71.32-.43.17-.74.37-1.06.69-.32.32-.52.63-.69 1.06-.13.33-.28.81-.32 1.71C3.17 8.65 3.16 9.02 3.16 12s.01 3.35.07 4.59c.04.9.19 1.38.32 1.71.17.43.37.74.69 1.06.32.32.63.52 1.06.69.33.13.81.28 1.71.32 1.24.06 1.61.07 4.76.07s3.52-.01 4.76-.07c.9-.04 1.38-.19 1.71-.32.43-.17.74-.37 1.06-.69.32-.32.52-.63.69-1.06.13-.33.28-.81.32-1.71.06-1.24.07-1.61.07-4.59s-.01-3.35-.07-4.59c-.04-.9-.19-1.38-.32-1.71-.17-.43-.37-.74-.69-1.06-.32-.32-.63-.52-1.06-.69-.33-.13-.81-.28-1.71-.32C15.52 3.97 15.15 3.96 12 3.96zm0 3.06A5 5 0 1 1 12 17a5 5 0 0 1 0-9.98zm0 1.8a3.2 3.2 0 1 0 0 6.4 3.2 3.2 0 0 0 0-6.4zm5.15-2.55a1.17 1.17 0 1 1-2.34 0 1.17 1.17 0 0 1 2.34 0z"/></svg>
+          </a>
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener" class="social-btn" aria-label="VelourSkin on Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5 3.66 9.15 8.44 9.94v-7.03H7.9v-2.9h2.54V9.85c0-2.52 1.5-3.91 3.78-3.91 1.1 0 2.24.2 2.24.2v2.47h-1.26c-1.24 0-1.63.78-1.63 1.57v1.89h2.78l-.44 2.9h-2.34V22c4.78-.79 8.44-4.94 8.44-9.94z"/></svg>
+          </a>
+          <a href="https://x.com/" target="_blank" rel="noopener" class="social-btn" aria-label="VelourSkin on X">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/" target="_blank" rel="noopener" class="social-btn" aria-label="VelourSkin on YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.12-2.12C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.53A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.12 2.12c1.88.53 9.38.53 9.38.53s7.5 0 9.38-.53a3 3 0 0 0 2.12-2.12A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8zM9.55 15.57V8.43L15.82 12z"/></svg>
+          </a>
         </div>
       </div>
+
+      <!-- Column 2: Quick Links -->
       <div class="footer-col">
-        <h4>Shop</h4>
+        <h4>Quick Links</h4>
         <div class="footer-links">
-          <a href="services.html">All Products</a>
-          <a href="services.html#cleansers">Cleansers</a>
-          <a href="services.html#serums">Serums</a>
-          <a href="services.html#moisturizers">Moisturizers</a>
-          <a href="services.html#sunscreens">Sunscreens</a>
-          <a href="services.html#masks">Face Masks</a>
-          <a href="services.html#bundles">Bundle Deals</a>
+          <a href="index.html">Home</a>
+          <a href="home2.html">Home 2</a>
+          <a href="about.html">About</a>
+          <a href="services.html">Shop</a>
+          <a href="blog.html">Blog</a>
+          <a href="contact.html">Contact</a>
         </div>
       </div>
+
+      <!-- Column 3: Contact Us -->
       <div class="footer-col">
-        <h4>Company</h4>
-        <div class="footer-links">
-          <a href="about.html">Our Story</a>
-          <a href="blog.html">Beauty Journal</a>
-          <a href="contact.html">Contact Us</a>
-          <a href="sitemap.html">Sitemap</a>
-        </div>
+        <h4>Contact Us</h4>
+        <ul class="footer-contact">
+          <li>
+            <span class="footer-contact-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg></span>
+            <a href="mailto:hello@velourskin.com">hello@velourskin.com</a>
+          </li>
+          <li>
+            <span class="footer-contact-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+            <a href="tel:+18001234567">+1 (800) 123-4567</a>
+          </li>
+          <li>
+            <span class="footer-contact-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=128+Rue+de+la+Beaut%C3%A9+Florence+Italy" target="_blank" rel="noopener">128 Rue de la Beauté<br>Florence, Tuscany, IT 50122</a>
+          </li>
+          <li>
+            <span class="footer-contact-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+            <span>Mon–Fri: 9am–6pm EST</span>
+          </li>
+        </ul>
       </div>
-      <div class="footer-col">
-        <h4>Support</h4>
-        <div class="footer-links">
-          <a href="privacy.html">Privacy Policy</a>
-          <a href="terms.html">Terms &amp; Conditions</a>
-          <a href="contact.html">FAQ</a>
-          <a href="contact.html">Shipping Info</a>
-          <a href="contact.html">Returns</a>
-          <a href="maintenance.html">Status Page</a>
-        </div>
+
+      <!-- Column 4: Newsletter -->
+      <div class="footer-col footer-newsletter">
+        <h4>Newsletter</h4>
+        <p class="footer-newsletter-desc">Subscribe for new launches, beauty rituals and exclusive offers — straight to your inbox.</p>
+        <form class="newsletter-form" novalidate>
+          <input type="email" class="newsletter-input" placeholder="Your email address" aria-label="Email address for newsletter" required>
+          <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
       </div>
+
     </div>
 
     <div class="footer-bottom">
-      <p class="footer-copyright">© 2026 VelourSkin. All rights reserved. Made with care for beauty lovers.</p>
+      <p class="footer-copyright">© <span id="footerYear">2026</span> VelourSkin. All rights reserved.</p>
       <div class="footer-legal">
-        <a href="privacy.html">Privacy</a>
-        <a href="terms.html">Terms</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <span class="footer-legal-sep" aria-hidden="true">|</span>
+        <a href="terms.html">Terms &amp; Conditions</a>
+        <span class="footer-legal-sep" aria-hidden="true">|</span>
         <a href="sitemap.html">Sitemap</a>
       </div>
     </div>

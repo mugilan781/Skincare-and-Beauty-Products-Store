@@ -708,6 +708,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initWishlist();
   initForms();
   initNewsletter();
+  initFooterYear();
   initSkinTabs();
   initTabs();
   initReadProgress();
@@ -768,6 +769,12 @@ const initParticles = () => {
     requestAnimationFrame(draw);
   };
   draw();
+};
+
+/* ── Footer Year ──────────────────────────────────────────── */
+const initFooterYear = () => {
+  const el = $('#footerYear');
+  if (el) el.textContent = new Date().getFullYear();
 };
 
 /* ── Expose globals if needed ─────────────────────────────── */
