@@ -89,8 +89,8 @@
 .skin-type-card:hover::after { opacity: 1; }
 .skin-type-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-hover); border-color: var(--blush); }
 .skin-type-emoji { font-size: 3rem; margin-bottom: 1rem; display: block; }
-.skin-type-card h3 { font-size: 1.25rem; margin-bottom: .5rem; }
-.skin-type-card p { font-size: .84rem; line-height: 1.7; margin-bottom: 1.2rem; }
+.skin-type-card h3 { font-size: 1.25rem; margin-bottom: .5rem; color: var(--text-primary); font-weight: 600; }
+.skin-type-card p { font-size: .85rem; line-height: 1.7; margin-bottom: 1.2rem; color: var(--text-secondary); font-weight: 400; }
 .skin-type-card .btn-ghost { font-size: .72rem; }
 
 /* ── Benefits Strips ──────────────────────────────────────── */

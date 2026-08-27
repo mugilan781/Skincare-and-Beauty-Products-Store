@@ -1,6 +1,5 @@
 /* ============================================================
-   VELOUR SKIN — SVG Icon System
-   Replaces all emoji with clean, scalable SVG vectors
+   VELOUR SKIN — High-Contrast Ultra-Luxury SVG Icon System
    ============================================================ */
 
 /* ── Base Icon Styles ─────────────────────────────────────── */
@@ -12,29 +11,110 @@
   vertical-align: middle;
   line-height: 1;
 }
+.icon svg {
+  display: block;
+  width: 1em;
+  height: 1em;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
 
-/* ── Quiz Feature Icons ───────────────────────────────────── */
+/* ── Theme-Aware High-Contrast Icon Badge Variables ───────── */
+
+/* Default Light Theme (Rich Luxury Gold with 100% High Contrast) */
+:root, [data-theme="light"] {
+  --badge-bg: linear-gradient(135deg, rgba(201,166,107,0.22) 0%, rgba(140,98,33,0.12) 100%);
+  --badge-border: rgba(140,98,33,0.38);
+  --badge-color: #8C6221; /* Deep Rich Luxury Gold — 100% High Contrast */
+  --badge-shadow: 0 4px 16px rgba(140,98,33,0.14);
+
+  --badge-hover-bg: #8C6221;
+  --badge-hover-border: #8C6221;
+  --badge-hover-color: var(--ivory);
+}
+
+/* Dark Theme & Dark Section Override */
+[data-theme="dark"],
+.benefits-section,
+.page-hero,
+.footer,
+.site-header {
+  --badge-bg: linear-gradient(135deg, rgba(201,166,107,0.2) 0%, rgba(74,38,51,0.35) 100%);
+  --badge-border: rgba(201,166,107,0.4);
+  --badge-color: var(--champagne);
+  --badge-shadow: 0 8px 24px rgba(0,0,0,0.25);
+
+  --badge-hover-bg: var(--rosewood);
+  --badge-hover-border: var(--champagne);
+  --badge-hover-color: var(--champagne-light);
+}
+
+.benefit-svg-icon,
+.value-svg-icon,
+.cat-svg-icon,
+.ingredient-svg-icon,
+.contact-svg-icon,
+.page-icon-wrap,
+.skin-type-svg,
 .quiz-feature-icon {
-  width: 40px;
-  height: 40px;
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
-  background: rgba(201,166,107,.18);
+  background: var(--badge-bg);
+  border: 1px solid var(--badge-border);
+  box-shadow: var(--badge-shadow);
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 0 auto 1.2rem;
+  color: var(--badge-color);
   flex-shrink: 0;
-  color: var(--champagne);
-}
-.quiz-feature-icon svg {
-  display: block;
-  stroke: currentColor;
-  fill: none;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: 1.5;
+  transition: all .3s var(--ease-smooth);
 }
 
-/* ── Quiz Option SVG Icon ─────────────────────────────────── */
+/* Hover Lift Effect */
+.benefit-item:hover .benefit-svg-icon,
+.value-card:hover .value-svg-icon,
+.ingredient-item:hover .ingredient-svg-icon,
+.contact-info-item:hover .contact-svg-icon,
+.skin-type-card:hover .skin-type-svg,
+.reveal:hover .cat-svg-icon,
+.reveal:hover .page-icon-wrap {
+  transform: translateY(-4px) scale(1.05);
+  background: var(--badge-hover-bg);
+  border-color: var(--badge-hover-border);
+  color: var(--badge-hover-color);
+  box-shadow: 0 12px 28px rgba(74,38,51,0.35);
+}
+
+/* Specific Container Size Variations */
+.benefit-svg-icon { width: 64px; height: 64px; margin-bottom: 1.5rem; }
+.benefit-svg-icon svg { width: 28px; height: 28px; stroke-width: 1.8; }
+
+.value-svg-icon { width: 56px; height: 56px; margin-bottom: 1.2rem; }
+.value-svg-icon svg { width: 26px; height: 26px; stroke-width: 1.8; }
+
+.cat-svg-icon { width: 56px; height: 56px; margin-bottom: 1rem; }
+.cat-svg-icon svg { width: 26px; height: 26px; stroke-width: 1.8; }
+
+.ingredient-svg-icon { width: 48px; height: 48px; margin: 0; }
+.ingredient-svg-icon svg { width: 22px; height: 22px; stroke-width: 1.8; }
+
+.contact-svg-icon { width: 46px; height: 46px; margin: 0; }
+.contact-svg-icon svg { width: 22px; height: 22px; stroke-width: 1.8; }
+
+.skin-type-svg { width: 56px; height: 56px; margin-bottom: 1.2rem; }
+.skin-type-svg svg { width: 26px; height: 26px; stroke-width: 1.8; }
+
+.page-icon-wrap { width: 52px; height: 52px; margin-bottom: .75rem; }
+.page-icon-wrap svg { width: 24px; height: 24px; stroke-width: 1.8; }
+
+.quiz-feature-icon { width: 40px; height: 40px; margin: 0; }
+.quiz-feature-icon svg { width: 20px; height: 20px; stroke-width: 1.8; }
+
 .quiz-svg-icon {
   width: 32px;
   height: 32px;
@@ -43,222 +123,33 @@
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: rgba(201,166,107,.12);
-  color: var(--champagne);
-  transition: background .2s, color .2s;
+  background: var(--badge-bg);
+  border: 1px solid var(--badge-border);
+  color: var(--badge-color);
+  transition: all .2s;
 }
 .quiz-option.selected .quiz-svg-icon,
 .quiz-option:hover .quiz-svg-icon {
-  background: rgba(201,166,107,.25);
+  background: var(--rosewood);
+  color: var(--ivory);
 }
-.quiz-svg-icon svg {
-  width: 18px;
-  height: 18px;
-  display: block;
-  stroke: currentColor;
-  fill: none;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: 1.5;
-}
-.icon svg {
-  display: block;
-  width: 1em;
-  height: 1em;
-  stroke: currentColor;
-  fill: none;
-  stroke-width: 1.5;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-.icon-sm svg  { width: .9em;  height: .9em; }
-.icon-lg svg  { width: 1.4em; height: 1.4em; }
-.icon-xl svg  { width: 2em;   height: 2em; }
-.icon-2xl svg { width: 2.5em; height: 2.5em; }
-.icon-3xl svg { width: 3em;   height: 3em; }
+.quiz-svg-icon svg { width: 16px; height: 16px; stroke-width: 1.6; }
 
-/* ── Feature / Card Icons ─────────────────────────────────── */
-.feature-icon-wrap {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: var(--blush-ultra);
-  color: var(--rosewood);
-  flex-shrink: 0;
-  transition: background .3s, color .3s;
-}
-[data-theme="dark"] .feature-icon-wrap {
-  background: rgba(216,167,167,.12);
-  color: var(--blush);
-}
-
-/* ── Stat Value Prefix Icon ───────────────────────────────── */
-.icon-prefix {
-  display: inline-flex;
-  align-items: center;
-  gap: .3em;
-}
-
-/* ── Social Icons ─────────────────────────────────────────── */
 .social-icon-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 38px;
-  height: 38px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  border: 1px solid var(--border-color);
-  color: var(--text-secondary);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: rgba(251,247,242,0.7);
   transition: all .3s;
 }
 .social-icon-btn:hover {
   background: var(--rosewood);
-  border-color: var(--rosewood);
+  border-color: var(--champagne);
   color: var(--ivory);
   transform: translateY(-2px);
 }
-.social-icon-btn svg {
-  width: 16px;
-  height: 16px;
-  fill: currentColor;
-  stroke: none;
-}
-
-/* ── Skin Type Icons ──────────────────────────────────────── */
-.skin-type-svg {
-  width: 48px;
-  height: 48px;
-  margin-bottom: 1rem;
-  display: block;
-  margin-inline: auto;
-  color: var(--rosewood);
-}
-[data-theme="dark"] .skin-type-svg { color: var(--blush); }
-
-/* ── Contact Icons ────────────────────────────────────────── */
-.contact-svg-icon {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: var(--blush-ultra);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  color: var(--rosewood);
-}
-[data-theme="dark"] .contact-svg-icon {
-  background: rgba(216,167,167,.12);
-  color: var(--blush);
-}
-.contact-svg-icon svg { width: 20px; height: 20px; }
-
-/* ── Ingredient Icons ─────────────────────────────────────── */
-.ingredient-svg-icon {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: var(--blush-ultra);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  color: var(--rosewood);
-}
-[data-theme="dark"] .ingredient-svg-icon {
-  background: rgba(216,167,167,.12);
-  color: var(--blush);
-}
-.ingredient-svg-icon svg { width: 22px; height: 22px; }
-
-/* ── Value Card Icon ──────────────────────────────────────── */
-.value-svg-icon {
-  width: 56px;
-  height: 56px;
-  border-radius: var(--radius-lg);
-  background: var(--blush-ultra);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1.2rem;
-  color: var(--rosewood);
-  transition: background .3s, color .3s;
-}
-.value-card:hover .value-svg-icon {
-  background: var(--rosewood);
-  color: var(--ivory);
-}
-[data-theme="dark"] .value-svg-icon {
-  background: rgba(216,167,167,.1);
-  color: var(--blush);
-}
-.value-svg-icon svg { width: 28px; height: 28px; }
-
-/* ── Benefit Icon ─────────────────────────────────────────── */
-.benefit-svg-icon {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  background: rgba(251,247,242,.12);
-  border: 1px solid rgba(251,247,242,.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 1.2rem;
-  color: var(--ivory);
-}
-.benefit-svg-icon svg { width: 30px; height: 30px; }
-
-/* ── Quiz Option Icon ─────────────────────────────────────── */
-.quiz-svg-icon {
-  width: 28px;
-  height: 28px;
-  flex-shrink: 0;
-  color: var(--champagne);
-}
-.quiz-svg-icon svg { width: 100%; height: 100%; }
-
-/* ── Category Card Icon ───────────────────────────────────── */
-.cat-svg-icon {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: var(--blush-ultra);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 1rem;
-  color: var(--rosewood);
-}
-[data-theme="dark"] .cat-svg-icon {
-  background: rgba(216,167,167,.1);
-  color: var(--blush);
-}
-.cat-svg-icon svg { width: 28px; height: 28px; }
-
-/* ── Page Nav Icons ───────────────────────────────────────── */
-.page-icon-wrap {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: var(--blush-ultra);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto .75rem;
-  color: var(--rosewood);
-}
-.page-icon-wrap svg { width: 24px; height: 24px; }
-
-/* ── Maintenance SVG ──────────────────────────────────────── */
-.maintenance-svg {
-  width: 80px;
-  height: 80px;
-  margin: 0 auto 2rem;
-  color: var(--champagne);
-  opacity: .85;
-}
-.maintenance-svg svg { width: 100%; height: 100%; }
+.social-icon-btn svg { width: 18px; height: 18px; fill: currentColor; stroke: none; }
