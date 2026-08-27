@@ -1995,3 +1995,70 @@ select.form-control { appearance: none; cursor: pointer; }
   cursor: pointer !important;
   display: inline-block !important;
 }
+
+
+/* ── Home 2 Dark Mode Contrast Fixes ──────────────────────── */
+.hero2-stats {
+  display: flex;
+  gap: 2.5rem;
+  margin-top: 1.8rem;
+  flex-wrap: wrap;
+}
+.hero2-stat-num {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--rosewood);
+  line-height: 1.1;
+}
+.hero2-stat-label {
+  font-size: .75rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-top: .25rem;
+}
+
+[data-theme="dark"] .hero2-content h1 em {
+  color: var(--blush) !important;
+  text-shadow: 0 0 20px rgba(216, 167, 167, 0.3);
+}
+[data-theme="dark"] .hero2-stat-num {
+  color: var(--champagne) !important;
+}
+[data-theme="dark"] .hero2-stat-label {
+  color: rgba(251, 247, 242, 0.75) !important;
+}
+
+/* Ingredients Section Hover in Dark Mode */
+[data-theme="dark"] .ingredient-item:hover {
+  background: rgba(74, 38, 51, 0.4) !important;
+  border-color: var(--champagne) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3) !important;
+}
+[data-theme="dark"] .ingredient-item:hover .ingredient-info h4 {
+  color: var(--champagne) !important;
+}
+[data-theme="dark"] .ingredient-item:hover .ingredient-info p {
+  color: rgba(251, 247, 242, 0.9) !important;
+}
+
+/* Bundle Prices in Dark Mode */
+[data-theme="dark"] .bundle-price {
+  color: var(--champagne) !important;
+}
+[data-theme="dark"] .bundle-original {
+  color: rgba(251, 247, 242, 0.5) !important;
+}
+
+/* FAQ Hover & Active in Dark Mode */
+[data-theme="dark"] .faq-question:hover {
+  color: var(--champagne) !important;
+}
+[data-theme="dark"] .faq-item:hover {
+  border-color: var(--champagne) !important;
+  background: rgba(74, 38, 51, 0.25) !important;
+}
+[data-theme="dark"] .faq-item.open .faq-question {
+  color: var(--champagne) !important;
+}
