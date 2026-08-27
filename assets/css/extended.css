@@ -216,20 +216,24 @@
 .hero2 {
   min-height: 100vh; display: flex; align-items: center;
   background: var(--bg-secondary);
-  position: relative; overflow: hidden; padding-top: 100px;
+  position: relative; overflow: hidden;
+  padding-top: 130px; padding-bottom: 2.5rem;
+  box-sizing: border-box;
 }
 .hero2-particles {
   position: absolute; inset: 0; pointer-events: none;
 }
-.hero2-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
-.hero2-content .subtitle { margin-bottom: 1rem; }
-.hero2-content h1 { font-size: clamp(3rem, 6vw, 5.5rem); line-height: 1.08; margin-bottom: 1.5rem; }
+.hero2-inner {
+  display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 3.5rem; align-items: center; width: 100%;
+}
+.hero2-content .subtitle { margin-bottom: .8rem; }
+.hero2-content h1 { font-size: clamp(2.4rem, 4.2vw, 3.8rem); line-height: 1.12; margin-bottom: 1.2rem; }
 .hero2-content h1 em { font-style: italic; color: var(--rosewood); }
-.hero2-content p { font-size: 1.05rem; margin-bottom: 2.5rem; max-width: 480px; }
+.hero2-content p { font-size: .98rem; line-height: 1.65; margin-bottom: 1.8rem; max-width: 500px; }
 .hero2-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
 .hero2-image { position: relative; }
 .hero2-image-main { border-radius: var(--radius-xl) var(--radius-xl) var(--radius-full) var(--radius-xl); overflow: hidden; }
-.hero2-image-main img { width: 100%; height: 600px; object-fit: cover; }
+.hero2-image-main img { width: 100%; height: 480px; max-height: 60vh; object-fit: cover; }
 .hero2-floating-card {
   position: absolute; bottom: 2rem; left: -2rem;
   background: var(--glass-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);

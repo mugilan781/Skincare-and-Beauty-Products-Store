@@ -1747,3 +1747,251 @@ select.form-control { appearance: none; cursor: pointer; }
   font-size: .8rem !important;
   color: var(--text-secondary) !important;
 }
+
+
+/* ── Navbar Theme-Aware Default Contrast ──────────────────── */
+:root, [data-theme="light"] {
+  --nav-text: var(--text-primary);
+  --nav-icon-color: var(--text-primary);
+  --nav-border: rgba(74,38,51,0.15);
+}
+[data-theme="dark"] {
+  --nav-text: var(--ivory);
+  --nav-icon-color: rgba(251,247,242,0.85);
+  --nav-border: rgba(251,247,242,0.2);
+}
+
+.nav-link {
+  color: var(--nav-text) !important;
+}
+.nav-link:hover,
+.nav-link.active {
+  color: var(--rosewood) !important;
+}
+[data-theme="dark"] .nav-link:hover,
+[data-theme="dark"] .nav-link.active {
+  color: var(--champagne) !important;
+}
+
+.nav-logo {
+  color: var(--nav-text) !important;
+}
+.nav-logo span {
+  color: var(--rosewood) !important;
+}
+[data-theme="dark"] .nav-logo span {
+  color: var(--champagne) !important;
+}
+
+.nav-icon-btn {
+  color: var(--nav-icon-color) !important;
+}
+.nav-icon-btn:hover {
+  color: var(--rosewood) !important;
+}
+[data-theme="dark"] .nav-icon-btn:hover {
+  color: var(--champagne) !important;
+}
+
+.theme-toggle, .rtl-toggle {
+  color: var(--nav-icon-color) !important;
+  border-color: var(--nav-border) !important;
+}
+.theme-toggle:hover, .rtl-toggle:hover {
+  color: var(--rosewood) !important;
+  border-color: var(--rosewood) !important;
+}
+[data-theme="dark"] .theme-toggle:hover,
+[data-theme="dark"] .rtl-toggle:hover {
+  color: var(--champagne) !important;
+  border-color: var(--champagne) !important;
+}
+
+.nav-hamburger span {
+  background: var(--nav-icon-color) !important;
+}
+
+/* ── Bundle Deals Straight Alignment Fix ─────────────────── */
+.bundle-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
+  gap: 2rem !important;
+  align-items: stretch !important;
+}
+.bundle-card {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+}
+.bundle-image {
+  height: 220px !important;
+  width: 100% !important;
+  overflow: hidden !important;
+  flex-shrink: 0 !important;
+}
+.bundle-image img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+.bundle-body {
+  padding: 2rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 0 auto !important;
+}
+.bundle-name {
+  font-family: var(--font-display) !important;
+  font-size: 1.5rem !important;
+  min-height: 2.2rem !important;
+  margin-bottom: .4rem !important;
+}
+.bundle-body > p {
+  font-size: .88rem !important;
+  line-height: 1.6 !important;
+  min-height: 3rem !important;
+  margin-bottom: 1rem !important;
+  color: var(--text-secondary) !important;
+}
+.bundle-card.featured .bundle-body > p {
+  color: rgba(251,247,242,0.9) !important;
+}
+.bundle-items {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-content: flex-start !important;
+  gap: .4rem !important;
+  min-height: 3.6rem !important;
+  margin-bottom: 1.2rem !important;
+}
+.bundle-pricing {
+  display: flex !important;
+  align-items: baseline !important;
+  gap: .8rem !important;
+  margin-top: auto !important;
+  margin-bottom: 1.2rem !important;
+  height: 2.4rem !important;
+}
+.bundle-body .btn {
+  width: 100% !important;
+  justify-content: center !important;
+  margin-top: auto !important;
+}
+
+/* ── FAQ Section Refined Accordion Styling ────────────────── */
+.faq-section {
+  background: var(--bg-secondary);
+  padding-block: var(--space-2xl);
+}
+.faq-list {
+  max-width: 820px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.faq-item {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all .3s var(--ease-smooth);
+  box-shadow: 0 4px 14px rgba(74,38,51,0.04);
+}
+.faq-item:hover {
+  border-color: rgba(201,166,107,0.4);
+  box-shadow: 0 6px 20px rgba(74,38,51,0.08);
+}
+.faq-item.open {
+  border-color: var(--rosewood);
+  box-shadow: 0 8px 24px rgba(74,38,51,0.1);
+}
+[data-theme="dark"] .faq-item.open {
+  border-color: var(--champagne);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+}
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  text-align: left;
+  gap: 1.25rem;
+  padding: 1.5rem 2rem;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.02rem;
+  color: var(--text-primary);
+  background: transparent;
+  border: none;
+  transition: color var(--dur-fast);
+}
+.faq-question:hover {
+  color: var(--rosewood);
+}
+.faq-item.open .faq-question {
+  color: var(--rosewood);
+}
+[data-theme="dark"] .faq-item.open .faq-question {
+  color: var(--champagne);
+}
+.faq-icon {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-color);
+  background: var(--blush-ultra);
+  color: var(--rosewood);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .3s var(--ease-smooth);
+  font-size: 1.2rem;
+  line-height: 1;
+}
+.faq-item.open .faq-icon {
+  background: var(--rosewood);
+  color: var(--ivory);
+  border-color: var(--rosewood);
+  transform: rotate(45deg);
+}
+[data-theme="dark"] .faq-icon {
+  background: rgba(251,247,242,0.08);
+  color: var(--champagne);
+  border-color: rgba(251,247,242,0.15);
+}
+[data-theme="dark"] .faq-item.open .faq-icon {
+  background: var(--champagne);
+  color: var(--espresso);
+  border-color: var(--champagne);
+}
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .4s var(--ease-smooth);
+}
+.faq-item.open .faq-answer {
+  max-height: 500px;
+}
+.faq-answer p {
+  padding: 0 2rem 1.6rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  font-size: .94rem;
+}
+
+/* ── Skin Type Card Click Fix ─────────────────────────────── */
+.skin-type-card {
+  position: relative !important;
+  cursor: pointer !important;
+}
+.skin-type-card::after {
+  pointer-events: none !important;
+}
+.skin-type-card .btn-ghost {
+  position: relative !important;
+  z-index: 3 !important;
+  cursor: pointer !important;
+  display: inline-block !important;
+}
