@@ -362,7 +362,7 @@
                 </div>
                 <div class="quiz-nav">
                   <button id="quizPrev" class="btn btn-outline btn-sm" style="border-color:rgba(251,247,242,.3)">← Back</button>
-                  <button id="quizNext" class="btn btn-secondary btn-sm">Get Results ✨</button>
+                  <button id="quizNext" class="btn btn-secondary btn-sm">Get Results &rarr;</button>
                 </div>
               </div>
             </div>
@@ -475,7 +475,7 @@
           <p>Subscribe for early access to new launches, expert skincare tips, and 15% off your first order.</p>
           <form class="newsletter-form" novalidate>
             <input type="email" class="newsletter-input" placeholder="Your email address" required aria-label="Email for newsletter">
-            <button type="submit" class="btn btn-primary">Subscribe ✦</button>
+            <button type="submit" class="btn btn-primary">Subscribe</button>
           </form>
           <p style="font-size:.75rem;color:var(--text-secondary);margin-top:1rem">By subscribing, you agree to our Privacy Policy. Unsubscribe anytime.</p>
         </div>
@@ -518,7 +518,7 @@
           else {
             document.getElementById('skinQuiz').style.display = 'none';
             document.getElementById('quizResult').style.display = 'block';
-            document.getElementById('quizResult').innerHTML = '<div style="text-align:center;color:var(--ivory)"><div style="font-size:3rem;margin-bottom:1rem">✨</div><h3 style="font-family:var(--font-display);font-size:1.8rem;margin-bottom:.75rem">Your Skin Profile is Ready!</h3><p style="color:rgba(251,247,242,.75);margin-bottom:2rem">Based on your answers, we recommend our <strong>Hydrating Glow Collection</strong>.</p><a href="services.html" class="btn btn-secondary">View My Recommendations</a></div>';
+            document.getElementById('quizResult').innerHTML = '<div style="text-align:center;color:var(--ivory)"><div style="display:flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;background:rgba(201,166,107,.2);margin:0 auto 1.25rem;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:32px;height:32px;color:var(--champagne)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><h3 style="font-family:var(--font-display);font-size:1.8rem;margin-bottom:.75rem">Your Skin Profile is Ready!</h3><p style="color:rgba(251,247,242,.75);margin-bottom:2rem">Based on your answers, we recommend our <strong>Hydrating Glow Collection</strong>.</p><a href="services.html" class="btn btn-secondary">View My Recommendations</a></div>';
           }
         });
       });

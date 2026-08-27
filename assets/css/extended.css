@@ -225,7 +225,7 @@
   transition: all var(--dur-fast);
 }
 .custom-check input:checked + .checkmark { background: var(--rosewood); border-color: var(--rosewood); }
-.custom-check input:checked + .checkmark::after { content: '✓'; color: var(--ivory); font-size: .7rem; }
+.custom-check input:checked + .checkmark::after { content: '\2713'; color: var(--ivory); font-size: .7rem; }
 
 /* ── Range Input ──────────────────────────────────────────── */
 .range-input { width: 100%; -webkit-appearance: none; height: 4px; border-radius: var(--radius-full); background: var(--bg-secondary); outline: none; }

@@ -11,7 +11,9 @@ const NAV_HTML = `
 
 <!-- Search Overlay -->
 <div id="searchOverlay" class="search-overlay" role="dialog" aria-label="Search" aria-modal="true">
-  <button data-search-close class="search-close" aria-label="Close search">✕</button>
+  <button data-search-close class="search-close" aria-label="Close search">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;display:block;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
   <div class="search-box">
     <input id="searchInput" type="search" class="search-input" placeholder="Search products, ingredients…" autocomplete="off" aria-label="Search products">
     <p class="search-hint">Press Enter to search • Esc to close</p>
@@ -49,7 +51,7 @@ const NAV_HTML = `
 
 <!-- Announcement Bar -->
 <div class="announcement-bar" role="banner">
-  ✦ Free shipping on orders over $75 &nbsp;|&nbsp; ✦ New: Rose Glow Serum — Shop Now &nbsp;|&nbsp; ✦ Complimentary sample with every order
+  Free shipping on orders over $75 &nbsp;|&nbsp; New: Rose Glow Serum — Shop Now &nbsp;|&nbsp; Complimentary sample with every order
 </div>
 
 <!-- Navbar -->
@@ -180,7 +182,7 @@ const FOOTER_HTML = `
     </div>
 
     <div class="footer-bottom">
-      <p class="footer-copyright">© 2026 VelourSkin. All rights reserved. Made with ✦ for beauty lovers.</p>
+      <p class="footer-copyright">© 2026 VelourSkin. All rights reserved. Made with care for beauty lovers.</p>
       <div class="footer-legal">
         <a href="privacy.html">Privacy</a>
         <a href="terms.html">Terms</a>
