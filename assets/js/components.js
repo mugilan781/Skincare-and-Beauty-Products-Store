@@ -29,7 +29,7 @@ const NAV_HTML = `
   <a href="index.html">Home</a>
   <a href="home2.html">Home 2</a>
   <a href="about.html">About</a>
-  <a href="services.html">Services</a>
+  <a href="services.html">Shop</a>
   <a href="blog.html">Blog</a>
   <a href="contact.html">Contact</a>
   <a href="privacy.html">Privacy Policy</a>
@@ -67,34 +67,23 @@ const NAV_HTML = `
             <a href="index.html" class="nav-link">Home</a>
           </div>
           <div class="nav-item">
+            <a href="home2.html" class="nav-link">Home 2</a>
+          </div>
+          <div class="nav-item">
             <a href="about.html" class="nav-link">About</a>
           </div>
           <div class="nav-item">
-            <a href="services.html" class="nav-link">Shop ▾</a>
-            <div class="nav-dropdown">
-              <a href="services.html#cleansers">Cleansers</a>
-              <a href="services.html#serums">Serums</a>
-              <a href="services.html#moisturizers">Moisturizers</a>
-              <a href="services.html#sunscreens">Sunscreens</a>
-              <a href="services.html#masks">Face Masks</a>
-              <a href="services.html#bundles">Bundle Deals</a>
-            </div>
+            <a href="services.html" class="nav-link">Shop</a>
           </div>
           <div class="nav-item">
-            <a href="blog.html" class="nav-link">Journal</a>
+            <a href="blog.html" class="nav-link">Blog</a>
           </div>
           <div class="nav-item">
             <a href="contact.html" class="nav-link">Contact</a>
           </div>
-          <div class="nav-item">
-            <a href="home2.html" class="nav-link">Home 2</a>
-          </div>
         </nav>
 
         <div class="nav-actions">
-          <button class="nav-icon-btn" data-search-open aria-label="Search">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-          </button>
           <button class="nav-icon-btn wishlist-icon" data-wishlist="nav" aria-label="Wishlist">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
           </button>
