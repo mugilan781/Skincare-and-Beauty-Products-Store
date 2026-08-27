@@ -2393,21 +2393,45 @@ select.form-control { appearance: none; cursor: pointer; }
 }
 .testimonial-author {
   display: flex !important;
+  flex-direction: column !important;
   align-items: center !important;
   justify-content: center !important;
-  gap: 1.2rem !important;
+  gap: 0.35rem !important;
   margin: 0 auto !important;
-  text-align: left !important;
-  width: fit-content !important;
+  text-align: center !important;
+  width: 100% !important;
+}
+.testimonial-author > div {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
 }
 .testimonial-avatar {
-  width: 52px !important;
-  height: 52px !important;
+  width: 58px !important;
+  height: 58px !important;
   border-radius: 50% !important;
   object-fit: cover !important;
   border: 2px solid var(--champagne) !important;
   flex-shrink: 0 !important;
+  margin-bottom: 0.35rem !important;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15) !important;
+}
+.testimonial-name {
+  font-weight: 700 !important;
+  font-size: 0.95rem !important;
+  letter-spacing: 0.08em !important;
+  text-align: center !important;
+  display: block !important;
+}
+.testimonial-role {
+  font-size: 0.78rem !important;
+  color: var(--text-secondary) !important;
+  letter-spacing: 0.1em !important;
+  text-align: center !important;
+  display: block !important;
+  margin-top: 0.15rem !important;
 }
 .slider-nav {
   display: flex !important;
