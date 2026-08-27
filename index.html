@@ -160,12 +160,12 @@
         </div>
 
         <div class="skin-type-tabs reveal" style="margin-bottom:3rem">
-          <button class="skin-tab active" onclick="filterProducts('all')">All</button>
-          <button class="skin-tab" onclick="filterProducts('serum')">Serums</button>
-          <button class="skin-tab" onclick="filterProducts('cleanser')">Cleansers</button>
-          <button class="skin-tab" onclick="filterProducts('moisturizer')">Moisturizers</button>
-          <button class="skin-tab" onclick="filterProducts('mask')">Masks</button>
-          <button class="skin-tab" onclick="filterProducts('sunscreen')">Sunscreens</button>
+          <button class="skin-tab active" onclick="filterProducts('all', this)">All</button>
+          <button class="skin-tab" onclick="filterProducts('serum', this)">Serums</button>
+          <button class="skin-tab" onclick="filterProducts('cleanser', this)">Cleansers</button>
+          <button class="skin-tab" onclick="filterProducts('moisturizer', this)">Moisturizers</button>
+          <button class="skin-tab" onclick="filterProducts('mask', this)">Masks</button>
+          <button class="skin-tab" onclick="filterProducts('sunscreen', this)">Sunscreens</button>
         </div>
 
         <div class="product-grid" id="productGrid">
@@ -559,14 +559,21 @@
   <script src="assets/js/main.js"></script>
   <script>
     // Product filter
-    function filterProducts(cat) {
+    function filterProducts(cat, btn) {
       document.querySelectorAll('.skin-tab').forEach(t => t.classList.remove('active'));
-      event.target.classList.add('active');
+      if (btn) {
+        btn.classList.add('active');
+      } else if (window.event && window.event.target) {
+        window.event.target.classList.add('active');
+      }
       document.querySelectorAll('.product-card').forEach(card => {
-        if (cat === 'all' || card.dataset.category === cat) {
-          card.style.display = '';
+        const match = (cat === 'all' || card.dataset.category === cat);
+        if (match) {
+          card.classList.remove('product-hidden');
+          card.style.setProperty('display', 'flex', 'important');
         } else {
-          card.style.display = 'none';
+          card.classList.add('product-hidden');
+          card.style.setProperty('display', 'none', 'important');
         }
       });
     }

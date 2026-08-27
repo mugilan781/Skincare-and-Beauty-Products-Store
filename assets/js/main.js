@@ -83,6 +83,11 @@ const initNavbar = () => {
   const header = $('#siteHeader');
   if (!navbar) return;
 
+  const hasDarkHero = !!document.querySelector('.hero-slider');
+  if (!hasDarkHero) {
+    navbar.classList.add('nav-solid-theme');
+  }
+
   const onScroll = () => {
     const isScrolled = window.scrollY > 40;
     navbar.classList.toggle('scrolled', isScrolled);

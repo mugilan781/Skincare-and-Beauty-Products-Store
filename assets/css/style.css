@@ -2203,3 +2203,161 @@ select.form-control { appearance: none; cursor: pointer; }
   left: -1rem !important;
   z-index: 5 !important;
 }
+
+
+/* ── Product Card Hidden for Filter ───────────────────────── */
+.product-card.product-hidden {
+  display: none !important;
+}
+
+/* ── Precise Page-Aware Navbar Contrast Fix ───────────────── */
+/* 1. On index.html over Dark Hero Slider (before scroll) */
+.navbar:not(.scrolled):not(.nav-solid-theme) .nav-link,
+[data-theme="light"] .navbar:not(.scrolled):not(.nav-solid-theme) .nav-link {
+  color: #FBF7F2 !important;
+}
+.navbar:not(.scrolled):not(.nav-solid-theme) .nav-link:hover,
+.navbar:not(.scrolled):not(.nav-solid-theme) .nav-link.active,
+[data-theme="light"] .navbar:not(.scrolled):not(.nav-solid-theme) .nav-link:hover,
+[data-theme="light"] .navbar:not(.scrolled):not(.nav-solid-theme) .nav-link.active {
+  color: #C9A66B !important;
+}
+
+.navbar:not(.scrolled):not(.nav-solid-theme) .nav-logo,
+[data-theme="light"] .navbar:not(.scrolled):not(.nav-solid-theme) .nav-logo {
+  color: #FBF7F2 !important;
+}
+.navbar:not(.scrolled):not(.nav-solid-theme) .nav-logo span,
+[data-theme="light"] .navbar:not(.scrolled):not(.nav-solid-theme) .nav-logo span {
+  color: #C9A66B !important;
+}
+
+.navbar:not(.scrolled):not(.nav-solid-theme) .nav-icon-btn,
+.navbar:not(.scrolled):not(.nav-solid-theme) .theme-toggle,
+.navbar:not(.scrolled):not(.nav-solid-theme) .rtl-toggle,
+[data-theme="light"] .navbar:not(.scrolled):not(.nav-solid-theme) .nav-icon-btn,
+[data-theme="light"] .navbar:not(.scrolled):not(.nav-solid-theme) .theme-toggle,
+[data-theme="light"] .navbar:not(.scrolled):not(.nav-solid-theme) .rtl-toggle {
+  color: #FBF7F2 !important;
+  border-color: rgba(251, 247, 242, 0.3) !important;
+}
+.navbar:not(.scrolled):not(.nav-solid-theme) .nav-hamburger span,
+[data-theme="light"] .navbar:not(.scrolled):not(.nav-solid-theme) .nav-hamburger span {
+  background: #FBF7F2 !important;
+}
+
+/* 2. When Scrolled on all pages OR when on pages without dark hero (home2, etc.) */
+.navbar.scrolled .nav-link,
+.navbar.nav-solid-theme:not(.scrolled) .nav-link {
+  color: var(--text-primary) !important;
+}
+.navbar.scrolled .nav-link:hover,
+.navbar.scrolled .nav-link.active,
+.navbar.nav-solid-theme:not(.scrolled) .nav-link:hover,
+.navbar.nav-solid-theme:not(.scrolled) .nav-link.active {
+  color: var(--rosewood) !important;
+}
+[data-theme="dark"] .navbar.scrolled .nav-link,
+[data-theme="dark"] .navbar.nav-solid-theme:not(.scrolled) .nav-link {
+  color: #FBF7F2 !important;
+}
+[data-theme="dark"] .navbar.scrolled .nav-link:hover,
+[data-theme="dark"] .navbar.scrolled .nav-link.active,
+[data-theme="dark"] .navbar.nav-solid-theme:not(.scrolled) .nav-link:hover,
+[data-theme="dark"] .navbar.nav-solid-theme:not(.scrolled) .nav-link.active {
+  color: #C9A66B !important;
+}
+
+.navbar.scrolled .nav-logo,
+.navbar.nav-solid-theme:not(.scrolled) .nav-logo {
+  color: var(--text-primary) !important;
+}
+.navbar.scrolled .nav-logo span,
+.navbar.nav-solid-theme:not(.scrolled) .nav-logo span {
+  color: var(--rosewood) !important;
+}
+[data-theme="dark"] .navbar.scrolled .nav-logo,
+[data-theme="dark"] .navbar.nav-solid-theme:not(.scrolled) .nav-logo {
+  color: #FBF7F2 !important;
+}
+[data-theme="dark"] .navbar.scrolled .nav-logo span,
+[data-theme="dark"] .navbar.nav-solid-theme:not(.scrolled) .nav-logo span {
+  color: #C9A66B !important;
+}
+
+.navbar.scrolled .nav-icon-btn,
+.navbar.scrolled .theme-toggle,
+.navbar.scrolled .rtl-toggle,
+.navbar.nav-solid-theme:not(.scrolled) .nav-icon-btn,
+.navbar.nav-solid-theme:not(.scrolled) .theme-toggle,
+.navbar.nav-solid-theme:not(.scrolled) .rtl-toggle {
+  color: var(--text-primary) !important;
+  border-color: var(--border-color) !important;
+}
+[data-theme="dark"] .navbar.scrolled .nav-icon-btn,
+[data-theme="dark"] .navbar.scrolled .theme-toggle,
+[data-theme="dark"] .navbar.scrolled .rtl-toggle,
+[data-theme="dark"] .navbar.nav-solid-theme:not(.scrolled) .nav-icon-btn,
+[data-theme="dark"] .navbar.nav-solid-theme:not(.scrolled) .theme-toggle,
+[data-theme="dark"] .navbar.nav-solid-theme:not(.scrolled) .rtl-toggle {
+  color: #FBF7F2 !important;
+  border-color: rgba(251, 247, 242, 0.2) !important;
+}
+
+/* ── Real Results (Testimonials) 100% Center Alignment ────── */
+.testimonial-slider {
+  position: relative !important;
+  overflow: hidden !important;
+  width: 100% !important;
+}
+.testimonial-track {
+  display: flex !important;
+  transition: transform var(--dur-slow) var(--ease-smooth) !important;
+}
+.testimonial-slide {
+  min-width: 100% !important;
+  width: 100% !important;
+  padding: 0 1.5rem !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  box-sizing: border-box !important;
+}
+.testimonial-card {
+  width: 100% !important;
+  max-width: 820px !important;
+  margin: 0 auto !important;
+  text-align: center !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  padding: 3.5rem 3rem !important;
+}
+.testimonial-stars {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 3px !important;
+  margin: 0 auto 1.5rem !important;
+}
+.testimonial-quote {
+  text-align: center !important;
+  max-width: 720px !important;
+  margin: 0 auto 2rem !important;
+}
+.testimonial-author {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 1.2rem !important;
+  margin: 0 auto !important;
+  text-align: left !important;
+  width: fit-content !important;
+}
+.slider-nav {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 1rem !important;
+  margin: 2.5rem auto 0 !important;
+}
