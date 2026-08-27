@@ -162,19 +162,24 @@ const initHeroSlider = () => {
 /* ── Testimonial Slider ───────────────────────────────────── */
 const initTestimonialSlider = () => {
   const track = $('#testimonialTrack');
-  if (!track) return;
+  const slider = $('.testimonial-slider');
+  if (!track || !slider) return;
   const slides = $$('.testimonial-slide', track);
-  let current  = 0;
+  const total = slides.length;
+  if (!total) return;
+  let current = 0;
 
   const goTo = idx => {
-    current = (idx + slides.length) % slides.length;
-    track.style.transform = `translateX(-${current * 100}%)`;
+    current = (idx + total) % total;
+    const targetOffset = slides[current] ? slides[current].offsetLeft : 0;
+    track.style.transform = `translateX(-${targetOffset}px)`;
     $$('.testi-dot').forEach((d, i) => d.classList.toggle('active', i === current));
   };
 
   on($('#testiPrev'), 'click', () => goTo(current - 1));
   on($('#testiNext'), 'click', () => goTo(current + 1));
   $$('.testi-dot').forEach((d, i) => on(d, 'click', () => goTo(i)));
+  on(window, 'resize', () => goTo(current), { passive: true });
 
   setInterval(() => goTo(current + 1), 6000);
 };
