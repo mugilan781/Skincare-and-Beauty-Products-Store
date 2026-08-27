@@ -20,6 +20,24 @@ const NAV_HTML = `
   </div>
 </div>
 
+<!-- Wishlist Drawer Overlay -->
+<div id="wishlistOverlay" class="search-overlay" role="dialog" aria-label="Wishlist" aria-modal="true">
+  <button id="wishlistClose" class="search-close" aria-label="Close wishlist">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;display:block;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <div class="search-box" style="max-width:540px;text-align:left;background:var(--bg-primary);padding:2.5rem 2rem;border-radius:var(--radius-xl);position:relative;border:1px solid var(--border-color);box-shadow:var(--shadow-xl)">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid var(--border-color)">
+      <h3 style="font-family:var(--font-display);font-size:1.6rem;margin:0;color:var(--text-primary)">Your Saved Wishlist</h3>
+      <span id="wishlistCountText" style="font-size:.85rem;color:var(--text-secondary)">0 items</span>
+    </div>
+    <div id="wishlistDrawerItems" style="max-height:380px;overflow-y:auto;display:flex;flex-direction:column;gap:1.2rem;margin-bottom:1.5rem;padding-right:.5rem"></div>
+    <div id="wishlistEmptyState" style="text-align:center;padding:2rem 0;color:var(--text-secondary);display:none">
+      <p style="margin-bottom:1.2rem;font-size:.95rem">Your wishlist is currently empty.</p>
+      <a href="services.html" class="btn btn-secondary btn-sm" onclick="document.getElementById('wishlistOverlay').classList.remove('open')">Explore Products</a>
+    </div>
+  </div>
+</div>
+
 <!-- Mobile Nav Overlay -->
 <div id="mobileNavOverlay" class="mobile-nav-overlay"></div>
 
@@ -84,8 +102,9 @@ const NAV_HTML = `
         </nav>
 
         <div class="nav-actions">
-          <button class="nav-icon-btn wishlist-icon" data-wishlist="nav" aria-label="Wishlist">
+          <button class="nav-icon-btn wishlist-icon" data-wishlist="nav" aria-label="Wishlist" style="position:relative">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+            <span class="wishlist-badge" style="display:none">0</span>
           </button>
           <button class="nav-icon-btn" data-cart-open aria-label="Shopping cart" style="position:relative">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>

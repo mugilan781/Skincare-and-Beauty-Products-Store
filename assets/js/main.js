@@ -415,25 +415,133 @@ const initCartDrawer = () => {
   }));
 };
 
-/* ── Wishlist ─────────────────────────────────────────────── */
+/* ── Wishlist System ───────────────────────────────────────── */
 let wishlist = store.get('velour-wishlist') || [];
 
+const PRODUCTS_DB = {
+  'serum-vitc': { id: 'serum-vitc', name: 'Vitamin C Brightening Serum', price: 68, category: 'Serums', image: 'assets/images/serum-product.jpg' },
+  'cleanser-foam': { id: 'cleanser-foam', name: 'Gentle Botanical Foam Cleanser', price: 42, category: 'Cleansers', image: 'assets/images/cleanser-product.jpg' },
+  'moisturizer-ha': { id: 'moisturizer-ha', name: 'Hyaluronic Hydrating Cream', price: 78, category: 'Moisturizers', image: 'assets/images/moisturizer-product.jpg' },
+  'mask-rose': { id: 'mask-rose', name: 'Rose Kaolin Clay Mask', price: 52, category: 'Face Masks', image: 'assets/images/facemask-product.jpg' },
+  'sunscreen-spf50': { id: 'sunscreen-spf50', name: 'Invisible Shield Sunscreen SPF 50+', price: 48, category: 'Sunscreens', image: 'assets/images/sunscreen-product.jpg' },
+  'oil-rosehip': { id: 'oil-rosehip', name: 'Rosehip Radiance Facial Oil', price: 74, category: 'Serums', image: 'assets/images/serum-closeup.jpg' }
+};
+
+const SVG_HEART_OUTLINE = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>`;
+const SVG_HEART_FILLED  = `<svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>`;
+
+const updateWishlistBadge = () => {
+  const count = wishlist.length;
+  $$('.wishlist-badge').forEach(el => {
+    el.textContent = count;
+    el.style.display = count ? 'flex' : 'none';
+  });
+  const textEl = $('#wishlistCountText');
+  if (textEl) textEl.textContent = `${count} item${count === 1 ? '' : 's'}`;
+};
+
+const renderWishlistDrawer = () => {
+  const container = $('#wishlistDrawerItems');
+  const emptyState = $('#wishlistEmptyState');
+  if (!container) return;
+
+  if (!wishlist.length) {
+    container.innerHTML = '';
+    if (emptyState) emptyState.style.display = 'block';
+    return;
+  }
+  if (emptyState) emptyState.style.display = 'none';
+
+  container.innerHTML = wishlist.map(id => {
+    const item = PRODUCTS_DB[id] || { id, name: 'VelourSkin Formula', price: 58, category: 'Skincare', image: 'assets/images/serum-product.jpg' };
+    return `
+      <div class="wishlist-drawer-item" data-id="${item.id}" style="display:flex;align-items:center;gap:1rem;padding:.75rem 0;border-bottom:1px solid var(--border-color)">
+        <img src="${item.image}" alt="${item.name}" style="width:54px;height:54px;object-fit:cover;border-radius:var(--radius-md);flex-shrink:0;">
+        <div style="flex:1;min-width:0;">
+          <p style="font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--text-muted);margin:0 0 .2rem;">${item.category}</p>
+          <h4 style="font-size:.95rem;margin:0 0 .3rem;color:var(--text-primary);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${item.name}</h4>
+          <span style="font-size:.9rem;font-weight:600;color:var(--rosewood);">$${item.price}</span>
+        </div>
+        <button class="btn btn-secondary btn-sm" data-add-cart="${item.id}" data-name="${item.name}" data-price="${item.price}" style="padding:.4rem .8rem;font-size:.75rem;">Add to Cart</button>
+        <button data-remove-wish="${item.id}" aria-label="Remove from wishlist" style="background:none;border:none;color:var(--text-muted);cursor:pointer;padding:.3rem;transition:color .2s;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;display:block;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+    `;
+  }).join('');
+};
+
 const initWishlist = () => {
+  updateWishlistBadge();
+
+  // Initialize button icons and click handlers
   $$('[data-wishlist]').forEach(btn => {
     const id = btn.dataset.wishlist;
-    if (wishlist.includes(id)) btn.classList.add('active');
-    on(btn, 'click', () => {
+    if (id === 'nav') return; // Navbar icon is trigger
+
+    const isSaved = wishlist.includes(id);
+    btn.classList.toggle('wishlisted', isSaved);
+    btn.classList.toggle('active', isSaved);
+    btn.innerHTML = isSaved ? SVG_HEART_FILLED : SVG_HEART_OUTLINE;
+
+    on(btn, 'click', e => {
+      e.preventDefault();
+      e.stopPropagation();
       if (wishlist.includes(id)) {
         wishlist = wishlist.filter(i => i !== id);
-        btn.classList.remove('active');
+        btn.classList.remove('wishlisted', 'active');
+        btn.innerHTML = SVG_HEART_OUTLINE;
         showToast('Removed from wishlist');
       } else {
         wishlist.push(id);
-        btn.classList.add('active');
+        btn.classList.add('wishlisted', 'active');
+        btn.innerHTML = SVG_HEART_FILLED;
         showToast('Saved to wishlist');
       }
       store.set('velour-wishlist', wishlist);
+      updateWishlistBadge();
+      renderWishlistDrawer();
     });
+  });
+
+  // Navbar Wishlist Trigger
+  const navTrigger = $('[data-wishlist="nav"]');
+  const overlay = $('#wishlistOverlay');
+  const closeBtn = $('#wishlistClose');
+
+  if (navTrigger && overlay) {
+    on(navTrigger, 'click', () => {
+      renderWishlistDrawer();
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+    on(closeBtn, 'click', () => {
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+    on(overlay, 'click', e => {
+      if (e.target === overlay) {
+        overlay.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    });
+  }
+
+  // Remove from Wishlist Drawer Delegation
+  on($('#wishlistDrawerItems'), 'click', e => {
+    const remBtn = e.target.closest('[data-remove-wish]');
+    if (remBtn) {
+      const id = remBtn.dataset.removeWish;
+      wishlist = wishlist.filter(i => i !== id);
+      store.set('velour-wishlist', wishlist);
+      updateWishlistBadge();
+      renderWishlistDrawer();
+      // Update page buttons if present
+      $$(`[data-wishlist="${id}"]`).forEach(btn => {
+        btn.classList.remove('wishlisted', 'active');
+        btn.innerHTML = SVG_HEART_OUTLINE;
+      });
+    }
   });
 };
 

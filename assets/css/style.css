@@ -518,7 +518,8 @@ section { padding-block: var(--space-xl); }
   overflow: hidden;
 }
 .hero-slide {
-  position: absolute; inset: 0;
+  position: absolute;
+  padding-top: 130px; inset: 0;
   display: flex; align-items: center;
   opacity: 0; transition: opacity var(--dur-slow) var(--ease-smooth);
 }
@@ -1348,4 +1349,123 @@ select.form-control { appearance: none; cursor: pointer; }
   .newsletter-input { border-right: 1px solid var(--border-color); border-radius: var(--radius-md); }
   .newsletter-form .btn { border-radius: var(--radius-full); width: 100%; justify-content: center; }
   .bundle-grid { grid-template-columns: 1fr; }
+}
+
+
+/* Wishlist Card Action Styling & Dark Mode Contrast */
+.product-card-action {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(251, 247, 242, 0.95);
+  border: 1px solid rgba(74, 38, 51, 0.18);
+  color: var(--rosewood);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s var(--ease-smooth);
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.product-card-action:hover {
+  transform: scale(1.1);
+  background: var(--rosewood);
+  color: var(--ivory);
+}
+[data-theme="dark"] .product-card-action {
+  background: rgba(42, 32, 34, 0.9);
+  border: 1px solid rgba(216, 167, 167, 0.35);
+  color: var(--blush);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+}
+[data-theme="dark"] .product-card-action:hover {
+  background: var(--rosewood);
+  color: var(--champagne-light);
+  border-color: var(--champagne);
+}
+.product-card-action.wishlisted,
+.product-card-action.active {
+  background: var(--rosewood) !important;
+  border-color: var(--rosewood) !important;
+  color: #FF4D6D !important; /* Vibrant Red/Rose Filled Heart */
+  box-shadow: 0 4px 16px rgba(255, 77, 109, 0.35);
+}
+[data-theme="dark"] .product-card-action.wishlisted,
+[data-theme="dark"] .product-card-action.active {
+  background: rgba(74, 38, 51, 0.95) !important;
+  border-color: var(--champagne) !important;
+  color: #FF5A65 !important;
+}
+
+/* Testimonial Equal Heights & Tight Control Spacing */
+.testimonial-track {
+  display: flex;
+  gap: 2rem;
+  align-items: stretch;
+}
+.testimonial-slide {
+  flex: 0 0 100%;
+  display: flex;
+}
+.testimonial-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2.5rem 2rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  height: 100%;
+}
+.slider-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .75rem !important;
+  margin-top: 2rem;
+}
+
+/* Quiz Light Theme Contrast */
+:root, [data-theme="light"] {
+  --quiz-card-bg: var(--bg-secondary);
+  --quiz-card-border: var(--border-color);
+  --quiz-text: #4A3C42;
+}
+.quiz-q { color: var(--text-primary); font-weight: 600; }
+.quiz-option {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+}
+.quiz-option:hover,
+.quiz-option.selected {
+  background: var(--rosewood);
+  color: var(--ivory) !important;
+  border-color: var(--rosewood);
+}
+
+/* Newsletter Dark Theme Contrast */
+[data-theme="dark"] .newsletter-section {
+  background: rgba(42, 32, 34, 0.95);
+}
+[data-theme="dark"] .newsletter-section .subtitle {
+  color: var(--champagne);
+}
+[data-theme="dark"] .newsletter-section h2 {
+  color: var(--ivory);
+}
+[data-theme="dark"] .newsletter-section h2 em {
+  color: var(--blush);
+}
+[data-theme="dark"] .newsletter-section p {
+  color: rgba(251, 247, 242, 0.85);
+}
+[data-theme="dark"] .newsletter-input {
+  background: rgba(251, 247, 242, 0.08);
+  border: 1px solid rgba(251, 247, 242, 0.25);
+  color: var(--ivory);
+}
+[data-theme="dark"] .newsletter-input::placeholder {
+  color: rgba(251, 247, 242, 0.5);
 }
