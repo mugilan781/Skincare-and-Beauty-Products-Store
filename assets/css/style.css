@@ -2210,98 +2210,113 @@ select.form-control { appearance: none; cursor: pointer; }
   display: none !important;
 }
 
-/* ── Precise Page-Aware Navbar Contrast Fix ───────────────── */
-/* 1. On index.html over Dark Hero Slider (before scroll) */
-.navbar:not(.scrolled):not(.nav-solid-theme) .nav-link,
-[data-theme="light"] .navbar:not(.scrolled):not(.nav-solid-theme) .nav-link {
+/* ── Universal Page-Aware Navbar Contrast Rules ────────────── */
+
+/* 1. BEFORE SCROLLING on ALL Pages (except home2): White/Gold navbar over dark top headers */
+.navbar:not(.scrolled) .nav-link,
+[data-theme="light"] .navbar:not(.scrolled) .nav-link {
   color: #FBF7F2 !important;
 }
-.navbar:not(.scrolled):not(.nav-solid-theme) .nav-link:hover,
-.navbar:not(.scrolled):not(.nav-solid-theme) .nav-link.active,
-[data-theme="light"] .navbar:not(.scrolled):not(.nav-solid-theme) .nav-link:hover,
-[data-theme="light"] .navbar:not(.scrolled):not(.nav-solid-theme) .nav-link.active {
+.navbar:not(.scrolled) .nav-link:hover,
+.navbar:not(.scrolled) .nav-link.active,
+[data-theme="light"] .navbar:not(.scrolled) .nav-link:hover,
+[data-theme="light"] .navbar:not(.scrolled) .nav-link.active {
   color: #C9A66B !important;
 }
 
-.navbar:not(.scrolled):not(.nav-solid-theme) .nav-logo,
-[data-theme="light"] .navbar:not(.scrolled):not(.nav-solid-theme) .nav-logo {
+.navbar:not(.scrolled) .nav-logo,
+[data-theme="light"] .navbar:not(.scrolled) .nav-logo {
   color: #FBF7F2 !important;
 }
-.navbar:not(.scrolled):not(.nav-solid-theme) .nav-logo span,
-[data-theme="light"] .navbar:not(.scrolled):not(.nav-solid-theme) .nav-logo span {
+.navbar:not(.scrolled) .nav-logo span,
+[data-theme="light"] .navbar:not(.scrolled) .nav-logo span {
   color: #C9A66B !important;
 }
 
-.navbar:not(.scrolled):not(.nav-solid-theme) .nav-icon-btn,
-.navbar:not(.scrolled):not(.nav-solid-theme) .theme-toggle,
-.navbar:not(.scrolled):not(.nav-solid-theme) .rtl-toggle,
-[data-theme="light"] .navbar:not(.scrolled):not(.nav-solid-theme) .nav-icon-btn,
-[data-theme="light"] .navbar:not(.scrolled):not(.nav-solid-theme) .theme-toggle,
-[data-theme="light"] .navbar:not(.scrolled):not(.nav-solid-theme) .rtl-toggle {
+.navbar:not(.scrolled) .nav-icon-btn,
+.navbar:not(.scrolled) .theme-toggle,
+.navbar:not(.scrolled) .rtl-toggle,
+[data-theme="light"] .navbar:not(.scrolled) .nav-icon-btn,
+[data-theme="light"] .navbar:not(.scrolled) .theme-toggle,
+[data-theme="light"] .navbar:not(.scrolled) .rtl-toggle {
   color: #FBF7F2 !important;
   border-color: rgba(251, 247, 242, 0.3) !important;
 }
-.navbar:not(.scrolled):not(.nav-solid-theme) .nav-hamburger span,
-[data-theme="light"] .navbar:not(.scrolled):not(.nav-solid-theme) .nav-hamburger span {
+.navbar:not(.scrolled) .nav-hamburger span,
+[data-theme="light"] .navbar:not(.scrolled) .nav-hamburger span {
   background: #FBF7F2 !important;
 }
 
-/* 2. When Scrolled on all pages OR when on pages without dark hero (home2, etc.) */
-.navbar.scrolled .nav-link,
-.navbar.nav-solid-theme:not(.scrolled) .nav-link {
+/* 2. Exception: Home2 page BEFORE SCROLLING in Light Theme (dark text over light split hero) */
+[data-theme="light"] .page-home2 .navbar:not(.scrolled) .nav-link {
   color: var(--text-primary) !important;
 }
-.navbar.scrolled .nav-link:hover,
-.navbar.scrolled .nav-link.active,
-.navbar.nav-solid-theme:not(.scrolled) .nav-link:hover,
-.navbar.nav-solid-theme:not(.scrolled) .nav-link.active {
+[data-theme="light"] .page-home2 .navbar:not(.scrolled) .nav-link:hover,
+[data-theme="light"] .page-home2 .navbar:not(.scrolled) .nav-link.active {
   color: var(--rosewood) !important;
 }
-[data-theme="dark"] .navbar.scrolled .nav-link,
-[data-theme="dark"] .navbar.nav-solid-theme:not(.scrolled) .nav-link {
-  color: #FBF7F2 !important;
-}
-[data-theme="dark"] .navbar.scrolled .nav-link:hover,
-[data-theme="dark"] .navbar.scrolled .nav-link.active,
-[data-theme="dark"] .navbar.nav-solid-theme:not(.scrolled) .nav-link:hover,
-[data-theme="dark"] .navbar.nav-solid-theme:not(.scrolled) .nav-link.active {
-  color: #C9A66B !important;
-}
-
-.navbar.scrolled .nav-logo,
-.navbar.nav-solid-theme:not(.scrolled) .nav-logo {
+[data-theme="light"] .page-home2 .navbar:not(.scrolled) .nav-logo {
   color: var(--text-primary) !important;
 }
-.navbar.scrolled .nav-logo span,
-.navbar.nav-solid-theme:not(.scrolled) .nav-logo span {
+[data-theme="light"] .page-home2 .navbar:not(.scrolled) .nav-logo span {
   color: var(--rosewood) !important;
 }
-[data-theme="dark"] .navbar.scrolled .nav-logo,
-[data-theme="dark"] .navbar.nav-solid-theme:not(.scrolled) .nav-logo {
-  color: #FBF7F2 !important;
+[data-theme="light"] .page-home2 .navbar:not(.scrolled) .nav-icon-btn,
+[data-theme="light"] .page-home2 .navbar:not(.scrolled) .theme-toggle,
+[data-theme="light"] .page-home2 .navbar:not(.scrolled) .rtl-toggle {
+  color: var(--text-primary) !important;
+  border-color: rgba(74, 38, 51, 0.2) !important;
 }
-[data-theme="dark"] .navbar.scrolled .nav-logo span,
-[data-theme="dark"] .navbar.nav-solid-theme:not(.scrolled) .nav-logo span {
-  color: #C9A66B !important;
+[data-theme="light"] .page-home2 .navbar:not(.scrolled) .nav-hamburger span {
+  background: var(--text-primary) !important;
 }
 
-.navbar.scrolled .nav-icon-btn,
-.navbar.scrolled .theme-toggle,
-.navbar.scrolled .rtl-toggle,
-.navbar.nav-solid-theme:not(.scrolled) .nav-icon-btn,
-.navbar.nav-solid-theme:not(.scrolled) .theme-toggle,
-.navbar.nav-solid-theme:not(.scrolled) .rtl-toggle {
+/* 3. WHEN SCROLLED DOWN on ALL Pages in Light Theme (dark text over white scrolled navbar) */
+[data-theme="light"] .navbar.scrolled .nav-link {
+  color: var(--text-primary) !important;
+}
+[data-theme="light"] .navbar.scrolled .nav-link:hover,
+[data-theme="light"] .navbar.scrolled .nav-link.active {
+  color: var(--rosewood) !important;
+}
+[data-theme="light"] .navbar.scrolled .nav-logo {
+  color: var(--text-primary) !important;
+}
+[data-theme="light"] .navbar.scrolled .nav-logo span {
+  color: var(--rosewood) !important;
+}
+[data-theme="light"] .navbar.scrolled .nav-icon-btn,
+[data-theme="light"] .navbar.scrolled .theme-toggle,
+[data-theme="light"] .navbar.scrolled .rtl-toggle {
   color: var(--text-primary) !important;
   border-color: var(--border-color) !important;
 }
+[data-theme="light"] .navbar.scrolled .nav-hamburger span {
+  background: var(--text-primary) !important;
+}
+
+/* 4. WHEN SCROLLED DOWN on ALL Pages in Dark Theme */
+[data-theme="dark"] .navbar.scrolled .nav-link {
+  color: #FBF7F2 !important;
+}
+[data-theme="dark"] .navbar.scrolled .nav-link:hover,
+[data-theme="dark"] .navbar.scrolled .nav-link.active {
+  color: #C9A66B !important;
+}
+[data-theme="dark"] .navbar.scrolled .nav-logo {
+  color: #FBF7F2 !important;
+}
+[data-theme="dark"] .navbar.scrolled .nav-logo span {
+  color: #C9A66B !important;
+}
 [data-theme="dark"] .navbar.scrolled .nav-icon-btn,
 [data-theme="dark"] .navbar.scrolled .theme-toggle,
-[data-theme="dark"] .navbar.scrolled .rtl-toggle,
-[data-theme="dark"] .navbar.nav-solid-theme:not(.scrolled) .nav-icon-btn,
-[data-theme="dark"] .navbar.nav-solid-theme:not(.scrolled) .theme-toggle,
-[data-theme="dark"] .navbar.nav-solid-theme:not(.scrolled) .rtl-toggle {
+[data-theme="dark"] .navbar.scrolled .rtl-toggle {
   color: #FBF7F2 !important;
   border-color: rgba(251, 247, 242, 0.2) !important;
+}
+[data-theme="dark"] .navbar.scrolled .nav-hamburger span {
+  background: #FBF7F2 !important;
 }
 
 /* ── Testimonials Exact Viewport Centering & Zero Clipping ── */

@@ -265,4 +265,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const bodyMount = document.createElement('div');
   bodyMount.innerHTML = CART_HTML;
   while (bodyMount.firstChild) document.body.appendChild(bodyMount.firstChild);
+
+  if (window.initNavbar) window.initNavbar();
 });
