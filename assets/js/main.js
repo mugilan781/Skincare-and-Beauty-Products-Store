@@ -40,9 +40,17 @@ const initTheme = () => {
   });
 };
 
+const SVG_MOON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;display:block"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`;
+const SVG_SUN  = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;display:block"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>`;
+
 const updateThemeIcons = theme => {
   $$('[data-theme-icon]').forEach(el => {
-    el.textContent = theme === 'dark' ? '☀️' : '🌙';
+    el.innerHTML = theme === 'dark' ? SVG_SUN : SVG_MOON;
+    el.style.display = 'inline-flex';
+    el.style.alignItems = 'center';
+    el.style.justifyContent = 'center';
+    el.style.width = '18px';
+    el.style.height = '18px';
   });
 };
 
@@ -235,7 +243,9 @@ const showQuizResult = answers => {
   if (!resultEl) return;
   resultEl.innerHTML = `
     <div style="text-align:center;color:var(--ivory)">
-      <div style="font-size:3rem;margin-bottom:1rem">✨</div>
+      <div style="display:flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;background:rgba(201,166,107,.2);margin:0 auto 1.25rem;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:32px;height:32px;color:var(--champagne)"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      </div>
       <h3 style="font-family:var(--font-display);font-size:1.8rem;margin-bottom:.75rem">Your Skin Profile is Ready!</h3>
       <p style="color:rgba(251,247,242,.75);margin-bottom:2rem">Based on your answers, we recommend our <strong>Hydrating Glow Collection</strong>.</p>
       <a href="services.html" class="btn btn-secondary">View Recommendations</a>
@@ -281,7 +291,7 @@ const addToCart = (id, name, price) => {
   else { cart.push({ id, name, price, qty: 1 }); }
   store.set('velour-cart', cart);
   updateCartBadge();
-  showToast(`🛒 ${name} added to cart!`);
+  showToast(`Added to cart: ${name}`);
 };
 
 /* ── Add to Cart Buttons ──────────────────────────────────── */
@@ -307,11 +317,11 @@ const initWishlist = () => {
       if (wishlist.includes(id)) {
         wishlist = wishlist.filter(i => i !== id);
         btn.classList.remove('active');
-        showToast('💔 Removed from wishlist');
+        showToast('Removed from wishlist');
       } else {
         wishlist.push(id);
         btn.classList.add('active');
-        showToast('❤️ Added to wishlist!');
+        showToast('Saved to wishlist');
       }
       store.set('velour-wishlist', wishlist);
     });
@@ -363,7 +373,7 @@ const initForms = () => {
         const origText = submitBtn?.textContent;
         if (submitBtn) { submitBtn.textContent = 'Sending…'; submitBtn.disabled = true; }
         setTimeout(() => {
-          showToast('✨ Message sent successfully!');
+          showToast('Message sent successfully!');
           form.reset();
           if (submitBtn) { submitBtn.textContent = origText; submitBtn.disabled = false; }
         }, 1500);
@@ -384,10 +394,10 @@ const initNewsletter = () => {
       const input = $('input', form);
       if (!input?.value.trim()) return;
       if (!/\S+@\S+\.\S+/.test(input.value)) {
-        showToast('⚠️ Please enter a valid email');
+        showToast('Please enter a valid email address');
         return;
       }
-      showToast('🌸 Thank you for subscribing!');
+      showToast('Thank you for subscribing!');
       input.value = '';
     });
   });

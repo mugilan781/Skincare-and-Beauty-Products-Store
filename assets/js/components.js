@@ -36,11 +36,13 @@ const NAV_HTML = `
   <a href="404.html">404</a>
   <a href="maintenance.html">Maintenance</a>
   <div style="margin-top:2rem;display:flex;gap:.75rem;flex-wrap:wrap;">
-    <button data-theme-toggle class="btn btn-outline-dark btn-sm" style="border-radius:var(--radius-full)">
-      <span data-theme-icon>🌙</span> Mode
+    <button data-theme-toggle class="btn btn-outline-dark btn-sm" style="border-radius:var(--radius-full);display:inline-flex;align-items:center;gap:.4rem;">
+      <span data-theme-icon style="display:inline-flex;width:16px;height:16px;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-moon" style="width:16px;height:16px;display:block"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </span> Mode
     </button>
-    <button data-rtl-toggle class="btn btn-outline-dark btn-sm" style="border-radius:var(--radius-full)">
-      <span data-rtl-icon>RTL</span>
+    <button data-rtl-toggle class="btn btn-outline-dark btn-sm" style="border-radius:var(--radius-full);display:inline-flex;align-items:center;gap:.4rem;">
+      <span data-rtl-icon style="font-size:.72rem;font-weight:700;letter-spacing:.05em;">RTL</span>
     </button>
   </div>
 </nav>
@@ -97,10 +99,12 @@ const NAV_HTML = `
           <span class="cart-badge" style="display:none">0</span>
         </button>
         <button class="theme-toggle" data-theme-toggle aria-label="Toggle dark mode">
-          <span data-theme-icon>🌙</span>
+          <span data-theme-icon style="display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;display:block"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </span>
         </button>
         <button class="rtl-toggle" data-rtl-toggle aria-label="Toggle RTL direction">
-          <span data-rtl-icon>RTL</span>
+          <span data-rtl-icon style="font-size:.65rem;font-weight:800;letter-spacing:.08em;">RTL</span>
         </button>
         <button id="navHamburger" class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
           <span></span><span></span><span></span>

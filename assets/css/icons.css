@@ -1,0 +1,264 @@
+/* ============================================================
+   VELOUR SKIN — SVG Icon System
+   Replaces all emoji with clean, scalable SVG vectors
+   ============================================================ */
+
+/* ── Base Icon Styles ─────────────────────────────────────── */
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  vertical-align: middle;
+  line-height: 1;
+}
+
+/* ── Quiz Feature Icons ───────────────────────────────────── */
+.quiz-feature-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(201,166,107,.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--champagne);
+}
+.quiz-feature-icon svg {
+  display: block;
+  stroke: currentColor;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.5;
+}
+
+/* ── Quiz Option SVG Icon ─────────────────────────────────── */
+.quiz-svg-icon {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(201,166,107,.12);
+  color: var(--champagne);
+  transition: background .2s, color .2s;
+}
+.quiz-option.selected .quiz-svg-icon,
+.quiz-option:hover .quiz-svg-icon {
+  background: rgba(201,166,107,.25);
+}
+.quiz-svg-icon svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+  stroke: currentColor;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.5;
+}
+.icon svg {
+  display: block;
+  width: 1em;
+  height: 1em;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.icon-sm svg  { width: .9em;  height: .9em; }
+.icon-lg svg  { width: 1.4em; height: 1.4em; }
+.icon-xl svg  { width: 2em;   height: 2em; }
+.icon-2xl svg { width: 2.5em; height: 2.5em; }
+.icon-3xl svg { width: 3em;   height: 3em; }
+
+/* ── Feature / Card Icons ─────────────────────────────────── */
+.feature-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--blush-ultra);
+  color: var(--rosewood);
+  flex-shrink: 0;
+  transition: background .3s, color .3s;
+}
+[data-theme="dark"] .feature-icon-wrap {
+  background: rgba(216,167,167,.12);
+  color: var(--blush);
+}
+
+/* ── Stat Value Prefix Icon ───────────────────────────────── */
+.icon-prefix {
+  display: inline-flex;
+  align-items: center;
+  gap: .3em;
+}
+
+/* ── Social Icons ─────────────────────────────────────────── */
+.social-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  transition: all .3s;
+}
+.social-icon-btn:hover {
+  background: var(--rosewood);
+  border-color: var(--rosewood);
+  color: var(--ivory);
+  transform: translateY(-2px);
+}
+.social-icon-btn svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+  stroke: none;
+}
+
+/* ── Skin Type Icons ──────────────────────────────────────── */
+.skin-type-svg {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 1rem;
+  display: block;
+  margin-inline: auto;
+  color: var(--rosewood);
+}
+[data-theme="dark"] .skin-type-svg { color: var(--blush); }
+
+/* ── Contact Icons ────────────────────────────────────────── */
+.contact-svg-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--blush-ultra);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--rosewood);
+}
+[data-theme="dark"] .contact-svg-icon {
+  background: rgba(216,167,167,.12);
+  color: var(--blush);
+}
+.contact-svg-icon svg { width: 20px; height: 20px; }
+
+/* ── Ingredient Icons ─────────────────────────────────────── */
+.ingredient-svg-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--blush-ultra);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--rosewood);
+}
+[data-theme="dark"] .ingredient-svg-icon {
+  background: rgba(216,167,167,.12);
+  color: var(--blush);
+}
+.ingredient-svg-icon svg { width: 22px; height: 22px; }
+
+/* ── Value Card Icon ──────────────────────────────────────── */
+.value-svg-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-lg);
+  background: var(--blush-ultra);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.2rem;
+  color: var(--rosewood);
+  transition: background .3s, color .3s;
+}
+.value-card:hover .value-svg-icon {
+  background: var(--rosewood);
+  color: var(--ivory);
+}
+[data-theme="dark"] .value-svg-icon {
+  background: rgba(216,167,167,.1);
+  color: var(--blush);
+}
+.value-svg-icon svg { width: 28px; height: 28px; }
+
+/* ── Benefit Icon ─────────────────────────────────────────── */
+.benefit-svg-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(251,247,242,.12);
+  border: 1px solid rgba(251,247,242,.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.2rem;
+  color: var(--ivory);
+}
+.benefit-svg-icon svg { width: 30px; height: 30px; }
+
+/* ── Quiz Option Icon ─────────────────────────────────────── */
+.quiz-svg-icon {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  color: var(--champagne);
+}
+.quiz-svg-icon svg { width: 100%; height: 100%; }
+
+/* ── Category Card Icon ───────────────────────────────────── */
+.cat-svg-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--blush-ultra);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  color: var(--rosewood);
+}
+[data-theme="dark"] .cat-svg-icon {
+  background: rgba(216,167,167,.1);
+  color: var(--blush);
+}
+.cat-svg-icon svg { width: 28px; height: 28px; }
+
+/* ── Page Nav Icons ───────────────────────────────────────── */
+.page-icon-wrap {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--blush-ultra);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto .75rem;
+  color: var(--rosewood);
+}
+.page-icon-wrap svg { width: 24px; height: 24px; }
+
+/* ── Maintenance SVG ──────────────────────────────────────── */
+.maintenance-svg {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 2rem;
+  color: var(--champagne);
+  opacity: .85;
+}
+.maintenance-svg svg { width: 100%; height: 100%; }
