@@ -80,10 +80,13 @@ const updateRTLIcons = dir => {
 /* ── Navbar ───────────────────────────────────────────────── */
 const initNavbar = () => {
   const navbar = $('#navbar');
+  const header = $('#siteHeader');
   if (!navbar) return;
 
   const onScroll = () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 60);
+    const isScrolled = window.scrollY > 40;
+    navbar.classList.toggle('scrolled', isScrolled);
+    if (header) header.classList.toggle('scrolled', isScrolled);
   };
   on(window, 'scroll', onScroll, { passive: true });
   onScroll();

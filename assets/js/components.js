@@ -49,68 +49,71 @@ const NAV_HTML = `
   </div>
 </nav>
 
-<!-- Announcement Bar -->
-<div class="announcement-bar" role="banner">
-  Free shipping on orders over $75 &nbsp;|&nbsp; New: Rose Glow Serum — Shop Now &nbsp;|&nbsp; Complimentary sample with every order
-</div>
+<!-- Site Header (Unified Header Container) -->
+<header id="siteHeader" class="site-header" role="banner">
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    Free shipping on orders over $75 &nbsp;|&nbsp; New: Rose Glow Serum — Shop Now &nbsp;|&nbsp; Complimentary sample with every order
+  </div>
 
-<!-- Navbar -->
-<header id="navbar" class="navbar" role="banner">
-  <div class="container">
-    <div class="navbar-inner">
-      <a href="index.html" class="nav-logo" aria-label="Velour Skin home">Velour<span>Skin</span></a>
+  <!-- Navbar -->
+  <div id="navbar" class="navbar">
+    <div class="container">
+      <div class="navbar-inner">
+        <a href="index.html" class="nav-logo" aria-label="Velour Skin home">Velour<span>Skin</span></a>
 
-      <nav class="nav-menu" role="navigation" aria-label="Primary navigation">
-        <div class="nav-item">
-          <a href="index.html" class="nav-link">Home</a>
-        </div>
-        <div class="nav-item">
-          <a href="about.html" class="nav-link">About</a>
-        </div>
-        <div class="nav-item">
-          <a href="services.html" class="nav-link">Shop ▾</a>
-          <div class="nav-dropdown">
-            <a href="services.html#cleansers">Cleansers</a>
-            <a href="services.html#serums">Serums</a>
-            <a href="services.html#moisturizers">Moisturizers</a>
-            <a href="services.html#sunscreens">Sunscreens</a>
-            <a href="services.html#masks">Face Masks</a>
-            <a href="services.html#bundles">Bundle Deals</a>
+        <nav class="nav-menu" role="navigation" aria-label="Primary navigation">
+          <div class="nav-item">
+            <a href="index.html" class="nav-link">Home</a>
           </div>
-        </div>
-        <div class="nav-item">
-          <a href="blog.html" class="nav-link">Journal</a>
-        </div>
-        <div class="nav-item">
-          <a href="contact.html" class="nav-link">Contact</a>
-        </div>
-        <div class="nav-item">
-          <a href="home2.html" class="nav-link">Home 2</a>
-        </div>
-      </nav>
+          <div class="nav-item">
+            <a href="about.html" class="nav-link">About</a>
+          </div>
+          <div class="nav-item">
+            <a href="services.html" class="nav-link">Shop ▾</a>
+            <div class="nav-dropdown">
+              <a href="services.html#cleansers">Cleansers</a>
+              <a href="services.html#serums">Serums</a>
+              <a href="services.html#moisturizers">Moisturizers</a>
+              <a href="services.html#sunscreens">Sunscreens</a>
+              <a href="services.html#masks">Face Masks</a>
+              <a href="services.html#bundles">Bundle Deals</a>
+            </div>
+          </div>
+          <div class="nav-item">
+            <a href="blog.html" class="nav-link">Journal</a>
+          </div>
+          <div class="nav-item">
+            <a href="contact.html" class="nav-link">Contact</a>
+          </div>
+          <div class="nav-item">
+            <a href="home2.html" class="nav-link">Home 2</a>
+          </div>
+        </nav>
 
-      <div class="nav-actions">
-        <button class="nav-icon-btn" data-search-open aria-label="Search">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
-        </button>
-        <button class="nav-icon-btn wishlist-icon" data-wishlist="nav" aria-label="Wishlist">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
-        </button>
-        <button class="nav-icon-btn" aria-label="Shopping cart" style="position:relative">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
-          <span class="cart-badge" style="display:none">0</span>
-        </button>
-        <button class="theme-toggle" data-theme-toggle aria-label="Toggle dark mode">
-          <span data-theme-icon style="display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;display:block"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-          </span>
-        </button>
-        <button class="rtl-toggle" data-rtl-toggle aria-label="Toggle RTL direction">
-          <span data-rtl-icon style="font-size:.65rem;font-weight:800;letter-spacing:.08em;">RTL</span>
-        </button>
-        <button id="navHamburger" class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
-          <span></span><span></span><span></span>
-        </button>
+        <div class="nav-actions">
+          <button class="nav-icon-btn" data-search-open aria-label="Search">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          </button>
+          <button class="nav-icon-btn wishlist-icon" data-wishlist="nav" aria-label="Wishlist">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+          </button>
+          <button class="nav-icon-btn" aria-label="Shopping cart" style="position:relative">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+            <span class="cart-badge" style="display:none">0</span>
+          </button>
+          <button class="theme-toggle" data-theme-toggle aria-label="Toggle dark mode">
+            <span data-theme-icon style="display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;display:block"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            </span>
+          </button>
+          <button class="rtl-toggle" data-rtl-toggle aria-label="Toggle RTL direction">
+            <span data-rtl-icon style="font-size:.65rem;font-weight:800;letter-spacing:.08em;">RTL</span>
+          </button>
+          <button id="navHamburger" class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
       </div>
     </div>
   </div>

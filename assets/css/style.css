@@ -173,18 +173,27 @@ section { padding-block: var(--space-xl); }
   margin: 1.5rem auto;
 }
 
-/* ── Announcement Bar ─────────────────────────────────────── */
+/* ── Site Header (Unified Sticky Header) ──────────────────── */
+.site-header {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: var(--z-sticky);
+  transition: transform var(--dur-normal) var(--ease-smooth);
+}
+
 .announcement-bar {
   background: linear-gradient(90deg, var(--rosewood), var(--espresso), var(--rosewood));
   color: var(--blush-light);
   text-align: center;
-  padding: .6rem var(--space-md);
-  font-size: .78rem;
+  padding: .5rem var(--space-md);
+  font-size: .75rem;
   font-weight: 500;
   letter-spacing: .12em;
   text-transform: uppercase;
   position: relative;
   overflow: hidden;
+  max-height: 40px;
+  opacity: 1;
+  transition: max-height 0.4s var(--ease-smooth), opacity 0.3s var(--ease-smooth), padding 0.4s var(--ease-smooth);
 }
 .announcement-bar::before {
   content: '';
@@ -194,19 +203,28 @@ section { padding-block: var(--space-xl); }
 }
 @keyframes shimmerBar { 0%,100% { opacity: 0; } 50% { opacity: 1; } }
 
+/* Collapse announcement bar on scroll */
+.site-header.scrolled .announcement-bar {
+  max-height: 0;
+  opacity: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  pointer-events: none;
+}
+
 /* ── Navbar ───────────────────────────────────────────────── */
 .navbar {
-  position: fixed; top: 0; left: 0; right: 0;
-  z-index: var(--z-sticky);
-  padding: 1.2rem 0;
+  position: relative;
+  padding: 1.1rem 0;
   transition: all var(--dur-normal) var(--ease-smooth);
 }
+.site-header.scrolled .navbar,
 .navbar.scrolled {
   background: var(--glass-bg);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   border-bottom: 1px solid var(--border-color);
-  padding: .8rem 0;
+  padding: .75rem 0;
   box-shadow: var(--shadow-soft);
 }
 .navbar-inner {
