@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="VelourSkin is currently under maintenance. We're working to bring you an even more beautiful experience. Back soon.">
+  <meta name="robots" content="noindex">
+  <title>Under Maintenance — VelourSkin | Back Soon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/extended.css">
+</head>
+<body>
+  <section class="maintenance-section">
+    <!-- Floating orbs -->
+    <div style="position:absolute;width:600px;height:600px;top:-200px;right:-150px;border-radius:50%;background:radial-gradient(circle,rgba(201,166,107,.12) 0%,transparent 70%);pointer-events:none;"></div>
+    <div style="position:absolute;width:400px;height:400px;bottom:-100px;left:-100px;border-radius:50%;background:radial-gradient(circle,rgba(216,167,167,.1) 0%,transparent 70%);pointer-events:none;animation:glowFloat 8s ease-in-out infinite alternate;"></div>
+
+    <div class="maintenance-inner">
+      <!-- Logo -->
+      <div class="maintenance-logo">Velour<span>Skin</span></div>
+
+      <!-- Status Badge -->
+      <div style="display:inline-flex;align-items:center;gap:.6rem;background:rgba(201,166,107,.15);border:1px solid rgba(201,166,107,.3);border-radius:var(--radius-full);padding:.4rem 1.2rem;margin-bottom:2rem;font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--champagne);">
+        <span style="width:8px;height:8px;border-radius:50%;background:var(--champagne);animation:logoPulse 1.5s ease-in-out infinite;flex-shrink:0;"></span>
+        Scheduled Maintenance
+      </div>
+
+      <!-- Title & Text -->
+      <h1 class="maintenance-title">Upgrading<br>for <em>You</em></h1>
+      <p class="maintenance-text">We're giving VelourSkin a beautiful makeover — improved performance, a stunning new look, and exciting new features. We'll be back before you can finish your morning ritual.</p>
+
+      <!-- Countdown -->
+      <div class="countdown" aria-label="Time until site returns">
+        <div class="countdown-unit">
+          <div class="countdown-value" id="countDays">14</div>
+          <div class="countdown-label">Days</div>
+        </div>
+        <div class="countdown-unit">
+          <div class="countdown-value" id="countHours">00</div>
+          <div class="countdown-label">Hours</div>
+        </div>
+        <div class="countdown-unit">
+          <div class="countdown-value" id="countMins">00</div>
+          <div class="countdown-label">Minutes</div>
+        </div>
+        <div class="countdown-unit">
+          <div class="countdown-value" id="countSecs">00</div>
+          <div class="countdown-label">Seconds</div>
+        </div>
+      </div>
+
+      <!-- Progress Bar -->
+      <div style="margin-bottom:2.5rem;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.5rem;">
+          <span style="font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(251,247,242,.5)">Progress</span>
+          <span style="font-size:.72rem;color:var(--champagne);font-weight:700;">73%</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="maintenanceProgress" style="width:73%"></div>
+        </div>
+        <p style="font-size:.72rem;color:rgba(251,247,242,.4);margin-top:.5rem;text-align:right;">Almost ready — stay tuned!</p>
+      </div>
+
+      <!-- Notify Form -->
+      <div style="margin-bottom:2.5rem;">
+        <p style="font-size:.88rem;color:rgba(251,247,242,.7);margin-bottom:1rem;">Get notified the moment we're live:</p>
+        <form class="newsletter-form" novalidate style="box-shadow:none;">
+          <input type="email" class="newsletter-input" placeholder="Enter your email" required style="border-color:rgba(251,247,242,.2);background:rgba(251,247,242,.07);color:var(--ivory);">
+          <button type="submit" class="btn btn-secondary">Notify Me</button>
+        </form>
+      </div>
+
+      <!-- Social -->
+      <div style="margin-bottom:2rem;">
+        <p style="font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(251,247,242,.4);margin-bottom:1rem;">Follow us for updates</p>
+        <div style="display:flex;gap:.75rem;justify-content:center;">
+          <a href="#" class="social-btn" aria-label="Instagram">IG</a>
+          <a href="#" class="social-btn" aria-label="Pinterest">Pt</a>
+          <a href="#" class="social-btn" aria-label="TikTok">Tk</a>
+          <a href="#" class="social-btn" aria-label="YouTube">YT</a>
+        </div>
+      </div>
+
+      <!-- Contact -->
+      <p style="font-size:.78rem;color:rgba(251,247,242,.4);">
+        Urgent? Email us at <a href="mailto:hello@velourskin.com" style="color:var(--champagne);">hello@velourskin.com</a>
+      </p>
+
+      <!-- Theme Toggle -->
+      <div style="margin-top:2rem;">
+        <button data-theme-toggle class="theme-toggle" style="margin:0 auto;" aria-label="Toggle theme">
+          <span data-theme-icon>☀️</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    // Maintenance-specific init (no navbar/footer)
+    document.addEventListener('DOMContentLoaded', () => {
+      // Theme
+      const saved = localStorage.getItem('velour-theme') ? JSON.parse(localStorage.getItem('velour-theme')) : 'dark';
+      document.documentElement.setAttribute('data-theme', saved);
+      document.querySelectorAll('[data-theme-icon]').forEach(el => { el.textContent = saved === 'dark' ? '☀️' : '🌙'; });
+      document.querySelectorAll('[data-theme-toggle]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const current = document.documentElement.getAttribute('data-theme');
+          const next = current === 'dark' ? 'light' : 'dark';
+          document.documentElement.setAttribute('data-theme', next);
+          localStorage.setItem('velour-theme', JSON.stringify(next));
+          document.querySelectorAll('[data-theme-icon]').forEach(el => { el.textContent = next === 'dark' ? '☀️' : '🌙'; });
+        });
+      });
+
+      // Countdown
+      const end = new Date();
+      end.setDate(end.getDate() + 14);
+      const tick = () => {
+        const diff = end - new Date();
+        if (diff <= 0) return;
+        const d = Math.floor(diff / 864e5);
+        const h = Math.floor((diff % 864e5) / 36e5);
+        const m = Math.floor((diff % 36e5) / 6e4);
+        const s = Math.floor((diff % 6e4) / 1e3);
+        const set = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = String(v).padStart(2, '0'); };
+        set('countDays', d); set('countHours', h); set('countMins', m); set('countSecs', s);
+      };
+      tick();
+      setInterval(tick, 1000);
+
+      // Newsletter
+      document.querySelectorAll('.newsletter-form').forEach(form => {
+        form.addEventListener('submit', e => {
+          e.preventDefault();
+          const input = form.querySelector('input');
+          if (!input?.value.trim()) return;
+          const btn = form.querySelector('button');
+          btn.textContent = '✓ You\'re on the list!';
+          btn.disabled = true;
+          input.value = '';
+        });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="VelourSkin — Ultra-luxury skincare & beauty products. Shop serums, moisturizers, cleansers & more. Science-backed botanical skincare for radiant skin.">
+  <meta name="keywords" content="luxury skincare, beauty products, serums, moisturizers, cleansers, sunscreen, face masks">
+  <meta property="og:title" content="VelourSkin — Luxury Skincare & Beauty Store">
+  <meta property="og:description" content="Discover the finest botanical skincare rituals crafted for luminous skin.">
+  <title>VelourSkin — Luxury Skincare & Beauty Store</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/extended.css">
+</head>
+<body>
+  <!-- Nav Mount -->
+  <div id="navMount"></div>
+
+  <main>
+    <!-- ── SECTION 1: Hero Slider ──────────────────────────── -->
+    <section id="heroSlider" class="hero-slider" aria-label="Featured collections">
+      <!-- Slide 1 -->
+      <div class="hero-slide active">
+        <div class="hero-slide-bg" style="background-image:url('assets/images/hero-main.jpg')"></div>
+        <div class="hero-overlay"></div>
+        <div class="container">
+          <div class="hero-content">
+            <div class="hero-tag">
+              <span class="hero-tag-line"></span>
+              New Collection 2026
+            </div>
+            <h1 class="hero-title">Your Skin<br><em>Deserves</em><br>The Ritual</h1>
+            <p class="hero-subtitle">Luxury botanical skincare crafted from nature's most potent ingredients. Science-backed formulas for skin that radiates from within.</p>
+            <div class="hero-actions">
+              <a href="services.html" class="btn btn-secondary btn-lg">Explore Collection</a>
+              <a href="#skinQuizSection" class="btn btn-outline btn-lg">Take Skin Quiz</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="hero-slide">
+        <div class="hero-slide-bg" style="background-image:url('assets/images/hero-slider2.jpg')"></div>
+        <div class="hero-overlay"></div>
+        <div class="container">
+          <div class="hero-content">
+            <div class="hero-tag">
+              <span class="hero-tag-line"></span>
+              Bestseller
+            </div>
+            <h1 class="hero-title">Luminous<br><em>Glow</em><br>Serum</h1>
+            <p class="hero-subtitle">Our award-winning serum with Vitamin C, Niacinamide & Hyaluronic Acid. See visible brightening in just 7 days.</p>
+            <div class="hero-actions">
+              <a href="services.html#serums" class="btn btn-secondary btn-lg">Shop Serums</a>
+              <a href="blog.html" class="btn btn-outline btn-lg">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="hero-slide">
+        <div class="hero-slide-bg" style="background-image:url('assets/images/skincare-routine.jpg')"></div>
+        <div class="hero-overlay"></div>
+        <div class="container">
+          <div class="hero-content">
+            <div class="hero-tag">
+              <span class="hero-tag-line"></span>
+              Bundle & Save
+            </div>
+            <h1 class="hero-title">Complete<br><em>Ritual</em><br>Bundles</h1>
+            <p class="hero-subtitle">Curated skincare sets for morning & evening routines. Everything your skin needs, beautifully packaged.</p>
+            <div class="hero-actions">
+              <a href="services.html#bundles" class="btn btn-secondary btn-lg">Shop Bundles</a>
+              <a href="about.html" class="btn btn-outline btn-lg">Our Story</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <div class="hero-controls" role="tablist" aria-label="Slide navigation">
+        <button class="hero-dot active" id="heroDot0" role="tab" aria-selected="true" aria-label="Slide 1"></button>
+        <button class="hero-dot" id="heroDot1" role="tab" aria-selected="false" aria-label="Slide 2"></button>
+        <button class="hero-dot" id="heroDot2" role="tab" aria-selected="false" aria-label="Slide 3"></button>
+      </div>
+      <button id="heroPrev" style="position:absolute;left:2rem;top:50%;transform:translateY(-50%);z-index:10;width:50px;height:50px;border-radius:50%;background:rgba(251,247,242,.15);backdrop-filter:blur(10px);border:1px solid rgba(251,247,242,.3);color:#fff;font-size:1.2rem;display:flex;align-items:center;justify-content:center;transition:all .3s;" aria-label="Previous slide">‹</button>
+      <button id="heroNext" style="position:absolute;right:2rem;top:50%;transform:translateY(-50%);z-index:10;width:50px;height:50px;border-radius:50%;background:rgba(251,247,242,.15);backdrop-filter:blur(10px);border:1px solid rgba(251,247,242,.3);color:#fff;font-size:1.2rem;display:flex;align-items:center;justify-content:center;transition:all .3s;" aria-label="Next slide">›</button>
+
+      <div class="hero-scroll" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"/></svg>
+        Scroll
+      </div>
+    </section>
+
+    <!-- ── SECTION 2: Marquee ──────────────────────────────── -->
+    <div class="marquee-section" aria-hidden="true">
+      <div class="marquee-track">
+        <span class="marquee-item"><span class="dot"></span> Vitamin C Brightening</span>
+        <span class="marquee-item"><span class="dot"></span> Hyaluronic Hydration</span>
+        <span class="marquee-item"><span class="dot"></span> Retinol Renewal</span>
+        <span class="marquee-item"><span class="dot"></span> Rose Hip Radiance</span>
+        <span class="marquee-item"><span class="dot"></span> Niacinamide Balance</span>
+        <span class="marquee-item"><span class="dot"></span> Green Tea Antioxidant</span>
+        <span class="marquee-item"><span class="dot"></span> Peptide Complex</span>
+        <span class="marquee-item"><span class="dot"></span> Ceramide Repair</span>
+        <span class="marquee-item"><span class="dot"></span> Bakuchiol Renew</span>
+        <!-- Duplicated for seamless loop -->
+        <span class="marquee-item"><span class="dot"></span> Vitamin C Brightening</span>
+        <span class="marquee-item"><span class="dot"></span> Hyaluronic Hydration</span>
+        <span class="marquee-item"><span class="dot"></span> Retinol Renewal</span>
+        <span class="marquee-item"><span class="dot"></span> Rose Hip Radiance</span>
+        <span class="marquee-item"><span class="dot"></span> Niacinamide Balance</span>
+        <span class="marquee-item"><span class="dot"></span> Green Tea Antioxidant</span>
+        <span class="marquee-item"><span class="dot"></span> Peptide Complex</span>
+        <span class="marquee-item"><span class="dot"></span> Ceramide Repair</span>
+        <span class="marquee-item"><span class="dot"></span> Bakuchiol Renew</span>
+      </div>
+    </div>
+
+    <!-- ── SECTION 3: Best Sellers ─────────────────────────── -->
+    <section class="bestsellers">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="subtitle">Fan Favourites</p>
+          <h2>Best Selling <em>Products</em></h2>
+          <div class="section-divider"></div>
+          <p>Our most-loved formulas, chosen by thousands of skincare devotees worldwide.</p>
+        </div>
+
+        <div class="skin-type-tabs reveal" style="margin-bottom:3rem">
+          <button class="skin-tab active" onclick="filterProducts('all')">All</button>
+          <button class="skin-tab" onclick="filterProducts('serum')">Serums</button>
+          <button class="skin-tab" onclick="filterProducts('cleanser')">Cleansers</button>
+          <button class="skin-tab" onclick="filterProducts('moisturizer')">Moisturizers</button>
+          <button class="skin-tab" onclick="filterProducts('mask')">Masks</button>
+          <button class="skin-tab" onclick="filterProducts('sunscreen')">Sunscreens</button>
+        </div>
+
+        <div class="product-grid" id="productGrid">
+          <!-- Serum -->
+          <article class="product-card reveal reveal-delay-1" data-category="serum">
+            <div class="product-card-image">
+              <span class="product-card-badge">Bestseller</span>
+              <img src="assets/images/serum-product.jpg" alt="Vitamin C Brightening Serum" loading="lazy">
+              <div class="product-card-actions">
+                <button class="product-card-action" data-wishlist="serum-vitc" aria-label="Add to wishlist">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                </button>
+                <button class="product-card-action" data-zoom aria-label="Quick view">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                </button>
+              </div>
+            </div>
+            <div class="product-card-body">
+              <p class="product-card-category">Serums</p>
+              <h3 class="product-card-title">Vitamin C Brightening Serum</h3>
+              <div class="product-card-stars" aria-label="4.9 out of 5 stars">
+                <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <span style="font-size:.72rem;color:var(--text-secondary);margin-left:.25rem">(2,418)</span>
+              </div>
+              <div class="product-card-price">
+                <span class="price-current">$68</span>
+                <span class="price-original">$82</span>
+              </div>
+            </div>
+            <div class="product-card-footer">
+              <button class="btn btn-primary" style="width:100%;justify-content:center" data-add-cart="serum-vitc" data-name="Vitamin C Brightening Serum" data-price="68">Add to Cart</button>
+            </div>
+          </article>
+
+          <!-- Cleanser -->
+          <article class="product-card reveal reveal-delay-2" data-category="cleanser">
+            <div class="product-card-image">
+              <span class="product-card-badge new">New</span>
+              <img src="assets/images/cleanser-product.jpg" alt="Gentle Foam Cleanser" loading="lazy">
+              <div class="product-card-actions">
+                <button class="product-card-action" data-wishlist="cleanser-foam" aria-label="Add to wishlist">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                </button>
+              </div>
+            </div>
+            <div class="product-card-body">
+              <p class="product-card-category">Cleansers</p>
+              <h3 class="product-card-title">Gentle Botanical Foam Cleanser</h3>
+              <div class="product-card-stars" aria-label="4.8 out of 5">
+                <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <span style="font-size:.72rem;color:var(--text-secondary);margin-left:.25rem">(1,873)</span>
+              </div>
+              <div class="product-card-price"><span class="price-current">$42</span></div>
+            </div>
+            <div class="product-card-footer">
+              <button class="btn btn-primary" style="width:100%;justify-content:center" data-add-cart="cleanser-foam" data-name="Gentle Foam Cleanser" data-price="42">Add to Cart</button>
+            </div>
+          </article>
+
+          <!-- Moisturizer -->
+          <article class="product-card reveal reveal-delay-3" data-category="moisturizer">
+            <div class="product-card-image">
+              <img src="assets/images/moisturizer-product.jpg" alt="Hyaluronic Hydrating Cream" loading="lazy">
+              <div class="product-card-actions">
+                <button class="product-card-action" data-wishlist="moisturizer-ha" aria-label="Add to wishlist">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                </button>
+              </div>
+            </div>
+            <div class="product-card-body">
+              <p class="product-card-category">Moisturizers</p>
+              <h3 class="product-card-title">Hyaluronic Hydrating Cream</h3>
+              <div class="product-card-stars"><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><span style="font-size:.72rem;color:var(--text-secondary);margin-left:.25rem">(3,205)</span></div>
+              <div class="product-card-price"><span class="price-current">$78</span><span class="price-original">$95</span></div>
+            </div>
+            <div class="product-card-footer">
+              <button class="btn btn-primary" style="width:100%;justify-content:center" data-add-cart="moisturizer-ha" data-name="Hyaluronic Hydrating Cream" data-price="78">Add to Cart</button>
+            </div>
+          </article>
+
+          <!-- Face Mask -->
+          <article class="product-card reveal reveal-delay-4" data-category="mask">
+            <div class="product-card-image">
+              <span class="product-card-badge sale">Save 20%</span>
+              <img src="assets/images/facemask-product.jpg" alt="Rose Kaolin Clay Mask" loading="lazy">
+              <div class="product-card-actions">
+                <button class="product-card-action" data-wishlist="mask-rose" aria-label="Add to wishlist">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                </button>
+              </div>
+            </div>
+            <div class="product-card-body">
+              <p class="product-card-category">Face Masks</p>
+              <h3 class="product-card-title">Rose Kaolin Clay Mask</h3>
+              <div class="product-card-stars"><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><span style="font-size:.72rem;color:var(--text-secondary);margin-left:.25rem">(946)</span></div>
+              <div class="product-card-price"><span class="price-current">$52</span><span class="price-original">$65</span></div>
+            </div>
+            <div class="product-card-footer">
+              <button class="btn btn-primary" style="width:100%;justify-content:center" data-add-cart="mask-rose" data-name="Rose Kaolin Clay Mask" data-price="52">Add to Cart</button>
+            </div>
+          </article>
+        </div>
+
+        <div class="text-center" style="margin-top:3rem">
+          <a href="services.html" class="btn btn-outline-dark btn-lg">View All Products</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SECTION 4: Skin Quiz Teaser ─────────────────────── -->
+    <section id="skinQuizSection" class="quiz-section section-lg">
+      <div class="container">
+        <div class="quiz-inner">
+          <div class="quiz-content">
+            <p class="subtitle">Personalised For You</p>
+            <h2>Discover Your <em>Perfect</em> Ritual</h2>
+            <p>Take our 5-step Skin Type Quiz and get a personalised skincare routine crafted specifically for your unique skin needs.</p>
+            <div class="quiz-features">
+              <div class="quiz-feature">
+                <div class="quiz-feature-icon">🔬</div>
+                <span>Science-backed analysis</span>
+              </div>
+              <div class="quiz-feature">
+                <div class="quiz-feature-icon">✨</div>
+                <span>Personalised product recommendations</span>
+              </div>
+              <div class="quiz-feature">
+                <div class="quiz-feature-icon">🌿</div>
+                <span>Curated ingredient guide</span>
+              </div>
+              <div class="quiz-feature">
+                <div class="quiz-feature-icon">📋</div>
+                <span>Morning & evening routine plan</span>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div id="skinQuiz" class="quiz-card">
+              <div class="quiz-progress" id="quizProgress" role="progressbar">
+                <div class="quiz-progress-dot done"></div>
+                <div class="quiz-progress-dot"></div>
+                <div class="quiz-progress-dot"></div>
+                <div class="quiz-progress-dot"></div>
+                <div class="quiz-progress-dot"></div>
+              </div>
+
+              <!-- Step 1 -->
+              <div class="quiz-step active">
+                <p class="quiz-q">How does your skin feel by midday?</p>
+                <div class="quiz-options">
+                  <div class="quiz-option" data-value="dry"><span class="quiz-option-icon">🏜️</span> Tight and dry, needs moisture</div>
+                  <div class="quiz-option" data-value="oily"><span class="quiz-option-icon">✨</span> Shiny and oily, especially T-zone</div>
+                  <div class="quiz-option" data-value="combo"><span class="quiz-option-icon">⚖️</span> Mix of oily and dry areas</div>
+                  <div class="quiz-option" data-value="normal"><span class="quiz-option-icon">🌸</span> Balanced and comfortable</div>
+                </div>
+                <div class="quiz-nav">
+                  <span class="quiz-step-count" id="quizStepCount">1 / 5</span>
+                  <button id="quizNext" class="btn btn-secondary btn-sm">Next →</button>
+                </div>
+              </div>
+
+              <!-- Step 2 -->
+              <div class="quiz-step">
+                <p class="quiz-q">What's your main skin concern?</p>
+                <div class="quiz-options">
+                  <div class="quiz-option" data-value="acne"><span class="quiz-option-icon">😟</span> Breakouts & blemishes</div>
+                  <div class="quiz-option" data-value="aging"><span class="quiz-option-icon">⏰</span> Fine lines & aging</div>
+                  <div class="quiz-option" data-value="dull"><span class="quiz-option-icon">💡</span> Dullness & uneven tone</div>
+                  <div class="quiz-option" data-value="sensitivity"><span class="quiz-option-icon">🌷</span> Sensitivity & redness</div>
+                </div>
+                <div class="quiz-nav">
+                  <button id="quizPrev" class="btn btn-outline btn-sm" style="border-color:rgba(251,247,242,.3)">← Back</button>
+                  <button id="quizNext" class="btn btn-secondary btn-sm">Next →</button>
+                </div>
+              </div>
+
+              <!-- Step 3 -->
+              <div class="quiz-step">
+                <p class="quiz-q">How much time do you spend on skincare daily?</p>
+                <div class="quiz-options">
+                  <div class="quiz-option" data-value="quick"><span class="quiz-option-icon">⚡</span> Quick — 2–3 minutes</div>
+                  <div class="quiz-option" data-value="moderate"><span class="quiz-option-icon">⏱️</span> Moderate — 5–10 minutes</div>
+                  <div class="quiz-option" data-value="ritual"><span class="quiz-option-icon">🕯️</span> Full ritual — 15+ minutes</div>
+                </div>
+                <div class="quiz-nav">
+                  <button id="quizPrev" class="btn btn-outline btn-sm" style="border-color:rgba(251,247,242,.3)">← Back</button>
+                  <button id="quizNext" class="btn btn-secondary btn-sm">Next →</button>
+                </div>
+              </div>
+
+              <!-- Step 4 -->
+              <div class="quiz-step">
+                <p class="quiz-q">What's your age range?</p>
+                <div class="quiz-options">
+                  <div class="quiz-option" data-value="under25"><span class="quiz-option-icon">🌱</span> Under 25</div>
+                  <div class="quiz-option" data-value="25-35"><span class="quiz-option-icon">🌸</span> 25–35</div>
+                  <div class="quiz-option" data-value="35-45"><span class="quiz-option-icon">🌺</span> 35–45</div>
+                  <div class="quiz-option" data-value="45plus"><span class="quiz-option-icon">🌹</span> 45+</div>
+                </div>
+                <div class="quiz-nav">
+                  <button id="quizPrev" class="btn btn-outline btn-sm" style="border-color:rgba(251,247,242,.3)">← Back</button>
+                  <button id="quizNext" class="btn btn-secondary btn-sm">Next →</button>
+                </div>
+              </div>
+
+              <!-- Step 5 -->
+              <div class="quiz-step">
+                <p class="quiz-q">What ingredients have you loved before?</p>
+                <div class="quiz-options">
+                  <div class="quiz-option" data-value="natural"><span class="quiz-option-icon">🌿</span> Natural & botanical</div>
+                  <div class="quiz-option" data-value="science"><span class="quiz-option-icon">🔬</span> Science-backed actives</div>
+                  <div class="quiz-option" data-value="both"><span class="quiz-option-icon">💚</span> Best of both worlds</div>
+                </div>
+                <div class="quiz-nav">
+                  <button id="quizPrev" class="btn btn-outline btn-sm" style="border-color:rgba(251,247,242,.3)">← Back</button>
+                  <button id="quizNext" class="btn btn-secondary btn-sm">Get Results ✨</button>
+                </div>
+              </div>
+            </div>
+            <div id="quizResult" style="display:none" class="quiz-card"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SECTION 5: Stats ────────────────────────────────── -->
+    <section class="stats-section section-sm">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="text-center reveal">
+            <div class="stat-value" data-count="50000" data-suffix="+">0</div>
+            <p class="stat-label">Happy Customers</p>
+          </div>
+          <div class="text-center reveal reveal-delay-1">
+            <div class="stat-value" data-count="96" data-suffix="%">0</div>
+            <p class="stat-label">See Results in 4 Weeks</p>
+          </div>
+          <div class="text-center reveal reveal-delay-2">
+            <div class="stat-value" data-count="48" data-suffix="+">0</div>
+            <p class="stat-label">Award-Winning Products</p>
+          </div>
+          <div class="text-center reveal reveal-delay-3">
+            <div class="stat-value" data-count="100" data-suffix="%">0</div>
+            <p class="stat-label">Clean Formulas</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SECTION 6: Testimonials ─────────────────────────── -->
+    <section class="testimonials section-lg">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="subtitle">Real Results</p>
+          <h2>Loved by <em>Thousands</em></h2>
+          <div class="section-divider"></div>
+          <p>Read what our community says about their skin transformation journey.</p>
+        </div>
+
+        <div class="testimonial-slider reveal">
+          <div id="testimonialTrack" class="testimonial-track">
+            <div class="testimonial-slide">
+              <div class="testimonial-card">
+                <div class="testimonial-stars" aria-label="5 out of 5 stars">
+                  <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                  <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                  <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                  <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                  <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                </div>
+                <blockquote class="testimonial-quote">The Vitamin C Serum changed my life. I've tried countless luxury serums and nothing compares — my skin glows from within, hyperpigmentation has faded by 80%, and everyone asks what I'm using.</blockquote>
+                <div class="testimonial-author">
+                  <strong class="testimonial-name">Sophia Marchetti</strong>
+                  <span class="testimonial-role">Verified Customer · Milan, Italy</span>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-slide">
+              <div class="testimonial-card">
+                <div class="testimonial-stars">
+                  <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                  <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                  <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                  <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                  <svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                </div>
+                <blockquote class="testimonial-quote">VelourSkin is in a class of its own. The Rose Clay Mask is a weekly non-negotiable — it purifies without stripping, and my pores have never looked smaller. This is luxury done right.</blockquote>
+                <div class="testimonial-author">
+                  <strong class="testimonial-name">Amélie Fontaine</strong>
+                  <span class="testimonial-role">Verified Customer · Paris, France</span>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-slide">
+              <div class="testimonial-card">
+                <div class="testimonial-stars"><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></div>
+                <blockquote class="testimonial-quote">As a dermatologist, I'm very selective about skincare. VelourSkin's formulations are impressive — scientifically sound, clinically effective, and genuinely luxurious. I recommend them to my patients.</blockquote>
+                <div class="testimonial-author">
+                  <strong class="testimonial-name">Dr. Priya Nair</strong>
+                  <span class="testimonial-role">Board-Certified Dermatologist · London, UK</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="slider-nav">
+            <button id="testiPrev" class="slider-btn" aria-label="Previous testimonial">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 19l-7-7 7-7"/></svg>
+            </button>
+            <button class="testi-dot active" aria-label="Testimonial 1"></button>
+            <button class="testi-dot" aria-label="Testimonial 2"></button>
+            <button class="testi-dot" aria-label="Testimonial 3"></button>
+            <button id="testiNext" class="slider-btn" aria-label="Next testimonial">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter-section section-sm">
+      <div class="container">
+        <div class="newsletter-inner reveal">
+          <p class="subtitle">Join The Ritual</p>
+          <h2>Unlock <em>Exclusive</em> Beauty</h2>
+          <p>Subscribe for early access to new launches, expert skincare tips, and 15% off your first order.</p>
+          <form class="newsletter-form" novalidate>
+            <input type="email" class="newsletter-input" placeholder="Your email address" required aria-label="Email for newsletter">
+            <button type="submit" class="btn btn-primary">Subscribe ✦</button>
+          </form>
+          <p style="font-size:.75rem;color:var(--text-secondary);margin-top:1rem">By subscribing, you agree to our Privacy Policy. Unsubscribe anytime.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer Mount -->
+  <div id="footerMount"></div>
+
+  <!-- Scripts -->
+  <script src="assets/js/components.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    // Product filter
+    function filterProducts(cat) {
+      document.querySelectorAll('.skin-tab').forEach(t => t.classList.remove('active'));
+      event.target.classList.add('active');
+      document.querySelectorAll('.product-card').forEach(card => {
+        if (cat === 'all' || card.dataset.category === cat) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+    // Quiz multi-step logic
+    (function() {
+      const steps = document.querySelectorAll('.quiz-step');
+      const dots = document.querySelectorAll('.quiz-progress-dot');
+      let current = 0;
+      function show(i) {
+        steps.forEach((s,idx) => s.classList.toggle('active', idx === i));
+        dots.forEach((d,idx) => d.classList.toggle('done', idx <= i));
+        document.getElementById('quizStepCount').textContent = (i+1) + ' / ' + steps.length;
+      }
+      document.querySelectorAll('#quizNext').forEach(btn => {
+        btn.addEventListener('click', () => {
+          if (current < steps.length - 1) { current++; show(current); }
+          else {
+            document.getElementById('skinQuiz').style.display = 'none';
+            document.getElementById('quizResult').style.display = 'block';
+            document.getElementById('quizResult').innerHTML = '<div style="text-align:center;color:var(--ivory)"><div style="font-size:3rem;margin-bottom:1rem">✨</div><h3 style="font-family:var(--font-display);font-size:1.8rem;margin-bottom:.75rem">Your Skin Profile is Ready!</h3><p style="color:rgba(251,247,242,.75);margin-bottom:2rem">Based on your answers, we recommend our <strong>Hydrating Glow Collection</strong>.</p><a href="services.html" class="btn btn-secondary">View My Recommendations</a></div>';
+          }
+        });
+      });
+      document.querySelectorAll('#quizPrev').forEach(btn => {
+        btn.addEventListener('click', () => { if (current > 0) { current--; show(current); } });
+      });
+    })();
+  </script>
+</body>
+</html>

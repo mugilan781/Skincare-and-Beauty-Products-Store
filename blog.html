@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="VelourSkin Beauty Journal — Expert skincare tips, ingredient guides, tutorials and beauty editorial content.">
+  <title>Beauty Journal — VelourSkin Skincare Blog</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/extended.css">
+</head>
+<body>
+  <div id="navMount"></div>
+
+  <main>
+    <!-- ── SECTION 1: Blog Hero ─────────────────────────────── -->
+    <section class="page-hero">
+      <div class="container">
+        <p class="subtitle page-hero-tag">Beauty Journal</p>
+        <h1>Stories of <em>Beautiful</em> Skin</h1>
+        <p>Expert skincare knowledge, ingredient deep-dives, rituals and editorial beauty content.</p>
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a><span class="breadcrumb-sep">✦</span><span aria-current="page">Journal</span>
+        </nav>
+      </div>
+    </section>
+
+    <!-- ── SECTION 2: Featured Post ─────────────────────────── -->
+    <section>
+      <div class="container">
+        <div style="display:grid;grid-template-columns:1.5fr 1fr;gap:4rem;align-items:center;" class="reveal">
+          <div style="border-radius:var(--radius-xl);overflow:hidden;aspect-ratio:16/9;">
+            <img src="assets/images/blog-hero.jpg" alt="Featured: The Ultimate Morning Skincare Routine" style="width:100%;height:100%;object-fit:cover;" loading="eager">
+          </div>
+          <div>
+            <div style="display:flex;gap:.75rem;margin-bottom:1rem;flex-wrap:wrap;">
+              <span class="blog-card-tag">Skin Rituals</span>
+              <span style="font-size:.78rem;color:var(--text-secondary)">August 20, 2026</span>
+              <span style="font-size:.78rem;color:var(--text-secondary)">· 8 min read</span>
+            </div>
+            <h2 style="font-size:clamp(1.8rem,3vw,2.8rem);margin-bottom:1rem;line-height:1.2;">
+              <a href="blog-details.html" style="transition:color .3s;" onmouseover="this.style.color='var(--rosewood)'" onmouseout="this.style.color=''">The Ultimate Morning Skincare Ritual for Radiant, Glowing Skin</a>
+            </h2>
+            <p style="margin-bottom:1.5rem">Your morning routine sets the tone for the entire day. We walk you through the optimal 6-step ritual with our favourite products, layering secrets and pro tips from our Chief Formulator.</p>
+            <a href="blog-details.html" class="btn btn-primary">Read Full Story →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SECTION 3: Blog Grid ──────────────────────────────── -->
+    <section style="background:var(--bg-secondary)">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="subtitle">Latest Stories</p>
+          <h2>From the <em>Journal</em></h2>
+          <div class="section-divider"></div>
+        </div>
+
+        <!-- Category Filters -->
+        <div class="skin-type-tabs reveal" style="margin-bottom:3rem">
+          <button class="skin-tab active">All</button>
+          <button class="skin-tab">Ingredients</button>
+          <button class="skin-tab">Routines</button>
+          <button class="skin-tab">Skin Science</button>
+          <button class="skin-tab">Lifestyle</button>
+          <button class="skin-tab">Reviews</button>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:2rem;">
+          <article class="blog-card reveal reveal-delay-1">
+            <div class="blog-card-image">
+              <img src="assets/images/serum-product.jpg" alt="Vitamin C Guide" loading="lazy">
+            </div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta">
+                <span class="blog-card-tag">Ingredients</span>
+                <span class="blog-card-date">Aug 15, 2026</span>
+              </div>
+              <h3 class="blog-card-title"><a href="blog-details.html">The Definitive Guide to Vitamin C Serums: Concentrations, Stability & Results</a></h3>
+              <p class="blog-card-excerpt">Not all Vitamin C is created equal. We break down the science of L-Ascorbic Acid, stability challenges, and how to choose the right formula for your skin.</p>
+              <a href="blog-details.html" class="blog-card-readmore">Read More <span>→</span></a>
+            </div>
+          </article>
+
+          <article class="blog-card reveal reveal-delay-2">
+            <div class="blog-card-image">
+              <img src="assets/images/moisturizer-product.jpg" alt="Hyaluronic Acid Deep Dive" loading="lazy">
+            </div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta">
+                <span class="blog-card-tag">Skin Science</span>
+                <span class="blog-card-date">Aug 10, 2026</span>
+              </div>
+              <h3 class="blog-card-title"><a href="blog-details.html">Hyaluronic Acid: Why Molecular Weight Matters More Than You Think</a></h3>
+              <p class="blog-card-excerpt">Single-weight HA only scratches the surface. We explain why our multi-weight formula reaches every skin layer for truly lasting hydration.</p>
+              <a href="blog-details.html" class="blog-card-readmore">Read More <span>→</span></a>
+            </div>
+          </article>
+
+          <article class="blog-card reveal reveal-delay-3">
+            <div class="blog-card-image">
+              <img src="assets/images/facemask-product.jpg" alt="Clay Mask Benefits" loading="lazy">
+            </div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta">
+                <span class="blog-card-tag">Routines</span>
+                <span class="blog-card-date">Aug 5, 2026</span>
+              </div>
+              <h3 class="blog-card-title"><a href="blog-details.html">How to Use a Clay Mask Without Destroying Your Skin Barrier</a></h3>
+              <p class="blog-card-excerpt">Clay masks are powerful — but misused, they can strip essential moisture. Learn the proper application technique, timing, and post-mask care.</p>
+              <a href="blog-details.html" class="blog-card-readmore">Read More <span>→</span></a>
+            </div>
+          </article>
+
+          <article class="blog-card reveal reveal-delay-1">
+            <div class="blog-card-image">
+              <img src="assets/images/sunscreen-product.jpg" alt="Sunscreen Guide" loading="lazy">
+            </div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta">
+                <span class="blog-card-tag">Skin Science</span>
+                <span class="blog-card-date">July 28, 2026</span>
+              </div>
+              <h3 class="blog-card-title"><a href="blog-details.html">Mineral vs. Chemical Sunscreen: Which is Actually Better for Your Skin?</a></h3>
+              <p class="blog-card-excerpt">We settle the debate once and for all with an evidence-based comparison of ingredients, efficacy, and skin compatibility for both options.</p>
+              <a href="blog-details.html" class="blog-card-readmore">Read More <span>→</span></a>
+            </div>
+          </article>
+
+          <article class="blog-card reveal reveal-delay-2">
+            <div class="blog-card-image">
+              <img src="assets/images/ingredients-botanical.jpg" alt="Retinol Guide" loading="lazy">
+            </div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta">
+                <span class="blog-card-tag">Ingredients</span>
+                <span class="blog-card-date">July 20, 2026</span>
+              </div>
+              <h3 class="blog-card-title"><a href="blog-details.html">Retinol for Beginners: Starting Slow, Going Strong</a></h3>
+              <p class="blog-card-excerpt">Retinol is one of the most scientifically proven anti-aging ingredients. But starting incorrectly causes irritation. Here's your fail-proof plan.</p>
+              <a href="blog-details.html" class="blog-card-readmore">Read More <span>→</span></a>
+            </div>
+          </article>
+
+          <article class="blog-card reveal reveal-delay-3">
+            <div class="blog-card-image">
+              <img src="assets/images/skincare-routine.jpg" alt="Evening Routine" loading="lazy">
+            </div>
+            <div class="blog-card-body">
+              <div class="blog-card-meta">
+                <span class="blog-card-tag">Lifestyle</span>
+                <span class="blog-card-date">July 15, 2026</span>
+              </div>
+              <h3 class="blog-card-title"><a href="blog-details.html">The Art of the Evening Ritual: A Sensory Guide to Night Skincare</a></h3>
+              <p class="blog-card-excerpt">Your evening routine isn't just skincare — it's self-care. Transform your nightly ritual into a meditative practice that nourishes mind and skin.</p>
+              <a href="blog-details.html" class="blog-card-readmore">Read More <span>→</span></a>
+            </div>
+          </article>
+        </div>
+
+        <div class="text-center" style="margin-top:3rem">
+          <button class="btn btn-outline-dark btn-lg">Load More Stories</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SECTION 4: Categories ─────────────────────────────── -->
+    <section>
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="subtitle">Explore by Topic</p>
+          <h2>Journal <em>Categories</em></h2>
+          <div class="section-divider"></div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1.5rem;">
+          <div class="reveal reveal-delay-1" style="border:1px solid var(--border-color);border-radius:var(--radius-xl);padding:2rem;text-align:center;cursor:pointer;transition:all .3s;" onmouseover="this.style.transform='translateY(-4px)';this.style.borderColor='var(--blush)'" onmouseout="this.style.transform='';this.style.borderColor='var(--border-color)'">
+            <div style="font-size:2.5rem;margin-bottom:.75rem">🔬</div>
+            <h4 style="margin-bottom:.25rem">Ingredients</h4>
+            <p style="font-size:.78rem">24 articles</p>
+          </div>
+          <div class="reveal reveal-delay-2" style="border:1px solid var(--border-color);border-radius:var(--radius-xl);padding:2rem;text-align:center;cursor:pointer;transition:all .3s;" onmouseover="this.style.transform='translateY(-4px)';this.style.borderColor='var(--blush)'" onmouseout="this.style.transform='';this.style.borderColor='var(--border-color)'">
+            <div style="font-size:2.5rem;margin-bottom:.75rem">🌸</div>
+            <h4 style="margin-bottom:.25rem">Routines</h4>
+            <p style="font-size:.78rem">18 articles</p>
+          </div>
+          <div class="reveal reveal-delay-3" style="border:1px solid var(--border-color);border-radius:var(--radius-xl);padding:2rem;text-align:center;cursor:pointer;transition:all .3s;" onmouseover="this.style.transform='translateY(-4px)';this.style.borderColor='var(--blush)'" onmouseout="this.style.transform='';this.style.borderColor='var(--border-color)'">
+            <div style="font-size:2.5rem;margin-bottom:.75rem">🧬</div>
+            <h4 style="margin-bottom:.25rem">Skin Science</h4>
+            <p style="font-size:.78rem">16 articles</p>
+          </div>
+          <div class="reveal reveal-delay-4" style="border:1px solid var(--border-color);border-radius:var(--radius-xl);padding:2rem;text-align:center;cursor:pointer;transition:all .3s;" onmouseover="this.style.transform='translateY(-4px)';this.style.borderColor='var(--blush)'" onmouseout="this.style.transform='';this.style.borderColor='var(--border-color)'">
+            <div style="font-size:2.5rem;margin-bottom:.75rem">🌿</div>
+            <h4 style="margin-bottom:.25rem">Lifestyle</h4>
+            <p style="font-size:.78rem">12 articles</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SECTION 5: Newsletter ─────────────────────────────── -->
+    <section class="newsletter-section section-sm">
+      <div class="container">
+        <div class="newsletter-inner reveal">
+          <p class="subtitle">Stay in the Know</p>
+          <h2>Journal in Your <em>Inbox</em></h2>
+          <p>Get the latest beauty science, skin tips, and product launches delivered weekly.</p>
+          <form class="newsletter-form" novalidate>
+            <input type="email" class="newsletter-input" placeholder="Enter your email" required aria-label="Email">
+            <button type="submit" class="btn btn-primary">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SECTION 6: Social Proof Bar ──────────────────────── -->
+    <section class="section-sm" style="background:var(--espresso)">
+      <div class="container">
+        <div class="stats-grid reveal">
+          <div class="text-center">
+            <div class="stat-value" data-count="68" data-suffix="K+">0</div>
+            <p class="stat-label">Journal Readers</p>
+          </div>
+          <div class="text-center">
+            <div class="stat-value" data-count="112" data-suffix="+">0</div>
+            <p class="stat-label">Articles Published</p>
+          </div>
+          <div class="text-center">
+            <div class="stat-value" data-count="18" data-suffix="+">0</div>
+            <p class="stat-label">Expert Contributors</p>
+          </div>
+          <div class="text-center">
+            <div class="stat-value" data-count="4" data-suffix=".9★">0</div>
+            <p class="stat-label">Reader Rating</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footerMount"></div>
+  <script src="assets/js/components.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
