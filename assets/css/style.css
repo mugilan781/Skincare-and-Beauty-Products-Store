@@ -1469,3 +1469,133 @@ select.form-control { appearance: none; cursor: pointer; }
 [data-theme="dark"] .newsletter-input::placeholder {
   color: rgba(251, 247, 242, 0.5);
 }
+
+
+/* ── Filter Grid Center Alignment Fix ────────────────────── */
+.product-grid {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  gap: 2rem !important;
+  width: 100% !important;
+}
+.product-card {
+  flex: 0 1 300px !important;
+  max-width: 320px !important;
+  width: 100% !important;
+}
+.product-card-image {
+  height: 280px !important;
+  width: 100% !important;
+  overflow: hidden !important;
+  position: relative !important;
+}
+.product-card-image img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
+/* ── Filter Tabs Dark Mode Contrast Fix ───────────────────── */
+.skin-tab {
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+  background: transparent;
+  transition: all .25s var(--ease-smooth);
+}
+[data-theme="dark"] .skin-tab {
+  color: #FFFFFF !important; /* Crisp white text in dark mode! */
+  border-color: rgba(251, 247, 242, 0.25) !important;
+  background: rgba(251, 247, 242, 0.08) !important;
+}
+[data-theme="dark"] .skin-tab:hover,
+[data-theme="dark"] .skin-tab.active {
+  background: var(--champagne) !important;
+  color: var(--espresso) !important;
+  border-color: var(--champagne) !important;
+}
+
+/* ── Personalised For You (Skin Quiz) Fixed Dark Luxury Theme ──── */
+.quiz-section,
+[data-theme="light"] .quiz-section,
+[data-theme="dark"] .quiz-section {
+  background: #2A2022 !important; /* Fixed Rich Dark Espresso in ALL themes */
+  color: #FBF7F2 !important;
+}
+.quiz-section .subtitle,
+[data-theme="light"] .quiz-section .subtitle {
+  color: #C9A66B !important;
+}
+.quiz-section h2,
+[data-theme="light"] .quiz-section h2 {
+  color: #FBF7F2 !important;
+}
+.quiz-section h2 em,
+[data-theme="light"] .quiz-section h2 em {
+  color: #D8A7A7 !important;
+}
+.quiz-section p,
+[data-theme="light"] .quiz-section p {
+  color: rgba(251, 247, 242, 0.8) !important;
+}
+.quiz-feature-text,
+[data-theme="light"] .quiz-feature span {
+  color: #FBF7F2 !important;
+}
+.quiz-card,
+[data-theme="light"] .quiz-card {
+  background: rgba(42, 32, 34, 0.6) !important;
+  backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(251, 247, 242, 0.15) !important;
+}
+.quiz-q,
+[data-theme="light"] .quiz-q {
+  color: #FBF7F2 !important;
+  font-weight: 600 !important;
+}
+.quiz-option,
+[data-theme="light"] .quiz-option {
+  background: rgba(251, 247, 242, 0.06) !important;
+  border: 1px solid rgba(251, 247, 242, 0.15) !important;
+  color: #FBF7F2 !important;
+}
+.quiz-option:hover,
+.quiz-option.selected,
+[data-theme="light"] .quiz-option:hover,
+[data-theme="light"] .quiz-option.selected {
+  background: #4A2633 !important;
+  border-color: #C9A66B !important;
+  color: #FBF7F2 !important;
+}
+.quiz-option.selected .quiz-svg-icon {
+  background: rgba(201, 166, 107, 0.25) !important;
+  color: #C9A66B !important;
+}
+
+/* ── Testimonial Author Avatars ───────────────────────────── */
+.testimonial-author {
+  display: flex !important;
+  align-items: center !important;
+  gap: 1rem !important;
+  margin-top: 1.5rem !important;
+}
+.testimonial-avatar {
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  border: 2px solid var(--champagne) !important;
+  flex-shrink: 0 !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
+}
+.testimonial-name {
+  display: block !important;
+  font-size: 1rem !important;
+  color: var(--text-primary) !important;
+  margin-bottom: .15rem !important;
+}
+.testimonial-role {
+  display: block !important;
+  font-size: .8rem !important;
+  color: var(--text-secondary) !important;
+}
