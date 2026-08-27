@@ -2572,11 +2572,15 @@ select.form-control { appearance: none; cursor: pointer; }
 
 
 /* ── Product Card Descriptions & Select Dropdown Arrows ──── */
+.product-card-title {
+  margin-bottom: 0.25rem !important;
+}
+
 .product-card-desc {
   font-size: 0.82rem !important;
-  line-height: 1.55 !important;
+  line-height: 1.45 !important;
   color: var(--text-secondary) !important;
-  margin-top: 0.4rem !important;
+  margin-top: 0.15rem !important;
   margin-bottom: 0.6rem !important;
   display: -webkit-box !important;
   line-clamp: 2 !important;
