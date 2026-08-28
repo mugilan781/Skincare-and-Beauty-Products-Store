@@ -381,7 +381,7 @@ const renderCart = () => {
     cartItemsEl.innerHTML = `<div class="cart-empty">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="width:42px;height:42px;opacity:.4"><path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
       <p>Your cart is empty.</p>
-      <a href="services.html" class="btn btn-outline-dark btn-sm" data-cart-close>Start Shopping</a>
+      <a href="services.html" class="btn btn-outline-dark btn-sm" data-cart-close>Continue Shopping</a>
     </div>`;
     cartFooterEl.style.display = 'none';
     return;

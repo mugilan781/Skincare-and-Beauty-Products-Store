@@ -248,7 +248,7 @@ const CART_HTML = `
       <strong id="cartSubtotal">$0.00</strong>
     </div>
     <button class="btn btn-primary" style="width:100%;justify-content:center" data-cart-checkout>Checkout</button>
-    <button class="btn btn-outline-dark btn-sm" style="width:100%;justify-content:center;margin-top:.6rem" data-cart-close>Continue Shopping</button>
+    <a href="services.html" class="btn btn-outline-dark btn-sm" style="width:100%;justify-content:center;margin-top:.6rem" data-cart-close>Continue Shopping</a>
   </div>
 </aside>
 `;
