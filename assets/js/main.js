@@ -907,7 +907,7 @@ const BLOG_DATA = {
     author: 'Dr. Elena Rossi',
     authorRole: 'Board-certified dermatologist & Founder',
     authorBio: 'Board-certified dermatologist and VelourSkin founder. PhD in Cosmetic Chemistry, former clinical researcher at the University of Florence Institute of Dermatology.',
-    authorAvatar: 'assets/images/about-founder.jpg',
+    authorAvatar: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&q=80',
     heroImage: 'assets/images/blog-hero.jpg',
     excerpt: 'Your morning routine sets the tone for the entire day. We walk you through the optimal 6-step ritual with our favourite products, layering secrets and pro tips from our Chief Formulator.',
     products: [
@@ -950,7 +950,7 @@ const BLOG_DATA = {
     author: 'Dr. Elena Rossi',
     authorRole: 'Board-certified dermatologist & Founder',
     authorBio: 'Board-certified dermatologist and VelourSkin founder. PhD in Cosmetic Chemistry, former clinical researcher at the University of Florence Institute of Dermatology.',
-    authorAvatar: 'assets/images/about-founder.jpg',
+    authorAvatar: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&q=80',
     heroImage: 'assets/images/serum-product.jpg',
     excerpt: 'Not all Vitamin C is created equal. We break down L-Ascorbic Acid science, stability challenges, and choosing the right formula.',
     products: [
@@ -981,7 +981,7 @@ const BLOG_DATA = {
     author: 'Marcus Vance',
     authorRole: 'Lead Formulation Chemist',
     authorBio: 'Lead Formulation Chemist with 14+ years of bio-cosmetic development experience specializing in transdermal hydration delivery.',
-    authorAvatar: 'assets/images/about-story.jpg',
+    authorAvatar: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=400&q=80',
     heroImage: 'assets/images/moisturizer-product.jpg',
     excerpt: 'Single-weight HA only scratches the surface. We explain how our multi-weight formula reaches every layer for lasting hydration.',
     products: [
@@ -1013,7 +1013,7 @@ const BLOG_DATA = {
     author: 'Sophia Lin',
     authorRole: 'Senior Esthetician',
     authorBio: 'Senior Esthetician & Spa Director at VelourSkin Flagship Sanctuary, with expertise in botanical detox treatments.',
-    authorAvatar: 'assets/images/review-3.jpg',
+    authorAvatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80',
     heroImage: 'assets/images/facemask-product.jpg',
     excerpt: 'Clay masks are powerful — but misused, they strip essential moisture. Learn the proper application technique and post-mask care.',
     products: [
@@ -1046,7 +1046,7 @@ const BLOG_DATA = {
     author: 'Dr. Elena Rossi',
     authorRole: 'Board-certified dermatologist & Founder',
     authorBio: 'Board-certified dermatologist and VelourSkin founder. PhD in Cosmetic Chemistry, former clinical researcher at the University of Florence Institute of Dermatology.',
-    authorAvatar: 'assets/images/about-founder.jpg',
+    authorAvatar: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&q=80',
     heroImage: 'assets/images/sunscreen-product.jpg',
     excerpt: 'We settle the debate once and for all with an evidence-based comparison of ingredients, efficacy, and skin compatibility.',
     products: [
@@ -1075,7 +1075,7 @@ const BLOG_DATA = {
     author: 'Marcus Vance',
     authorRole: 'Lead Formulation Chemist',
     authorBio: 'Lead Formulation Chemist with 14+ years of bio-cosmetic development experience specializing in transdermal hydration delivery.',
-    authorAvatar: 'assets/images/about-story.jpg',
+    authorAvatar: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=400&q=80',
     heroImage: 'assets/images/ingredients-botanical.jpg',
     excerpt: 'Retinol is scientifically proven for anti-aging. But starting incorrectly causes irritation. Here is your fail-proof beginner plan.',
     products: [
@@ -1108,7 +1108,7 @@ const BLOG_DATA = {
     author: 'Sophia Lin',
     authorRole: 'Senior Esthetician',
     authorBio: 'Senior Esthetician & Spa Director at VelourSkin Flagship Sanctuary, with expertise in botanical detox treatments.',
-    authorAvatar: 'assets/images/review-3.jpg',
+    authorAvatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80',
     heroImage: 'assets/images/skincare-routine.jpg',
     excerpt: 'Your evening routine isn\'t just skincare — it\'s self-care. Transform your nightly ritual into a practice that nourishes mind & skin.',
     products: [
@@ -1130,9 +1130,8 @@ const BLOG_DATA = {
 };
 
 const initBlogDetails = () => {
-  const heroImg = $('#detailHeroImg');
   const titleEl = $('#detailTitle');
-  if (!heroImg && !titleEl) return;
+  if (!titleEl) return;
 
   const urlParams = new URLSearchParams(window.location.search);
   const postId = urlParams.get('id') || 'morning-skincare-ritual';
@@ -1140,12 +1139,6 @@ const initBlogDetails = () => {
 
   // Update Page Title
   document.title = `${post.title} — VelourSkin Journal`;
-
-  // Hero Image
-  if (heroImg) {
-    heroImg.src = post.heroImage;
-    heroImg.alt = post.title;
-  }
 
   // Meta info
   const tagEl = $('#detailTag');
@@ -1155,10 +1148,7 @@ const initBlogDetails = () => {
   if (dateEl) dateEl.textContent = post.date;
 
   const readTimeEl = $('#detailReadTime');
-  if (readTimeEl) readTimeEl.textContent = `· ${post.readTime}`;
-
-  const authorSpanEl = $('#detailAuthorSpan');
-  if (authorSpanEl) authorSpanEl.textContent = `By ${post.author}`;
+  if (readTimeEl) readTimeEl.textContent = post.readTime;
 
   // Breadcrumb
   const breadcrumbEl = $('#detailBreadcrumb');
@@ -1174,13 +1164,26 @@ const initBlogDetails = () => {
     }
   }
 
+  // Hero Author Pill
+  const heroAvatar = $('#detailHeroAuthorAvatar');
+  if (heroAvatar) {
+    heroAvatar.src = post.authorAvatar;
+    heroAvatar.alt = post.author;
+  }
+
+  const heroAuthorName = $('#detailHeroAuthorName');
+  if (heroAuthorName) heroAuthorName.textContent = post.author;
+
+  const heroAuthorRole = $('#detailHeroAuthorRole');
+  if (heroAuthorRole) heroAuthorRole.textContent = post.authorRole;
+
   // Main Content
   const contentEl = $('#detailContent');
   if (contentEl) {
     contentEl.innerHTML = post.content;
   }
 
-  // Author Bio
+  // Author Bio at bottom of article
   const authorAvatarEl = $('#detailAuthorAvatar');
   if (authorAvatarEl) {
     authorAvatarEl.src = post.authorAvatar;
@@ -1254,4 +1257,5 @@ const initBlogDetails = () => {
 
 /* ── Expose globals if needed ─────────────────────────────── */
 window.VelourSkin = { showToast, addToCart, store, openCart, closeCart, BLOG_DATA, initBlogDetails };
+
 

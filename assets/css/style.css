@@ -972,11 +972,41 @@ section { padding-block: var(--space-xl); }
 /* Breadcrumb */
 .breadcrumb {
   display: flex; align-items: center; gap: .5rem;
-  font-size: .78rem; color: rgba(251,247,242,0.6);
+  font-size: .82rem; color: var(--text-secondary);
   justify-content: center; margin-top: 1.5rem;
 }
-.breadcrumb a:hover { color: var(--champagne); }
-.breadcrumb-sep { color: var(--champagne); }
+.breadcrumb a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color var(--dur-fast);
+}
+.breadcrumb a:hover {
+  color: var(--rosewood);
+}
+.breadcrumb-sep {
+  color: var(--champagne);
+  font-size: .85rem;
+  user-select: none;
+}
+.breadcrumb [aria-current="page"] {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* Page Hero Breadcrumb (Dark background) */
+.page-hero .breadcrumb {
+  color: rgba(255, 255, 255, 0.75);
+}
+.page-hero .breadcrumb a {
+  color: rgba(255, 255, 255, 0.75);
+}
+.page-hero .breadcrumb a:hover {
+  color: var(--champagne);
+}
+.page-hero .breadcrumb [aria-current="page"] {
+  color: var(--ivory);
+  font-weight: 600;
+}
 
 /* ── Services Grid ────────────────────────────────────────── */
 .services-grid {

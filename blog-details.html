@@ -22,40 +22,52 @@
   <div id="navMount"></div>
 
   <main>
-    <!-- ── SECTION 1: Blog Hero ─────────────────────────────── -->
-    <div class="blog-detail-hero" style="margin-top:80px;">
-      <img id="detailHeroImg" src="assets/images/blog-hero.jpg" alt="Blog Hero Image" loading="eager">
-    </div>
+    <!-- ── SECTION 1: Text-Based Hero Banner (No Image) ─────── -->
+    <section class="page-hero blog-detail-hero-banner" style="padding: 7.5rem 0 4rem;">
+      <div class="container text-center">
+        <div style="display:inline-flex;align-items:center;gap:.6rem;margin-bottom:1.25rem;flex-wrap:wrap;justify-content:center;">
+          <span id="detailTag" class="blog-card-tag">Routines</span>
+          <span style="color:rgba(255,255,255,0.3)">•</span>
+          <span id="detailDate" style="font-size:.85rem;color:rgba(255,255,255,0.8)">August 20, 2026</span>
+          <span style="color:rgba(255,255,255,0.3)">•</span>
+          <span id="detailReadTime" style="font-size:.85rem;color:rgba(255,255,255,0.8)">8 min read</span>
+        </div>
+
+        <h1 id="detailTitle" style="font-size:clamp(2rem,4.5vw,3.5rem);line-height:1.2;max-width:920px;margin:0 auto 2rem;color:var(--ivory);">
+          The Ultimate Morning Skincare Ritual for <em>Radiant, Glowing Skin</em>
+        </h1>
+
+        <!-- Author Banner in Hero -->
+        <div id="detailHeroAuthor" style="display:inline-flex;align-items:center;gap:1rem;background:rgba(255,255,255,0.08);border:1px solid rgba(201,166,107,0.3);padding:.5rem 1.4rem;border-radius:100px;backdrop-filter:blur(8px);margin-bottom:2rem;">
+          <img id="detailHeroAuthorAvatar" src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&q=80" alt="Author" style="width:46px;height:46px;border-radius:50%;object-fit:cover;border:2px solid var(--champagne);">
+          <div style="text-align:left;">
+            <div id="detailHeroAuthorName" style="font-weight:700;font-size:.92rem;color:var(--ivory);line-height:1.2;">Dr. Elena Rossi</div>
+            <div id="detailHeroAuthorRole" style="font-size:.78rem;color:var(--champagne);">Board-certified dermatologist &amp; Founder</div>
+          </div>
+        </div>
+
+        <!-- Breadcrumb in Hero -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a><span class="breadcrumb-sep">/</span>
+          <a href="blog.html">Journal</a><span class="breadcrumb-sep">/</span>
+          <span id="detailBreadcrumb" aria-current="page">Morning Ritual</span>
+        </nav>
+      </div>
+    </section>
 
     <!-- ── SECTION 2: Article Content ──────────────────────── -->
-    <section>
+    <section style="padding: 4rem 0;">
       <div class="container">
         <div style="display:grid;grid-template-columns:1fr 340px;gap:5rem;align-items:start;">
           <article>
-            <!-- Meta -->
-            <div style="display:flex;gap:1rem;margin-bottom:2rem;flex-wrap:wrap;align-items:center;">
-              <span id="detailTag" class="blog-card-tag">Routines</span>
-              <span id="detailDate" style="font-size:.78rem;color:var(--text-secondary)">August 20, 2026</span>
-              <span id="detailReadTime" style="font-size:.78rem;color:var(--text-secondary)">· 8 min read</span>
-              <span id="detailAuthorSpan" style="font-size:.78rem;color:var(--text-secondary)">By Dr. Elena Rossi</span>
-            </div>
-
-            <nav class="breadcrumb" aria-label="Breadcrumb" style="justify-content:flex-start;margin-bottom:2rem;">
-              <a href="index.html">Home</a><span class="breadcrumb-sep">/</span>
-              <a href="blog.html">Journal</a><span class="breadcrumb-sep">/</span>
-              <span id="detailBreadcrumb" aria-current="page">Morning Ritual</span>
-            </nav>
-
-            <h1 id="detailTitle" style="font-size:clamp(2rem,4vw,3.2rem);line-height:1.15;margin-bottom:1.5rem">The Ultimate Morning Skincare Ritual for <em>Radiant, Glowing Skin</em></h1>
-
             <div id="detailContent" class="blog-content">
               <!-- Dynamically Populated by main.js -->
             </div>
 
             <!-- Author Bio -->
-            <div class="blog-author">
+            <div class="blog-author" style="margin-top:3rem;">
               <div class="blog-author-avatar">
-                <img id="detailAuthorAvatar" src="assets/images/about-founder.jpg" alt="Author" loading="lazy">
+                <img id="detailAuthorAvatar" src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&q=80" alt="Author" loading="lazy" style="width:72px;height:72px;border-radius:50%;object-fit:cover;border:2px solid var(--champagne);">
               </div>
               <div>
                 <p id="detailAuthorName" class="blog-author-name">Dr. Elena Rossi</p>
