@@ -188,19 +188,33 @@ section { padding-block: var(--space-xl); }
   padding: .5rem var(--space-md);
   font-size: .75rem;
   font-weight: 500;
-  letter-spacing: .12em;
+  letter-spacing: .08em;
   text-transform: uppercase;
   position: relative;
   overflow: hidden;
-  max-height: 40px;
+  max-height: 100px;
   opacity: 1;
   transition: max-height 0.4s var(--ease-smooth), opacity 0.3s var(--ease-smooth), padding 0.4s var(--ease-smooth);
+}
+.announcement-bar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .75rem;
+  flex-wrap: wrap;
+  line-height: 1.4;
+}
+.announcement-sep {
+  color: var(--champagne);
+  opacity: 0.8;
+  font-size: .8rem;
 }
 .announcement-bar::before {
   content: '';
   position: absolute; inset: 0;
   background: linear-gradient(90deg, transparent 0%, rgba(201,166,107,0.15) 50%, transparent 100%);
   animation: shimmerBar 3s ease-in-out infinite;
+  pointer-events: none;
 }
 @keyframes shimmerBar { 0%,100% { opacity: 0; } 50% { opacity: 1; } }
 
@@ -212,6 +226,7 @@ section { padding-block: var(--space-xl); }
   padding-bottom: 0;
   pointer-events: none;
 }
+
 
 /* ── Navbar ───────────────────────────────────────────────── */
 .navbar {
@@ -1433,11 +1448,22 @@ html, body {
   .container {
     padding-inline: 1.75rem;
   }
+  .announcement-bar {
+    max-height: 100px;
+    padding: .45rem 1rem;
+    font-size: .72rem;
+  }
+  .announcement-bar-inner {
+    gap: .6rem;
+  }
   .nav-menu {
-    display: none;
+    display: none !important;
   }
   .nav-hamburger {
-    display: flex;
+    display: flex !important;
+  }
+  .navbar-inner {
+    gap: 1rem;
   }
   .grid-4 {
     grid-template-columns: repeat(2, 1fr);
@@ -1527,6 +1553,40 @@ html, body {
   }
   .container {
     padding-inline: 1.25rem;
+  }
+  
+  /* Header & Navigation */
+  .announcement-bar {
+    font-size: .72rem;
+    padding: .4rem .75rem;
+    letter-spacing: .06em;
+  }
+  .navbar {
+    padding: .85rem 0;
+  }
+  .navbar.scrolled {
+    padding: .6rem 0;
+  }
+  .navbar-inner {
+    gap: .75rem;
+  }
+  .nav-logo {
+    font-size: 1.45rem;
+  }
+  .nav-actions {
+    gap: .5rem;
+  }
+  .nav-icon-btn {
+    width: 36px;
+    height: 36px;
+  }
+  .nav-icon-btn svg {
+    width: 18px;
+    height: 18px;
+  }
+  .theme-toggle, .rtl-toggle {
+    width: 34px;
+    height: 34px;
   }
   
   /* Typography */
@@ -1658,6 +1718,63 @@ html, body {
     padding-inline: 1rem;
   }
   
+  /* Header & Navigation */
+  .announcement-bar {
+    font-size: .68rem;
+    padding: .35rem .6rem;
+    line-height: 1.35;
+    max-height: none;
+    letter-spacing: .04em;
+  }
+  .navbar {
+    padding: .65rem 0;
+  }
+  .navbar.scrolled {
+    padding: .5rem 0;
+  }
+  .navbar-inner {
+    gap: .35rem;
+    justify-content: space-between;
+  }
+  .nav-logo {
+    font-size: 1.3rem;
+    letter-spacing: .02em;
+  }
+  .nav-actions {
+    gap: .35rem;
+  }
+  .nav-icon-btn {
+    width: 34px;
+    height: 34px;
+  }
+  .nav-icon-btn svg {
+    width: 17px;
+    height: 17px;
+  }
+  .theme-toggle, .rtl-toggle {
+    width: 32px;
+    height: 32px;
+  }
+  .theme-toggle svg {
+    width: 16px;
+    height: 16px;
+  }
+  .nav-hamburger {
+    padding: 3px;
+  }
+  .nav-hamburger span {
+    width: 22px;
+    height: 1.5px;
+  }
+  .mobile-nav {
+    width: min(290px, 85vw);
+    padding: 4.5rem 1.5rem 1.5rem;
+  }
+  .mobile-nav a {
+    font-size: 1.15rem;
+    padding: .55rem 0;
+  }
+  
   /* Buttons */
   .btn {
     padding: .75rem 1.4rem;
@@ -1666,26 +1783,6 @@ html, body {
   .btn-lg {
     padding: .85rem 1.6rem;
     font-size: .85rem;
-  }
-  
-  /* Navigation */
-  .nav-actions {
-    gap: .35rem;
-  }
-  .nav-action-btn {
-    width: 36px;
-    height: 36px;
-  }
-  .nav-action-btn svg {
-    width: 17px;
-    height: 17px;
-  }
-  .nav-logo-text {
-    font-size: 1.35rem;
-  }
-  .announcement-bar {
-    font-size: .72rem;
-    padding: .45rem .75rem;
   }
   
   /* Heroes */
@@ -1850,31 +1947,75 @@ html, body {
     padding-inline: 0.85rem;
   }
   
+  /* Header & Navigation */
+  .announcement-bar {
+    font-size: .64rem;
+    padding: .3rem .45rem;
+    letter-spacing: .02em;
+  }
+  .navbar {
+    padding: .5rem 0;
+  }
+  .navbar.scrolled {
+    padding: .4rem 0;
+  }
+  .navbar-inner {
+    gap: .25rem;
+  }
+  .nav-logo {
+    font-size: 1.15rem;
+    letter-spacing: .01em;
+  }
+  .nav-actions {
+    gap: .25rem;
+  }
+  .nav-icon-btn {
+    width: 30px;
+    height: 30px;
+  }
+  .nav-icon-btn svg {
+    width: 15px;
+    height: 15px;
+  }
+  .theme-toggle {
+    width: 30px;
+    height: 30px;
+  }
+  .theme-toggle svg {
+    width: 15px;
+    height: 15px;
+  }
+  .rtl-toggle {
+    display: none !important;
+  }
+  .cart-badge, .wishlist-badge {
+    width: 15px;
+    height: 15px;
+    font-size: .55rem;
+    top: -2px;
+    right: -2px;
+  }
+  .nav-hamburger {
+    padding: 3px 2px;
+  }
+  .nav-hamburger span {
+    width: 20px;
+    height: 1.5px;
+  }
+  .mobile-nav {
+    width: min(270px, 88vw);
+    padding: 4rem 1.25rem 1.25rem;
+  }
+  .mobile-nav a {
+    font-size: 1.05rem;
+    padding: .45rem 0;
+  }
+  
   /* Headers & Typography */
   h1 { font-size: 1.65rem; }
   h2 { font-size: 1.45rem; }
   h3 { font-size: 1.2rem; }
   .subtitle { font-size: .68rem; letter-spacing: .18em; }
-  
-  /* Navigation */
-  .nav-logo-text {
-    font-size: 1.22rem;
-  }
-  .announcement-bar {
-    font-size: .68rem;
-    padding: .35rem .5rem;
-  }
-  .nav-actions {
-    gap: .25rem;
-  }
-  .nav-action-btn {
-    width: 32px;
-    height: 32px;
-  }
-  .nav-action-btn svg {
-    width: 15px;
-    height: 15px;
-  }
   
   /* Hero */
   .hero-slider {
@@ -1947,16 +2088,86 @@ html, body {
   .container {
     padding-inline: 0.65rem;
   }
+  
+  /* Header & Navigation */
+  .site-header {
+    width: 100%;
+    max-width: 100vw;
+  }
+  .announcement-bar {
+    font-size: .6rem;
+    padding: .25rem .35rem;
+    line-height: 1.3;
+    letter-spacing: 0;
+  }
+  .navbar {
+    padding: .4rem 0;
+  }
+  .navbar.scrolled {
+    padding: .35rem 0;
+  }
+  .navbar-inner {
+    gap: 4px;
+  }
+  .nav-logo {
+    font-size: 1.02rem;
+    letter-spacing: 0;
+  }
+  .nav-actions {
+    gap: 4px;
+  }
+  .nav-icon-btn {
+    width: 28px;
+    height: 28px;
+  }
+  .nav-icon-btn svg {
+    width: 14px;
+    height: 14px;
+  }
+  .theme-toggle {
+    width: 28px;
+    height: 28px;
+  }
+  .theme-toggle svg {
+    width: 14px;
+    height: 14px;
+  }
+  .rtl-toggle {
+    display: none !important;
+  }
+  .cart-badge, .wishlist-badge {
+    width: 14px;
+    height: 14px;
+    font-size: .52rem;
+    top: -3px;
+    right: -3px;
+  }
+  .nav-hamburger {
+    padding: 2px 1px;
+  }
+  .nav-hamburger span {
+    width: 18px;
+    height: 1.5px;
+  }
+  .mobile-nav {
+    width: min(250px, 92vw);
+    padding: 3.5rem 1rem 1rem;
+  }
+  .mobile-nav a {
+    font-size: 1rem;
+    padding: .4rem 0;
+  }
+  .mobile-nav-logo {
+    font-size: 1.25rem;
+    margin-bottom: 1.2rem;
+  }
+
+  /* Global Typography */
   h1 { font-size: 1.5rem; }
   h2 { font-size: 1.3rem; }
   h3 { font-size: 1.1rem; }
-  .nav-logo-text {
-    font-size: 1.12rem;
-  }
-  .announcement-bar {
-    font-size: .64rem;
-    padding: .3rem .4rem;
-  }
+  
+  /* Buttons */
   .btn {
     padding: .65rem 1rem;
     font-size: .74rem;
@@ -1965,6 +2176,8 @@ html, body {
     padding: .45rem .8rem;
     font-size: .7rem;
   }
+  
+  /* Heroes */
   .hero-slide-content h1 {
     font-size: 1.5rem;
   }
@@ -1974,12 +2187,16 @@ html, body {
   .stats-grid {
     grid-template-columns: 1fr;
   }
+  
+  /* Modals */
   .modal-card {
     padding: 1.2rem .65rem !important;
   }
   .modal-card h2 {
     font-size: 1.25rem !important;
   }
+  
+  /* Checkout */
   .checkout-item {
     gap: .6rem;
   }
@@ -1988,6 +2205,7 @@ html, body {
     height: 44px;
   }
 }
+
 
 
 /* Wishlist Card Action Styling & Dark Mode Contrast */

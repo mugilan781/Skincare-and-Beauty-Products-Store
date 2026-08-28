@@ -71,7 +71,13 @@ const NAV_HTML = `
 <header id="siteHeader" class="site-header" role="banner">
   <!-- Announcement Bar -->
   <div class="announcement-bar">
-    Free shipping on orders over $75 &nbsp;|&nbsp; New: Rose Glow Serum — Shop Now &nbsp;|&nbsp; Complimentary sample with every order
+    <div class="container announcement-bar-inner">
+      <span>Free shipping on orders over $75</span>
+      <span class="announcement-sep">•</span>
+      <span>New: Rose Glow Serum — <a href="services.html" style="color:var(--champagne);text-decoration:underline;">Shop Now</a></span>
+      <span class="announcement-sep">•</span>
+      <span>Complimentary sample with every order</span>
+    </div>
   </div>
 
   <!-- Navbar -->
