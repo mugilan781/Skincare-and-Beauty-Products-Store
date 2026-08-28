@@ -329,4 +329,173 @@
   .skin-type-grid { grid-template-columns: 1fr 1fr; }
 }
 
+/* ── Checkout Page ────────────────────────────────────────── */
+.checkout-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+@media (max-width: 992px) {
+  .checkout-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+.checkout-step-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  margin-bottom: 1.75rem;
+  box-shadow: var(--shadow-card);
+}
+.checkout-step-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: .85rem;
+  border-bottom: 1px solid var(--border-color);
+}
+.checkout-step-num {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--rosewood);
+  color: var(--ivory);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: .88rem;
+  flex-shrink: 0;
+}
+.checkout-summary-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  position: sticky;
+  top: 100px;
+  box-shadow: var(--shadow-card);
+}
+.checkout-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-block: .75rem;
+  border-bottom: 1px solid var(--border-color);
+}
+.checkout-item:last-child {
+  border-bottom: none;
+}
+.checkout-item-img {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 1px solid var(--border-color);
+}
+.checkout-item-details {
+  flex: 1;
+}
+.checkout-item-title {
+  font-weight: 600;
+  font-size: .88rem;
+  margin-bottom: .2rem;
+}
+.checkout-item-price {
+  font-size: .82rem;
+  color: var(--champagne);
+  font-weight: 600;
+}
+.shipping-option-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: .85rem 1.15rem;
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  margin-bottom: .75rem;
+  transition: all var(--dur-fast);
+}
+.shipping-option-card:hover,
+.shipping-option-card.selected {
+  border-color: var(--rosewood);
+  background: rgba(139, 44, 56, 0.04);
+}
+.payment-tabs {
+  display: flex;
+  gap: .75rem;
+  margin-bottom: 1.5rem;
+}
+.payment-tab-btn {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  padding: .8rem .6rem;
+  text-align: center;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: .85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--dur-fast);
+}
+.payment-tab-btn svg {
+  flex-shrink: 0;
+  transition: transform var(--dur-fast);
+}
+.payment-tab-btn.active {
+  border-color: var(--rosewood);
+  color: var(--rosewood);
+  background: rgba(139, 44, 56, 0.06);
+}
 
+/* ── Modal System ─────────────────────────────────────────── */
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-modal, 300);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity var(--dur-normal) var(--ease-smooth), visibility var(--dur-normal);
+}
+.modal.open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+.modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(26, 20, 18, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.modal-card {
+  position: relative;
+  z-index: 2;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl, 16px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+  transform: scale(0.92) translateY(20px);
+  transition: transform var(--dur-normal) var(--ease-bounce);
+  max-width: 100%;
+}
+.modal.open .modal-card {
+  transform: scale(1) translateY(0);
+}

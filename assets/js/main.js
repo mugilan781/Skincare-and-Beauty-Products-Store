@@ -293,15 +293,34 @@ const initSearch = () => {
 /* ── Cart ─────────────────────────────────────────────────── */
 let cart = store.get('velour-cart') || [];
 
+const getProductImage = (id, name) => {
+  const n = (name || id || '').toLowerCase();
+  if (n.includes('cleanser') || n.includes('foam')) return 'assets/images/cleanser-product.jpg';
+  if (n.includes('micellar') || n.includes('rose water')) return 'assets/images/rose-micellar.jpg';
+  if (n.includes('night') || n.includes('peptide')) return 'assets/images/peptide-night-cream.jpg';
+  if (n.includes('moistur') || n.includes('cream') || n.includes('hydrat')) return 'assets/images/moisturizer-product.jpg';
+  if (n.includes('24k') || n.includes('gold')) return 'assets/images/gold-24k-mask.jpg';
+  if (n.includes('ceramide') || n.includes('sleeping')) return 'assets/images/ceramide-overnight-mask.jpg';
+  if (n.includes('mask') || n.includes('clay')) return 'assets/images/facemask-product.jpg';
+  if (n.includes('sun') || n.includes('spf') || n.includes('shield')) return 'assets/images/sunscreen-product.jpg';
+  if (n.includes('oil') || n.includes('rosehip')) return 'assets/images/rosehip-oil.jpg';
+  return 'assets/images/serum-product.jpg';
+};
+
 const updateCartBadge = () => {
   const count = cart.reduce((sum, item) => sum + item.qty, 0);
   $$('.cart-badge').forEach(el => { el.textContent = count; el.style.display = count ? 'flex' : 'none'; });
 };
 
-const addToCart = (id, name, price) => {
+const addToCart = (id, name, price, image) => {
+  const imgUrl = image || getProductImage(id, name);
   const existing = cart.find(i => i.id === id);
-  if (existing) { existing.qty++; }
-  else { cart.push({ id, name, price: Number(price), qty: 1 }); }
+  if (existing) {
+    existing.qty++;
+    if (!existing.image) existing.image = imgUrl;
+  } else {
+    cart.push({ id, name, price: Number(price), image: imgUrl, qty: 1 });
+  }
   store.set('velour-cart', cart);
   updateCartBadge();
   showToast(`Added to cart: ${name}`);
@@ -316,7 +335,8 @@ const initAddToCart = () => {
     const id    = btn.dataset.addCart;
     const name  = btn.dataset.name  || 'Product';
     const price = btn.dataset.price || '0';
-    addToCart(id, name, price);
+    const image = btn.dataset.image || getProductImage(id, name);
+    addToCart(id, name, price, image);
   });
 };
 
@@ -345,6 +365,7 @@ const openCart = () => {
 };
 
 const closeCart = () => {
+  if (!cartDrawer) return;
   cartDrawer.classList.remove('open');
   cartOverlay.classList.remove('show');
   cartDrawer.setAttribute('aria-hidden', 'true');
@@ -365,24 +386,28 @@ const renderCart = () => {
   }
   cartFooterEl.style.display = '';
   cartCountLabel.textContent = `(${cart.reduce((s, i) => s + i.qty, 0)})`;
-  cartItemsEl.innerHTML = cart.map(item => `
-    <div class="cart-item" data-cart-item="${item.id}">
-      <div class="cart-item-info">
-        <p class="cart-item-name">${item.name}</p>
-        <p class="cart-item-price">${money(item.price)}</p>
-      </div>
-      <div class="cart-item-actions">
-        <div class="qty-control" style="margin:0">
-          <button type="button" data-cart-dec aria-label="Decrease">−</button>
-          <span class="qty-value">${item.qty}</span>
-          <button type="button" data-cart-inc aria-label="Increase">+</button>
+  cartItemsEl.innerHTML = cart.map(item => {
+    const imgPath = item.image || getProductImage(item.id, item.name);
+    return `
+      <div class="cart-item" data-cart-item="${item.id}" style="display:flex;gap:.85rem;align-items:center;padding:.85rem 0;border-bottom:1px solid var(--border-color)">
+        <img src="${imgPath}" alt="${item.name}" style="width:52px;height:52px;border-radius:var(--radius-md);object-fit:cover;flex-shrink:0;border:1px solid var(--border-color);" onerror="this.onerror=null;this.src='assets/images/serum-product.jpg';">
+        <div class="cart-item-info" style="flex:1">
+          <p class="cart-item-name" style="font-weight:600;font-size:.88rem;margin:0 0 .2rem 0;line-height:1.3">${item.name}</p>
+          <p class="cart-item-price" style="font-size:.82rem;color:var(--champagne);margin:0;font-weight:600">${money(item.price)}</p>
         </div>
-        <button class="cart-item-remove" data-cart-remove aria-label="Remove item">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 6l12 12M18 6L6 18"/></svg>
-        </button>
+        <div class="cart-item-actions" style="display:flex;align-items:center;gap:.35rem">
+          <div class="qty-control" style="margin:0">
+            <button type="button" data-cart-dec aria-label="Decrease">−</button>
+            <span class="qty-value">${item.qty}</span>
+            <button type="button" data-cart-inc aria-label="Increase">+</button>
+          </div>
+          <button class="cart-item-remove" data-cart-remove aria-label="Remove item" style="background:none;border:none;color:#E74C3C;cursor:pointer;margin-left:.4rem;padding:2px">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="width:18px;height:18px"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 6l12 12M18 6L6 18"/></svg>
+          </button>
+        </div>
       </div>
-    </div>
-  `).join('');
+    `;
+  }).join('');
   const subtotal = cart.reduce((s, i) => s + Number(i.price) * i.qty, 0);
   cartSubtotalEl.textContent = money(subtotal);
 };
@@ -414,26 +439,229 @@ const initCartDrawer = () => {
   if (!cartDrawer) return;
   on(cartOverlay, 'click', closeCart);
   $$('[data-cart-open]').forEach(btn => on(btn, 'click', openCart));
-  on(cartDrawer, 'click', e => { if (e.target.closest('[data-cart-close]')) closeCart(); });
+  on(document, 'click', e => { if (e.target.closest('[data-cart-close]')) closeCart(); });
   on(document, 'keydown', e => { if (e.key === 'Escape' && cartDrawer.classList.contains('open')) closeCart(); });
 
-  on(cartItemsEl, 'click', e => {
-    const inc = e.target.closest('[data-cart-inc]');
-    const dec = e.target.closest('[data-cart-dec]');
-    const rem = e.target.closest('[data-cart-remove]');
-    const row = e.target.closest('[data-cart-item]');
-    if (!row) return;
-    const id = row.dataset.cartItem;
-    if (inc) changeQty(id, 1);
-    else if (dec) changeQty(id, -1);
-    else if (rem) removeFromCart(id);
+  if (cartItemsEl) {
+    on(cartItemsEl, 'click', e => {
+      const inc = e.target.closest('[data-cart-inc]');
+      const dec = e.target.closest('[data-cart-dec]');
+      const rem = e.target.closest('[data-cart-remove]');
+      const row = e.target.closest('[data-cart-item]');
+      if (!row) return;
+      const id = row.dataset.cartItem;
+      if (inc) changeQty(id, 1);
+      else if (dec) changeQty(id, -1);
+      else if (rem) removeFromCart(id);
+    });
+  }
+
+  on(document, 'click', e => {
+    const checkoutBtn = e.target.closest('[data-cart-checkout]');
+    if (!checkoutBtn) return;
+    e.preventDefault();
+    const currentCart = store.get('velour-cart') || [];
+    if (!currentCart.length) { showToast('Your cart is empty'); return; }
+    closeCart();
+    window.location.href = 'checkout.html';
+  });
+};
+
+/* ── Checkout Page Logic ──────────────────────────────────── */
+const initCheckout = () => {
+  const checkoutForm = $('#checkoutForm');
+  if (!checkoutForm) return;
+
+  const productImages = {
+    'prod-1': 'assets/images/serum.jpg',
+    'prod-2': 'assets/images/cream.jpg',
+    'prod-3': 'assets/images/cleanser.jpg',
+    'prod-4': 'assets/images/eye-cream.jpg',
+    'prod-5': 'assets/images/hero-bg.jpg',
+    'prod-6': 'assets/images/essence.jpg',
+    'prod-7': 'assets/images/skincare-routine.jpg',
+    'prod-8': 'assets/images/night-cream.jpg'
+  };
+
+  let appliedDiscountRate = 0;
+  let currentShippingCost = 0;
+
+  const renderCheckout = () => {
+    const currentCart = store.get('velour-cart') || [];
+    const countEl = $('#checkoutCartCount');
+    const itemsEl = $('#checkoutCartItems');
+    const subtotalEl = $('#summarySubtotal');
+    const discountEl = $('#summaryDiscount');
+    const discountRow = $('#discountRow');
+    const shippingEl = $('#summaryShipping');
+    const taxEl = $('#summaryTax');
+    const totalEl = $('#summaryTotal');
+
+    const totalCount = currentCart.reduce((sum, item) => sum + item.qty, 0);
+    if (countEl) countEl.textContent = totalCount;
+
+    if (!itemsEl) return;
+
+    if (!currentCart.length) {
+      itemsEl.innerHTML = `
+        <div style="text-align:center;padding:2rem 1rem">
+          <p style="color:var(--text-secondary);font-size:.9rem;margin-bottom:1rem">Your cart is empty.</p>
+          <a href="services.html" class="btn btn-outline-dark btn-sm">Shop Skincare</a>
+        </div>
+      `;
+      if (subtotalEl) subtotalEl.textContent = '$0.00';
+      if (shippingEl) shippingEl.textContent = 'FREE';
+      if (taxEl) taxEl.textContent = '$0.00';
+      if (totalEl) totalEl.textContent = '$0.00';
+      return;
+    }
+
+    itemsEl.innerHTML = currentCart.map(item => {
+      const imgPath = productImages[item.id] || 'assets/images/serum.jpg';
+      return `
+        <div class="checkout-item" data-checkout-id="${item.id}">
+          <img src="${imgPath}" alt="${item.name}" class="checkout-item-img">
+          <div class="checkout-item-details">
+            <div class="checkout-item-title">${item.name}</div>
+            <div class="checkout-item-price">$${Number(item.price).toFixed(2)} × ${item.qty}</div>
+          </div>
+          <div style="font-weight:700;font-size:.9rem">$${(Number(item.price) * item.qty).toFixed(2)}</div>
+        </div>
+      `;
+    }).join('');
+
+    const subtotal = currentCart.reduce((sum, item) => sum + Number(item.price) * item.qty, 0);
+    const discount = subtotal * appliedDiscountRate;
+    const taxableAmount = Math.max(0, subtotal - discount);
+    const tax = taxableAmount * 0.05;
+    const grandTotal = taxableAmount + tax + currentShippingCost;
+
+    if (subtotalEl) subtotalEl.textContent = '$' + subtotal.toFixed(2);
+    if (discountRow) {
+      if (appliedDiscountRate > 0) {
+        discountRow.style.display = 'flex';
+        if (discountEl) discountEl.textContent = '-$' + discount.toFixed(2);
+      } else {
+        discountRow.style.display = 'none';
+      }
+    }
+    if (shippingEl) {
+      shippingEl.textContent = currentShippingCost === 0 ? 'FREE' : '$' + currentShippingCost.toFixed(2);
+    }
+    if (taxEl) taxEl.textContent = '$' + tax.toFixed(2);
+    if (totalEl) totalEl.textContent = '$' + grandTotal.toFixed(2);
+  };
+
+  renderCheckout();
+
+  // Shipping Radios
+  $$('input[name="shippingMethod"]').forEach(radio => {
+    on(radio, 'change', () => {
+      $$('.shipping-option-card').forEach(card => card.classList.remove('selected'));
+      radio.closest('.shipping-option-card').classList.add('selected');
+      currentShippingCost = Number(radio.value);
+      renderCheckout();
+    });
   });
 
-  $$('[data-cart-checkout]').forEach(btn => on(btn, 'click', () => {
-    if (!cart.length) { showToast('Your cart is empty'); return; }
-    showToast('Proceeding to checkout…');
-    setTimeout(closeCart, 400);
-  }));
+  // Payment Tabs
+  $$('[data-pay-tab]').forEach(tab => {
+    on(tab, 'click', () => {
+      $$('[data-pay-tab]').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const payType = tab.dataset.payTab;
+      const cardForm = $('#cardPaymentForm');
+      const altNote = $('#altPaymentNote');
+      const altName = $('#altPaymentName');
+      if (payType === 'card') {
+        if (cardForm) cardForm.style.display = 'block';
+        if (altNote) altNote.style.display = 'none';
+      } else {
+        if (cardForm) cardForm.style.display = 'none';
+        if (altNote) altNote.style.display = 'block';
+        if (altName) altName.textContent = payType === 'paypal' ? 'PayPal' : 'Apple Pay';
+      }
+    });
+  });
+
+  // Promo Code
+  const applyPromoBtn = $('#applyPromoBtn');
+  if (applyPromoBtn) {
+    on(applyPromoBtn, 'click', () => {
+      const code = ($('#promoInput').value || '').trim().toUpperCase();
+      const msgEl = $('#promoMessage');
+      if (code === 'VELOUR10') {
+        appliedDiscountRate = 0.10;
+        msgEl.style.color = '#27AE60';
+        msgEl.textContent = '10% Promo discount applied!';
+      } else if (code === 'WELCOME20') {
+        appliedDiscountRate = 0.20;
+        msgEl.style.color = '#27AE60';
+        msgEl.textContent = '20% Welcome discount applied!';
+      } else if (code === 'FREESHIP') {
+        currentShippingCost = 0;
+        msgEl.style.color = '#27AE60';
+        msgEl.textContent = 'Free shipping applied!';
+      } else {
+        appliedDiscountRate = 0;
+        msgEl.style.color = '#E74C3C';
+        msgEl.textContent = 'Invalid promo code. Try VELOUR10 or WELCOME20';
+      }
+      renderCheckout();
+    });
+  }
+
+  // Form Submit / Order Place
+  on(checkoutForm, 'submit', e => {
+    e.preventDefault();
+    const currentCart = store.get('velour-cart') || [];
+    if (!currentCart.length) {
+      showToast('Your cart is empty. Add products before checking out.');
+      return;
+    }
+
+    const email = ($('#checkout-email').value || '').trim();
+    const fname = ($('#ship-fname').value || '').trim();
+    const address = ($('#ship-address').value || '').trim();
+
+    if (!email || !fname || !address) {
+      showToast('Please fill in all required fields.');
+      return;
+    }
+
+    const btn = $('#placeOrderBtn');
+    if (btn) {
+      btn.disabled = true;
+      btn.textContent = 'Processing Order…';
+    }
+
+    setTimeout(() => {
+      const orderId = 'VS-' + Math.floor(100000 + Math.random() * 900000);
+      const modal = $('#orderSuccessModal');
+      const totalEl = $('#summaryTotal');
+
+      if ($('#successOrderId')) $('#successOrderId').textContent = '#' + orderId;
+      if ($('#successAddress')) $('#successAddress').textContent = address;
+      if ($('#successTotalPaid') && totalEl) $('#successTotalPaid').textContent = totalEl.textContent;
+
+      // Clear cart
+      store.set('velour-cart', []);
+      cart = [];
+      updateCartBadge();
+
+      if (modal) {
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden', 'false');
+      }
+
+      if (btn) {
+        btn.disabled = false;
+        btn.textContent = 'Order Placed!';
+      }
+
+      showToast(`Order ${orderId} confirmed!`);
+    }, 900);
+  });
 };
 
 /* ── Wishlist System ───────────────────────────────────────── */
@@ -850,6 +1078,7 @@ document.addEventListener('DOMContentLoaded', () => {
   highlightMobileNav();
   updateCartBadge();
   initBlogDetails();
+  initCheckout();
 
   // Delayed parallax (avoid layout thrash)
   setTimeout(initParallax, 300);
