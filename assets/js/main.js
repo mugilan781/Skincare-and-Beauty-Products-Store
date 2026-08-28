@@ -838,6 +838,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initProductThumbs();
   highlightMobileNav();
   updateCartBadge();
+  initBlogDetails();
 
   // Delayed parallax (avoid layout thrash)
   setTimeout(initParallax, 300);
@@ -895,5 +896,362 @@ const initFooterYear = () => {
   if (el) el.textContent = new Date().getFullYear();
 };
 
+/* ── Blog Details System ──────────────────────────────────── */
+const BLOG_DATA = {
+  'morning-skincare-ritual': {
+    id: 'morning-skincare-ritual',
+    title: 'The Ultimate Morning Skincare Ritual for Radiant, Glowing Skin',
+    tag: 'Routines',
+    date: 'August 20, 2026',
+    readTime: '8 min read',
+    author: 'Dr. Elena Rossi',
+    authorRole: 'Board-certified dermatologist & Founder',
+    authorBio: 'Board-certified dermatologist and VelourSkin founder. PhD in Cosmetic Chemistry, former clinical researcher at the University of Florence Institute of Dermatology.',
+    authorAvatar: 'assets/images/about-founder.jpg',
+    heroImage: 'assets/images/blog-hero.jpg',
+    excerpt: 'Your morning routine sets the tone for the entire day. We walk you through the optimal 6-step ritual with our favourite products, layering secrets and pro tips from our Chief Formulator.',
+    products: [
+      { id: 'cleanser-blog', name: 'Gentle Foam Cleanser', price: 42, image: 'assets/images/cleanser-product.jpg' },
+      { id: 'serum-blog', name: 'Vitamin C Serum', price: 68, image: 'assets/images/serum-product.jpg' },
+      { id: 'moist-blog', name: 'Hyaluronic Cream', price: 78, image: 'assets/images/moisturizer-product.jpg' },
+      { id: 'spf-blog', name: 'Mineral SPF 50', price: 52, image: 'assets/images/sunscreen-product.jpg' }
+    ],
+    content: `
+      <p>Your morning begins before the alarm sounds. Your skin has been working overnight — repairing damage, producing collagen, renewing cells. By the time you wake up, it's primed and ready to receive your skincare ritual.</p>
+      <p>But what exactly is the optimal morning ritual? What goes first? Why does the order matter? And which products will genuinely transform your skin versus simply taking up space on your vanity?</p>
+      <blockquote>Your morning ritual isn't about vanity — it's about giving your skin the tools it needs to protect you all day long.</blockquote>
+      <h2>Step 1: Cleanse — But Gently</h2>
+      <p>Unless you've been sweating heavily overnight, your morning cleanse should be gentle. We recommend a foam cleanser with micellar micelles that lift any nighttime product residue without stripping skin's natural oils. Your skin barrier starts here.</p>
+      <img src="assets/images/cleanser-product.jpg" alt="Gentle Botanical Foam Cleanser" loading="lazy">
+      <p>Lukewarm water only — hot water disrupts the moisture barrier and causes capillary dilation over time. Massage for 60 seconds in circular upward motions. Rinse thoroughly. Pat (never rub) dry.</p>
+      <h2>Step 2: Vitamin C Serum — Your Armour</h2>
+      <p>Vitamin C in the morning is non-negotiable for anyone serious about skin health. Applied before moisturiser and SPF, it creates an antioxidant shield that neutralises free radicals from UV exposure and environmental pollution throughout the day.</p>
+      <img src="assets/images/serum-product.jpg" alt="Vitamin C Brightening Serum" loading="lazy">
+      <p>Use 3–4 drops of our Vitamin C Brightening Serum (15% L-Ascorbic Acid). Apply to slightly damp skin — this enhances absorption. Allow 60 seconds to absorb before proceeding. You may feel a slight warmth — that's the Vitamin C activating on contact with skin.</p>
+      <h2>Step 3: Hyaluronic Acid — Hydration Lock</h2>
+      <p>While skin is still slightly damp, apply your Hyaluronic Acid Serum. HA is a humectant — it draws moisture from the air into the skin. Our multi-weight formula contains three different molecular sizes: low-weight for deep penetration, medium for mid-layers, and high-weight for surface barrier reinforcement.</p>
+      <h2>Step 4: Moisturiser — Seal It In</h2>
+      <p>A lightweight yet nourishing moisturiser seals in everything you've applied beneath it. Look for ceramides, peptides, and niacinamide in your morning formula. These ingredients support the skin barrier while providing anti-aging and brightening benefits.</p>
+      <img src="assets/images/moisturizer-product.jpg" alt="Hyaluronic Hydrating Cream" loading="lazy">
+      <h2>Step 5: SPF — The Most Important Step</h2>
+      <p>If you do one thing after reading this, make it SPF. Mineral SPF 50 should be the final step in your morning routine, every single day, regardless of weather. UV damage is cumulative, accounts for 80% of visible aging, and is entirely preventable.</p>
+      <blockquote>SPF is the best anti-aging product ever created. There is nothing in our entire range that outperforms daily sun protection. — Dr. Elena Rossi</blockquote>
+      <h2>Your Complete Morning Ritual Summary</h2>
+      <p>To summarise your optimal morning routine: Cleanser → Vitamin C Serum → Hyaluronic Acid → Moisturiser → SPF. This 5-step ritual takes approximately 8 minutes and delivers comprehensive skin protection, hydration, and brightening benefits that compound over weeks and months.</p>
+      <p>Consistency is everything. A simple, well-formulated routine performed consistently will always outperform an elaborate routine followed sporadically.</p>
+    `
+  },
+  'vit-c-guide': {
+    id: 'vit-c-guide',
+    title: 'The Definitive Guide to Vitamin C Serums: Concentrations & Results',
+    tag: 'Ingredients',
+    date: 'August 15, 2026',
+    readTime: '6 min read',
+    author: 'Dr. Elena Rossi',
+    authorRole: 'Board-certified dermatologist & Founder',
+    authorBio: 'Board-certified dermatologist and VelourSkin founder. PhD in Cosmetic Chemistry, former clinical researcher at the University of Florence Institute of Dermatology.',
+    authorAvatar: 'assets/images/about-founder.jpg',
+    heroImage: 'assets/images/serum-product.jpg',
+    excerpt: 'Not all Vitamin C is created equal. We break down L-Ascorbic Acid science, stability challenges, and choosing the right formula.',
+    products: [
+      { id: 'serum-blog', name: 'Vitamin C Brightening Serum', price: 68, image: 'assets/images/serum-product.jpg' },
+      { id: 'cleanser-blog', name: 'Gentle Foam Cleanser', price: 42, image: 'assets/images/cleanser-product.jpg' },
+      { id: 'spf-blog', name: 'Mineral SPF 50', price: 52, image: 'assets/images/sunscreen-product.jpg' }
+    ],
+    content: `
+      <p>Vitamin C is heralded as the holy grail of skincare ingredients, promised to brighten dull complexions, fade stubborn hyperpigmentation, and stimulate collagen production. But with hundreds of formulations on the market ranging from 5% to 30%, how do you select the right one?</p>
+      <p>In this scientific guide, we demystify the biochemistry of topical L-Ascorbic Acid, evaluate popular C derivatives, and show you how to maximize stability and skin bioavailability.</p>
+      <blockquote>True Vitamin C efficacy depends on three key formulation factors: acidic pH (below 3.5), optimal concentration (10%-20%), and synergistic antioxidants like Ferulic Acid.</blockquote>
+      <h2>L-Ascorbic Acid vs. Vitamin C Derivatives</h2>
+      <p>Pure L-Ascorbic Acid is the most biologically active form of Vitamin C. It directly neutralizes reactive oxygen species (ROS) and inhibits tyrosinase, the key enzyme responsible for melanin production. However, L-Ascorbic Acid is notoriously unstable and degrades quickly when exposed to air, light, or water.</p>
+      <img src="assets/images/serum-product.jpg" alt="Vitamin C Serum Bio-Availability" loading="lazy">
+      <p>Lipid-soluble derivatives such as Tetrahexyldecyl (THD) Ascorbate offer remarkable stability and gentle delivery for reactive skin types. While milder, they convert into active L-Ascorbic Acid within skin cells over time, delivering sustained antioxidant defense.</p>
+      <h2>Finding the Golden Concentration Window</h2>
+      <p>Dermatological research shows that topical Vitamin C absorption peaks at a 20% concentration. Concentrations below 10% yield significantly slower tone brightening, while concentrations exceeding 20% cause tissue saturation and heightened irritation without boosting results.</p>
+      <h2>How to Spot Oxidized Serum & Storage Tips</h2>
+      <p>Fresh Vitamin C serum should range from crystal clear to pale champagne in hue. If your serum turns dark amber or brown, it has fully oxidized into Dehydroascorbic Acid and loses its protective potency. Store your bottle in a cool, dark drawer or cosmetic fridge to preserve active potency.</p>
+    `
+  },
+  'hyaluronic-acid-guide': {
+    id: 'hyaluronic-acid-guide',
+    title: 'Hyaluronic Acid: Why Molecular Weight Matters More Than You Think',
+    tag: 'Skin Science',
+    date: 'August 10, 2026',
+    readTime: '5 min read',
+    author: 'Marcus Vance',
+    authorRole: 'Lead Formulation Chemist',
+    authorBio: 'Lead Formulation Chemist with 14+ years of bio-cosmetic development experience specializing in transdermal hydration delivery.',
+    authorAvatar: 'assets/images/about-story.jpg',
+    heroImage: 'assets/images/moisturizer-product.jpg',
+    excerpt: 'Single-weight HA only scratches the surface. We explain how our multi-weight formula reaches every layer for lasting hydration.',
+    products: [
+      { id: 'moist-blog', name: 'Hyaluronic Hydrating Cream', price: 78, image: 'assets/images/moisturizer-product.jpg' },
+      { id: 'serum-blog', name: 'Vitamin C Serum', price: 68, image: 'assets/images/serum-product.jpg' }
+    ],
+    content: `
+      <p>Hyaluronic Acid (HA) has become a household name in modern skincare, celebrated for its extraordinary capacity to bind up to 1,000 times its weight in water. Yet, many users notice that high-concentration HA serums sometimes leave their skin feeling tighter or drier. Why does this happen?</p>
+      <p>The secret lies in molecular weight distribution. Using a single molecular weight of Hyaluronic Acid only hydrates the outermost surface layer, leaving lower epidermal layers parched.</p>
+      <blockquote>Applying single-weight high molecular HA in dry ambient air without an occlusive top layer can draw moisture upward out of the dermis, causing paradox rebound dryness.</blockquote>
+      <h2>The Three Molecular Tiers of HA</h2>
+      <p>Our formulation lab combines three distinct molecular sizes for multi-depth cellular hydration:</p>
+      <ul>
+        <li><strong>High Molecular Weight (1500+ kDa):</strong> Forms an invisible, breathable matrix over the skin surface to seal moisture and shield against environmental pollutants.</li>
+        <li><strong>Medium Molecular Weight (500–1000 kDa):</strong> Penetrates into the upper stratum corneum to instantly smooth fine dehydrations lines and refine texture.</li>
+        <li><strong>Micro Molecular Weight (&lt; 50 kDa):</strong> Travels into deeper epidermal layers to boost natural mucopolysaccharides and maintain cellular elasticity.</li>
+      </ul>
+      <img src="assets/images/moisturizer-product.jpg" alt="Multi-Weight Hyaluronic Acid Technology" loading="lazy">
+      <h2>The Golden Rule: Damp Skin Application</h2>
+      <p>Hyaluronic Acid acts like a biological sponge. To work effectively, it requires water to pull into the skin. Always apply HA serums immediately after cleansing or misting while skin remains damp. Immediately follow with a lipid cream to lock moisture in place.</p>
+    `
+  },
+  'clay-mask-guide': {
+    id: 'clay-mask-guide',
+    title: 'How to Use a Clay Mask Without Destroying Your Skin Barrier',
+    tag: 'Routines',
+    date: 'August 5, 2026',
+    readTime: '5 min read',
+    author: 'Sophia Lin',
+    authorRole: 'Senior Esthetician',
+    authorBio: 'Senior Esthetician & Spa Director at VelourSkin Flagship Sanctuary, with expertise in botanical detox treatments.',
+    authorAvatar: 'assets/images/review-3.jpg',
+    heroImage: 'assets/images/facemask-product.jpg',
+    excerpt: 'Clay masks are powerful — but misused, they strip essential moisture. Learn the proper application technique and post-mask care.',
+    products: [
+      { id: 'mask-blog', name: 'French Pink Clay Detox Mask', price: 58, image: 'assets/images/facemask-product.jpg' },
+      { id: 'moist-blog', name: 'Hyaluronic Hydrating Cream', price: 78, image: 'assets/images/moisturizer-product.jpg' },
+      { id: 'cleanser-blog', name: 'Gentle Foam Cleanser', price: 42, image: 'assets/images/cleanser-product.jpg' }
+    ],
+    content: `
+      <p>Clay treatments have been used for centuries to detoxify pores, draw out impurities, and balance excess sebum production. However, a major misconception persists: letting clay masks dry completely until they crack and turn powdery white.</p>
+      <p>When clay completely dries on skin, it pulls out vital intracellular lipids and water, inducing micro-inflammation and triggering reactive oil production.</p>
+      <blockquote>A clay mask should always be rinsed off while it still feels damp and tacky. Never wait until it cracks and flakes!</blockquote>
+      <h2>The Three Phases of Clay Masking</h2>
+      <p>Mastering the timing of clay application ensures maximum pore detox without compromising barrier integrity:</p>
+      <ol>
+        <li><strong>Damp Phase:</strong> The skin absorbs essential minerals such as silica, calcium, and magnesium from natural pink kaolin and bentonite.</li>
+        <li><strong>Tacky Phase:</strong> The clay gently contracts, drawing out pore congestion and stimulating capillary microcirculation. <em>Rinse off right now!</em></li>
+        <li><strong>Bone-Dry Phase:</strong> The clay sucks moisture from deep cellular layers, producing redness and tightness.</li>
+      </ol>
+      <img src="assets/images/facemask-product.jpg" alt="French Pink Clay Treatment" loading="lazy">
+      <h2>Post-Mask Care Routine</h2>
+      <p>Rinse gently using lukewarm water and a soft cotton cloth. Follow immediately with a soothing, ceramide-rich moisturizer to replenish lipid levels. Limit clay mask usage to 1–2 times weekly for combination/oily skin, and once bi-weekly for sensitive skin.</p>
+    `
+  },
+  'sunscreen-guide': {
+    id: 'sunscreen-guide',
+    title: 'Mineral vs. Chemical Sunscreen: Which is Actually Better for You?',
+    tag: 'Skin Science',
+    date: 'July 28, 2026',
+    readTime: '7 min read',
+    author: 'Dr. Elena Rossi',
+    authorRole: 'Board-certified dermatologist & Founder',
+    authorBio: 'Board-certified dermatologist and VelourSkin founder. PhD in Cosmetic Chemistry, former clinical researcher at the University of Florence Institute of Dermatology.',
+    authorAvatar: 'assets/images/about-founder.jpg',
+    heroImage: 'assets/images/sunscreen-product.jpg',
+    excerpt: 'We settle the debate once and for all with an evidence-based comparison of ingredients, efficacy, and skin compatibility.',
+    products: [
+      { id: 'spf-blog', name: 'Mineral SPF 50', price: 52, image: 'assets/images/sunscreen-product.jpg' },
+      { id: 'serum-blog', name: 'Vitamin C Brightening Serum', price: 68, image: 'assets/images/serum-product.jpg' }
+    ],
+    content: `
+      <p>Sun protection is non-negotiable for maintaining healthy, youthful skin. Yet consumers are often caught between two distinct technology choices: mineral (physical) sunscreens and chemical (organic) sunscreens.</p>
+      <p>Here, we provide an evidence-based comparison of active ingredient mechanisms, UV filter stability, skin sensitivity factors, and environmental safety profiles.</p>
+      <blockquote>Mineral sunscreens use non-nano Zinc Oxide to create a physical mirror on top of the skin that immediately reflects broad-spectrum UVA and UVB rays.</blockquote>
+      <h2>Understanding Mineral Active Filters</h2>
+      <p>Mineral formulas rely on active minerals such as Zinc Oxide and Titanium Dioxide. Sitting on the epidermis, they reflect and scatter ultraviolet rays away from the skin surface instantly upon application without requiring absorption time.</p>
+      <img src="assets/images/sunscreen-product.jpg" alt="Mineral Invisible Defense SPF 50" loading="lazy">
+      <h2>Understanding Chemical Active Filters</h2>
+      <p>Chemical sunscreens utilize organic carbon compounds like Avobenzone, Octisalate, and Homosalate. These ingredients absorb into the top layers of skin, convert incoming UV radiation into heat energy, and dissipate that heat from the body.</p>
+      <h2>Which One Is Right For Your Skin?</h2>
+      <p>For sensitive, acne-prone, or redness-prone skin, mineral Zinc Oxide is dermatologically superior. Zinc Oxide naturally calms skin inflammation, provides broad-spectrum protection against blue light, and carries zero risk of chemical heat irritation.</p>
+    `
+  },
+  'retinol-guide': {
+    id: 'retinol-guide',
+    title: 'Retinol for Beginners: Starting Slow, Going Strong',
+    tag: 'Ingredients',
+    date: 'July 20, 2026',
+    readTime: '7 min read',
+    author: 'Marcus Vance',
+    authorRole: 'Lead Formulation Chemist',
+    authorBio: 'Lead Formulation Chemist with 14+ years of bio-cosmetic development experience specializing in transdermal hydration delivery.',
+    authorAvatar: 'assets/images/about-story.jpg',
+    heroImage: 'assets/images/ingredients-botanical.jpg',
+    excerpt: 'Retinol is scientifically proven for anti-aging. But starting incorrectly causes irritation. Here is your fail-proof beginner plan.',
+    products: [
+      { id: 'retinol-blog', name: 'Encapsulated Night Retinol Elixir', price: 84, image: 'assets/images/ingredients-botanical.jpg' },
+      { id: 'moist-blog', name: 'Hyaluronic Hydrating Cream', price: 78, image: 'assets/images/moisturizer-product.jpg' },
+      { id: 'cleanser-blog', name: 'Gentle Foam Cleanser', price: 42, image: 'assets/images/cleanser-product.jpg' }
+    ],
+    content: `
+      <p>Retinol remains the gold standard in clinical dermatology for reversing visible signs of aging. Backed by decades of peer-reviewed research, Vitamin A derivatives accelerate cell turnover, boost collagen production, refine pores, and diminish hyperpigmentation.</p>
+      <p>However, rushing into high concentrations can trigger redness, flaking, and barrier breakdown — known as retinization. Following a structured introduction protocol ensures smooth, radiant results.</p>
+      <blockquote>Patience is paramount. Retinol reorganizes dermal architecture at a cellular level, with optimal visible refinement appearing between 8 to 12 weeks.</blockquote>
+      <h2>The "Sandwich Technique" for Sensitive Skin</h2>
+      <p>To cushion skin against potential dryness while maintaining full efficacy, adopt the sandwich method:</p>
+      <ol>
+        <li>Cleanse skin and apply a layer of gentle moisturizer.</li>
+        <li>Wait 5 minutes for skin to dry completely, then apply a pea-sized amount of retinol serum.</li>
+        <li>Seal with a second layer of nourishing lipid cream.</li>
+      </ol>
+      <img src="assets/images/ingredients-botanical.jpg" alt="Encapsulated Retinol Delivery" loading="lazy">
+      <h2>Gradual Frequency Ramp-Up Schedule</h2>
+      <p>Begin by applying retinol once weekly for two weeks. If no redness occurs, progress to twice weekly for weeks three and four. By week five, transition to every other night. Always restrict retinol to night use and apply broad-spectrum SPF 50 daily.</p>
+    `
+  },
+  'evening-ritual-guide': {
+    id: 'evening-ritual-guide',
+    title: 'The Art of the Evening Ritual: A Sensory Guide to Night Skincare',
+    tag: 'Lifestyle',
+    date: 'July 15, 2026',
+    readTime: '6 min read',
+    author: 'Sophia Lin',
+    authorRole: 'Senior Esthetician',
+    authorBio: 'Senior Esthetician & Spa Director at VelourSkin Flagship Sanctuary, with expertise in botanical detox treatments.',
+    authorAvatar: 'assets/images/review-3.jpg',
+    heroImage: 'assets/images/skincare-routine.jpg',
+    excerpt: 'Your evening routine isn\'t just skincare — it\'s self-care. Transform your nightly ritual into a practice that nourishes mind & skin.',
+    products: [
+      { id: 'cleanser-blog', name: 'Gentle Foam Cleanser', price: 42, image: 'assets/images/cleanser-product.jpg' },
+      { id: 'moist-blog', name: 'Hyaluronic Hydrating Cream', price: 78, image: 'assets/images/moisturizer-product.jpg' },
+      { id: 'mask-blog', name: 'French Pink Clay Mask', price: 58, image: 'assets/images/facemask-product.jpg' }
+    ],
+    content: `
+      <p>While morning routines shield skin from daytime environmental aggressors, your evening ritual is dedicated to deep purification, restoration, and circadian repair.</p>
+      <p>As you sleep, cutaneous blood flow increases, dermal cell mitosis peaks, and skin barrier permeability elevates. Establishing an intentional night ritual aligns your skincare with your natural sleep cycle.</p>
+      <blockquote>Nighttime cellular renewal occurs at double its daytime rate. Your evening ritual maximizes this restorative window.</blockquote>
+      <h2>Step 1: The Transformative Double Cleanse</h2>
+      <p>Dissolve SPF, excess sebum, and environmental micro-particulates with an oil cleanser or balm, followed by a soothing micellar foam cleanser. This clears pores thoroughly without stripping natural protective moisture.</p>
+      <img src="assets/images/skincare-routine.jpg" alt="Sensory Evening Skincare Ritual" loading="lazy">
+      <h2>Step 2: Restorative Lymphatic Facial Massage</h2>
+      <p>Spend 2 minutes using upward facial massage strokes while applying your evening cream or botanical facial oil. Facial massage relieves jaw tension, promotes lymphatic drainage, and boosts skin oxygenation for a rested morning glow.</p>
+    `
+  }
+};
+
+const initBlogDetails = () => {
+  const heroImg = $('#detailHeroImg');
+  const titleEl = $('#detailTitle');
+  if (!heroImg && !titleEl) return;
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const postId = urlParams.get('id') || 'morning-skincare-ritual';
+  const post = BLOG_DATA[postId] || BLOG_DATA['morning-skincare-ritual'];
+
+  // Update Page Title
+  document.title = `${post.title} — VelourSkin Journal`;
+
+  // Hero Image
+  if (heroImg) {
+    heroImg.src = post.heroImage;
+    heroImg.alt = post.title;
+  }
+
+  // Meta info
+  const tagEl = $('#detailTag');
+  if (tagEl) tagEl.textContent = post.tag;
+
+  const dateEl = $('#detailDate');
+  if (dateEl) dateEl.textContent = post.date;
+
+  const readTimeEl = $('#detailReadTime');
+  if (readTimeEl) readTimeEl.textContent = `· ${post.readTime}`;
+
+  const authorSpanEl = $('#detailAuthorSpan');
+  if (authorSpanEl) authorSpanEl.textContent = `By ${post.author}`;
+
+  // Breadcrumb
+  const breadcrumbEl = $('#detailBreadcrumb');
+  if (breadcrumbEl) breadcrumbEl.textContent = post.title.split(':')[0] || post.title;
+
+  // Main Title (H1)
+  if (titleEl) {
+    if (post.title.includes(':')) {
+      const parts = post.title.split(':');
+      titleEl.innerHTML = `${parts[0]}: <em>${parts.slice(1).join(':')}</em>`;
+    } else {
+      titleEl.innerHTML = post.title;
+    }
+  }
+
+  // Main Content
+  const contentEl = $('#detailContent');
+  if (contentEl) {
+    contentEl.innerHTML = post.content;
+  }
+
+  // Author Bio
+  const authorAvatarEl = $('#detailAuthorAvatar');
+  if (authorAvatarEl) {
+    authorAvatarEl.src = post.authorAvatar;
+    authorAvatarEl.alt = post.author;
+  }
+
+  const authorNameEl = $('#detailAuthorName');
+  if (authorNameEl) authorNameEl.textContent = post.author;
+
+  const authorBioEl = $('#detailAuthorBio');
+  if (authorBioEl) authorBioEl.textContent = post.authorBio;
+
+  // Sidebar Products ("Shop This Ritual")
+  const sidebarProductsEl = $('#detailSidebarProducts');
+  if (sidebarProductsEl && post.products) {
+    sidebarProductsEl.innerHTML = post.products.map(prod => `
+      <div style="display:flex;gap:1rem;align-items:center;">
+        <img src="${prod.image}" alt="${prod.name}" style="width:56px;height:56px;border-radius:var(--radius-md);object-fit:cover;flex-shrink:0;">
+        <div>
+          <div style="font-size:.82rem;font-weight:600;">${prod.name}</div>
+          <div style="font-size:.78rem;color:var(--champagne);">$${prod.price}</div>
+        </div>
+        <button class="btn btn-primary btn-sm" style="margin-left:auto;flex-shrink:0" data-add-cart="${prod.id}" data-name="${prod.name}" data-price="${prod.price}">+</button>
+      </div>
+    `).join('') + `<a href="services.html" class="btn btn-secondary" style="justify-content:center;margin-top:.5rem">Shop All Products</a>`;
+  }
+
+  // Related Articles Sidebar
+  const sidebarRelatedEl = $('#detailSidebarRelated');
+  if (sidebarRelatedEl) {
+    const otherKeys = Object.keys(BLOG_DATA).filter(k => k !== post.id);
+    const relatedKeys = otherKeys.slice(0, 3);
+    sidebarRelatedEl.innerHTML = relatedKeys.map(k => {
+      const rel = BLOG_DATA[k];
+      return `
+        <a href="blog-details.html?id=${rel.id}" style="display:flex;gap:1rem;align-items:center;transition:opacity .3s" onmouseover="this.style.opacity='.7'" onmouseout="this.style.opacity=''">
+          <img src="${rel.heroImage}" alt="${rel.title}" style="width:56px;height:56px;border-radius:var(--radius-md);object-fit:cover;flex-shrink:0;">
+          <div>
+            <div style="font-size:.82rem;font-weight:600;line-height:1.3">${rel.title}</div>
+            <div style="font-size:.72rem;color:var(--text-secondary)">${rel.readTime}</div>
+          </div>
+        </a>
+      `;
+    }).join('');
+  }
+
+  // Bottom Grid ("More from the Journal")
+  const bottomGridEl = $('#detailBottomGrid');
+  if (bottomGridEl) {
+    const otherKeys = Object.keys(BLOG_DATA).filter(k => k !== post.id);
+    const bottomKeys = otherKeys.slice(0, 3);
+    bottomGridEl.innerHTML = bottomKeys.map((k, idx) => {
+      const bItem = BLOG_DATA[k];
+      return `
+        <article class="blog-card revealed reveal-delay-${(idx % 3) + 1}">
+          <div class="blog-card-image">
+            <a href="blog-details.html?id=${bItem.id}">
+              <img src="${bItem.heroImage}" alt="${bItem.title}" loading="lazy">
+            </a>
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta"><span class="blog-card-tag">${bItem.tag}</span><span class="blog-card-date">${bItem.date}</span></div>
+            <h3 class="blog-card-title"><a href="blog-details.html?id=${bItem.id}">${bItem.title}</a></h3>
+            <a href="blog-details.html?id=${bItem.id}" class="blog-card-readmore">Read Story <span>→</span></a>
+          </div>
+        </article>
+      `;
+    }).join('');
+  }
+};
+
 /* ── Expose globals if needed ─────────────────────────────── */
-window.VelourSkin = { showToast, addToCart, store, openCart, closeCart };
+window.VelourSkin = { showToast, addToCart, store, openCart, closeCart, BLOG_DATA, initBlogDetails };
+
