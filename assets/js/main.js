@@ -295,15 +295,17 @@ let cart = store.get('velour-cart') || [];
 
 const getProductImage = (id, name) => {
   const n = (name || id || '').toLowerCase();
+  if (n.includes('micellar') || n.includes('rose water') || n.includes('cleanser-2')) return 'assets/images/rose-micellar.jpg';
+  if (n.includes('oil balancing') || n.includes('cleanser-3')) return 'assets/images/skincare-routine.jpg';
   if (n.includes('cleanser') || n.includes('foam')) return 'assets/images/cleanser-product.jpg';
-  if (n.includes('micellar') || n.includes('rose water')) return 'assets/images/rose-micellar.jpg';
   if (n.includes('night') || n.includes('peptide')) return 'assets/images/peptide-night-cream.jpg';
   if (n.includes('moistur') || n.includes('cream') || n.includes('hydrat')) return 'assets/images/moisturizer-product.jpg';
   if (n.includes('24k') || n.includes('gold')) return 'assets/images/gold-24k-mask.jpg';
   if (n.includes('ceramide') || n.includes('sleeping')) return 'assets/images/ceramide-overnight-mask.jpg';
   if (n.includes('mask') || n.includes('clay')) return 'assets/images/facemask-product.jpg';
   if (n.includes('sun') || n.includes('spf') || n.includes('shield')) return 'assets/images/sunscreen-product.jpg';
-  if (n.includes('oil') || n.includes('rosehip')) return 'assets/images/rosehip-oil.jpg';
+  if (n.includes('rosehip') || n.includes('oil')) return 'assets/images/rosehip-oil.jpg';
+  if (n.includes('routine') || n.includes('bundle') || n.includes('ritual') || n.includes('set')) return 'assets/images/products-flatlay.jpg';
   return 'assets/images/serum-product.jpg';
 };
 
@@ -317,7 +319,7 @@ const addToCart = (id, name, price, image) => {
   const existing = cart.find(i => i.id === id);
   if (existing) {
     existing.qty++;
-    if (!existing.image) existing.image = imgUrl;
+    if (!existing.image || !existing.image.includes('-product.jpg')) existing.image = imgUrl;
   } else {
     cart.push({ id, name, price: Number(price), image: imgUrl, qty: 1 });
   }
@@ -387,7 +389,10 @@ const renderCart = () => {
   cartFooterEl.style.display = '';
   cartCountLabel.textContent = `(${cart.reduce((s, i) => s + i.qty, 0)})`;
   cartItemsEl.innerHTML = cart.map(item => {
-    const imgPath = item.image || getProductImage(item.id, item.name);
+    let imgPath = item.image;
+    if (!imgPath || !imgPath.includes('assets/images/') || imgPath.endsWith('/serum.jpg') || imgPath.endsWith('/cream.jpg') || imgPath.endsWith('/cleanser.jpg')) {
+      imgPath = getProductImage(item.id, item.name);
+    }
     return `
       <div class="cart-item" data-cart-item="${item.id}" style="display:flex;gap:.85rem;align-items:center;padding:.85rem 0;border-bottom:1px solid var(--border-color)">
         <img src="${imgPath}" alt="${item.name}" style="width:52px;height:52px;border-radius:var(--radius-md);object-fit:cover;flex-shrink:0;border:1px solid var(--border-color);" onerror="this.onerror=null;this.src='assets/images/serum-product.jpg';">
@@ -472,17 +477,6 @@ const initCheckout = () => {
   const checkoutForm = $('#checkoutForm');
   if (!checkoutForm) return;
 
-  const productImages = {
-    'prod-1': 'assets/images/serum.jpg',
-    'prod-2': 'assets/images/cream.jpg',
-    'prod-3': 'assets/images/cleanser.jpg',
-    'prod-4': 'assets/images/eye-cream.jpg',
-    'prod-5': 'assets/images/hero-bg.jpg',
-    'prod-6': 'assets/images/essence.jpg',
-    'prod-7': 'assets/images/skincare-routine.jpg',
-    'prod-8': 'assets/images/night-cream.jpg'
-  };
-
   let appliedDiscountRate = 0;
   let currentShippingCost = 0;
 
@@ -517,15 +511,18 @@ const initCheckout = () => {
     }
 
     itemsEl.innerHTML = currentCart.map(item => {
-      const imgPath = productImages[item.id] || 'assets/images/serum.jpg';
+      let imgPath = item.image;
+      if (!imgPath || !imgPath.includes('assets/images/') || imgPath.endsWith('/serum.jpg') || imgPath.endsWith('/cream.jpg') || imgPath.endsWith('/cleanser.jpg')) {
+        imgPath = getProductImage(item.id, item.name);
+      }
       return `
-        <div class="checkout-item" data-checkout-id="${item.id}">
-          <img src="${imgPath}" alt="${item.name}" class="checkout-item-img">
-          <div class="checkout-item-details">
-            <div class="checkout-item-title">${item.name}</div>
-            <div class="checkout-item-price">$${Number(item.price).toFixed(2)} × ${item.qty}</div>
+        <div class="checkout-item" data-checkout-id="${item.id}" style="display:flex;align-items:center;gap:1rem;padding-block:.85rem;border-bottom:1px solid var(--border-color)">
+          <img src="${imgPath}" alt="${item.name}" class="checkout-item-img" style="width:56px;height:56px;border-radius:var(--radius-md);object-fit:cover;flex-shrink:0;border:1px solid var(--border-color);" onerror="this.onerror=null;this.src='assets/images/serum-product.jpg';">
+          <div class="checkout-item-details" style="flex:1">
+            <div class="checkout-item-title" style="font-weight:600;font-size:.88rem;margin-bottom:.2rem;line-height:1.3">${item.name}</div>
+            <div class="checkout-item-price" style="font-size:.82rem;color:var(--champagne);font-weight:600">$${Number(item.price).toFixed(2)} × ${item.qty}</div>
           </div>
-          <div style="font-weight:700;font-size:.9rem">$${(Number(item.price) * item.qty).toFixed(2)}</div>
+          <div style="font-weight:700;font-size:.95rem;color:var(--text-primary)">$${(Number(item.price) * item.qty).toFixed(2)}</div>
         </div>
       `;
     }).join('');
@@ -623,11 +620,17 @@ const initCheckout = () => {
     const email = ($('#checkout-email').value || '').trim();
     const fname = ($('#ship-fname').value || '').trim();
     const address = ($('#ship-address').value || '').trim();
+    const suite = ($('#ship-suite') ? $('#ship-suite').value : '').trim();
+    const city = ($('#ship-city') ? $('#ship-city').value : '').trim();
+    const state = ($('#ship-state') ? $('#ship-state').value : '').trim();
+    const zip = ($('#ship-zip') ? $('#ship-zip').value : '').trim();
 
     if (!email || !fname || !address) {
       showToast('Please fill in all required fields.');
       return;
     }
+
+    const fullAddress = [address, suite, city, state, zip].filter(Boolean).join(', ') || address;
 
     const btn = $('#placeOrderBtn');
     if (btn) {
@@ -641,7 +644,7 @@ const initCheckout = () => {
       const totalEl = $('#summaryTotal');
 
       if ($('#successOrderId')) $('#successOrderId').textContent = '#' + orderId;
-      if ($('#successAddress')) $('#successAddress').textContent = address;
+      if ($('#successAddress')) $('#successAddress').textContent = fullAddress;
       if ($('#successTotalPaid') && totalEl) $('#successTotalPaid').textContent = totalEl.textContent;
 
       // Clear cart
