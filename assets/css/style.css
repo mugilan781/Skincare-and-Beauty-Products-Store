@@ -1193,11 +1193,62 @@ select.form-control { appearance: none; cursor: pointer; }
 .countdown-label { font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; color: rgba(251,247,242,0.55); margin-top: .3rem; }
 
 /* ── Sitemap Page ─────────────────────────────────────────── */
-.sitemap-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 2rem; }
-.sitemap-col h3 { font-size: 1rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--rosewood); padding-bottom: .75rem; border-bottom: 2px solid var(--blush-light); margin-bottom: 1rem; }
-.sitemap-col a { display: flex; align-items: center; gap: .5rem; font-size: .88rem; padding: .4rem 0; color: var(--text-secondary); transition: color var(--dur-fast), gap var(--dur-fast); }
-.sitemap-col a::before { content: '→'; color: var(--champagne); font-size: .7rem; }
-.sitemap-col a:hover { color: var(--rosewood); gap: .9rem; }
+.sitemap-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 2.25rem; }
+.sitemap-col h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--rosewood);
+  padding-bottom: .75rem;
+  border-bottom: 2px solid var(--border-color);
+  margin-bottom: 1.1rem;
+  transition: color var(--dur-normal), border-color var(--dur-normal);
+}
+.sitemap-col a {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  font-size: .88rem;
+  padding: .45rem 0;
+  color: var(--text-secondary);
+  transition: color var(--dur-fast), gap var(--dur-fast), transform var(--dur-fast);
+}
+.sitemap-col a::before {
+  content: '→';
+  color: var(--champagne);
+  font-size: .75rem;
+  transition: color var(--dur-fast), transform var(--dur-fast);
+}
+.sitemap-col a:hover {
+  color: var(--rosewood);
+  gap: .85rem;
+}
+.sitemap-col a:hover::before {
+  color: var(--champagne);
+  transform: translateX(2px);
+}
+
+/* Dark Theme Contrast Enhancements for Sitemap */
+[data-theme="dark"] .sitemap-col h3 {
+  color: #EDD9BC;
+  border-bottom-color: rgba(201, 166, 107, 0.35);
+  letter-spacing: .14em;
+}
+[data-theme="dark"] .sitemap-col a {
+  color: #D4C3CB;
+}
+[data-theme="dark"] .sitemap-col a:hover {
+  color: #FFFFFF;
+  text-shadow: 0 0 10px rgba(237, 217, 188, 0.35);
+}
+[data-theme="dark"] .sitemap-col a::before {
+  color: #C9A66B;
+}
+[data-theme="dark"] .sitemap-col a:hover::before {
+  color: #EDD9BC;
+}
+
 
 /* ── Privacy / Terms / Policy ─────────────────────────────── */
 .legal-content { max-width: 820px; margin: 0 auto; }
