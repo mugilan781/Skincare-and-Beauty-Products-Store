@@ -1161,7 +1161,7 @@ select.form-control { appearance: none; cursor: pointer; }
 .not-found-number {
   font-family: var(--font-display); font-size: clamp(8rem, 20vw, 18rem);
   font-weight: 300; color: var(--blush-light);
-  line-height: 1; margin-bottom: -2rem; letter-spacing: -.05em;
+  line-height: 1; margin-bottom: .5rem; letter-spacing: -.05em;
 }
 .not-found-title { font-size: clamp(1.5rem, 3vw, 2.5rem); margin-bottom: 1rem; }
 .not-found-text { max-width: 480px; margin: 0 auto 2.5rem; }
@@ -1182,7 +1182,8 @@ select.form-control { appearance: none; cursor: pointer; }
 .maintenance-inner { position: relative; color: var(--ivory); max-width: 640px; padding: 2rem; }
 .maintenance-logo { font-family: var(--font-display); font-size: 2.8rem; margin-bottom: 2rem; }
 .maintenance-logo span { color: var(--champagne); }
-.maintenance-title { font-size: clamp(2.5rem, 6vw, 4.5rem); margin-bottom: 1.5rem; }
+.maintenance-title { font-size: clamp(2.5rem, 6vw, 4.5rem); margin-bottom: 1.5rem; color: var(--ivory); }
+.maintenance-title em { font-style: italic; color: var(--champagne-light); }
 .maintenance-text { color: rgba(251,247,242,0.75); font-size: 1.1rem; margin-bottom: 3rem; }
 .countdown { display: flex; gap: 2rem; justify-content: center; margin-bottom: 3rem; }
 .countdown-unit { text-align: center; }
