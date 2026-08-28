@@ -301,7 +301,7 @@ const updateCartBadge = () => {
 const addToCart = (id, name, price) => {
   const existing = cart.find(i => i.id === id);
   if (existing) { existing.qty++; }
-  else { cart.push({ id, name, price, qty: 1 }); }
+  else { cart.push({ id, name, price: Number(price), qty: 1 }); }
   store.set('velour-cart', cart);
   updateCartBadge();
   showToast(`Added to cart: ${name}`);
@@ -309,13 +309,14 @@ const addToCart = (id, name, price) => {
 
 /* ── Add to Cart Buttons ──────────────────────────────────── */
 const initAddToCart = () => {
-  $$('[data-add-cart]').forEach(btn => {
-    on(btn, 'click', () => {
-      const id    = btn.dataset.addCart;
-      const name  = btn.dataset.name  || 'Product';
-      const price = btn.dataset.price || '0';
-      addToCart(id, name, price);
-    });
+  on(document, 'click', e => {
+    const btn = e.target.closest('[data-add-cart]');
+    if (!btn) return;
+    e.preventDefault();
+    const id    = btn.dataset.addCart;
+    const name  = btn.dataset.name  || 'Product';
+    const price = btn.dataset.price || '0';
+    addToCart(id, name, price);
   });
 };
 
@@ -325,12 +326,22 @@ let cartDrawer, cartOverlay, cartItemsEl, cartFooterEl, cartSubtotalEl, cartCoun
 const money = n => '$' + Number(n).toFixed(2);
 
 const openCart = () => {
+  if (!cartDrawer) {
+    cartDrawer = $('#cartDrawer');
+    cartOverlay = $('#cartOverlay');
+    cartItemsEl = $('#cartItems');
+    cartFooterEl = $('#cartFooter');
+    cartSubtotalEl = $('#cartSubtotal');
+    cartCountLabel = $('#cartCountLabel');
+  }
   renderCart();
-  cartDrawer.classList.add('open');
-  cartOverlay.classList.add('show');
-  cartDrawer.setAttribute('aria-hidden', 'false');
-  cartOverlay.setAttribute('aria-hidden', 'false');
-  document.body.style.overflow = 'hidden';
+  if (cartDrawer && cartOverlay) {
+    cartDrawer.classList.add('open');
+    cartOverlay.classList.add('show');
+    cartDrawer.setAttribute('aria-hidden', 'false');
+    cartOverlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
 };
 
 const closeCart = () => {
