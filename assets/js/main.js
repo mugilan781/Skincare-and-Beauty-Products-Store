@@ -1214,7 +1214,7 @@ const BLOG_DATA = {
     authorRole: 'Board-certified dermatologist & Founder',
     authorBio: 'Board-certified dermatologist and VelourSkin founder. PhD in Cosmetic Chemistry, former clinical researcher at the University of Florence Institute of Dermatology.',
     authorAvatar: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&q=80',
-    heroImage: 'assets/images/blog-hero.jpg',
+    heroImage: 'assets/images/blog-morning-ritual.jpg',
     excerpt: 'Your morning routine sets the tone for the entire day. We walk you through the optimal 6-step ritual with our favourite products, layering secrets and pro tips from our Chief Formulator.',
     products: [
       { id: 'cleanser-blog', name: 'Gentle Foam Cleanser', price: 42, image: 'assets/images/cleanser-product.jpg' },
@@ -1257,7 +1257,7 @@ const BLOG_DATA = {
     authorRole: 'Board-certified dermatologist & Founder',
     authorBio: 'Board-certified dermatologist and VelourSkin founder. PhD in Cosmetic Chemistry, former clinical researcher at the University of Florence Institute of Dermatology.',
     authorAvatar: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&q=80',
-    heroImage: 'assets/images/serum-product.jpg',
+    heroImage: 'assets/images/blog-vitc-guide.jpg',
     excerpt: 'Not all Vitamin C is created equal. We break down L-Ascorbic Acid science, stability challenges, and choosing the right formula.',
     products: [
       { id: 'serum-blog', name: 'Vitamin C Brightening Serum', price: 68, image: 'assets/images/serum-product.jpg' },
@@ -1288,7 +1288,7 @@ const BLOG_DATA = {
     authorRole: 'Lead Formulation Chemist',
     authorBio: 'Lead Formulation Chemist with 14+ years of bio-cosmetic development experience specializing in transdermal hydration delivery.',
     authorAvatar: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=400&q=80',
-    heroImage: 'assets/images/moisturizer-product.jpg',
+    heroImage: 'assets/images/blog-ha-guide.jpg',
     excerpt: 'Single-weight HA only scratches the surface. We explain how our multi-weight formula reaches every layer for lasting hydration.',
     products: [
       { id: 'moist-blog', name: 'Hyaluronic Hydrating Cream', price: 78, image: 'assets/images/moisturizer-product.jpg' },
@@ -1320,7 +1320,7 @@ const BLOG_DATA = {
     authorRole: 'Senior Esthetician',
     authorBio: 'Senior Esthetician & Spa Director at VelourSkin Flagship Sanctuary, with expertise in botanical detox treatments.',
     authorAvatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80',
-    heroImage: 'assets/images/facemask-product.jpg',
+    heroImage: 'assets/images/blog-clay-mask.jpg',
     excerpt: 'Clay masks are powerful — but misused, they strip essential moisture. Learn the proper application technique and post-mask care.',
     products: [
       { id: 'mask-blog', name: 'French Pink Clay Detox Mask', price: 58, image: 'assets/images/facemask-product.jpg' },
@@ -1353,7 +1353,7 @@ const BLOG_DATA = {
     authorRole: 'Board-certified dermatologist & Founder',
     authorBio: 'Board-certified dermatologist and VelourSkin founder. PhD in Cosmetic Chemistry, former clinical researcher at the University of Florence Institute of Dermatology.',
     authorAvatar: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&q=80',
-    heroImage: 'assets/images/sunscreen-product.jpg',
+    heroImage: 'assets/images/blog-sunscreen-guide.jpg',
     excerpt: 'We settle the debate once and for all with an evidence-based comparison of ingredients, efficacy, and skin compatibility.',
     products: [
       { id: 'spf-blog', name: 'Mineral SPF 50', price: 52, image: 'assets/images/sunscreen-product.jpg' },
@@ -1382,7 +1382,7 @@ const BLOG_DATA = {
     authorRole: 'Lead Formulation Chemist',
     authorBio: 'Lead Formulation Chemist with 14+ years of bio-cosmetic development experience specializing in transdermal hydration delivery.',
     authorAvatar: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=400&q=80',
-    heroImage: 'assets/images/ingredients-botanical.jpg',
+    heroImage: 'assets/images/blog-retinol-guide.jpg',
     excerpt: 'Retinol is scientifically proven for anti-aging. But starting incorrectly causes irritation. Here is your fail-proof beginner plan.',
     products: [
       { id: 'retinol-blog', name: 'Encapsulated Night Retinol Elixir', price: 84, image: 'assets/images/ingredients-botanical.jpg' },
