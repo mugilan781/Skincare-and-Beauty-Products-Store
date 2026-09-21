@@ -364,48 +364,8 @@
 }
 [data-tooltip]:hover::after { opacity: 1; }
 
-/* ── Responsive addons ────────────────────────────────────── */
-@media (max-width: 1024px) {
-  .hero2-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-  .gallery-grid { grid-template-columns: repeat(3, 1fr); }
-  .checkout-grid { grid-template-columns: 1fr; gap: 2rem; }
-}
 
-@media (max-width: 760px) {
-  .hero2-inner { grid-template-columns: 1fr; }
-  .hero2-image-main img { height: 320px; }
-  .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: auto; }
-  .gallery-item:nth-child(1) { grid-column: span 2; height: 240px; }
-  .gallery-item { height: 180px; }
-  .skin-type-grid { grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
-  .product-detail { grid-template-columns: 1fr; gap: 3rem; }
-}
-
-@media (max-width: 480px) {
-  .hero2-image-main img { height: 250px; }
-  .gallery-grid { grid-template-columns: 1fr; gap: .75rem; }
-  .gallery-item:nth-child(1) { grid-column: span 1; height: 200px; }
-  .gallery-item { height: 160px; }
-  .skin-type-grid { grid-template-columns: 1fr; gap: 1rem; }
-  .consult-form-card { padding: 1.5rem 1rem; }
-  .product-actions { flex-direction: column; width: 100%; }
-  .product-actions .btn { width: 100%; justify-content: center; }
-  .tab-group { flex-wrap: wrap; }
-  .tab-btn { padding: .75rem 1rem; font-size: .75rem; }
-}
-
-@media (max-width: 360px) {
-  .hero2-image-main img { height: 210px; }
-  .gallery-item { height: 150px; }
-  .skin-type-card { padding: 1.75rem 1.2rem; }
-  .product-main-image { max-height: 280px; }
-}
-
-@media (max-width: 320px) {
-  .hero2-image-main img { height: 190px; }
-  .gallery-item { height: 140px; }
-  .skin-type-card { padding: 1.5rem 1rem; }
-}
+/* Responsive styles for extended components are consolidated at the end of this file */
 
 /* ── Checkout Page ────────────────────────────────────────── */
 .checkout-grid {
@@ -837,7 +797,38 @@
   justify-content: center !important;
 }
 
+/* ─────────────────────────────────────────────────────────────
+   EXTENDED RESPONSIVE ARCHITECTURE (1024px, 760px, 480px, 360px, 320px)
+   ───────────────────────────────────────────────────────────── */
+
+/* 1. TABLET / SMALL LAPTOPS (<= 1024px) */
 @media (max-width: 1024px) {
+  .hero2-inner {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .checkout-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .checkout-summary-card {
+    position: static;
+    top: auto;
+  }
+  .principles-story-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .principles-story-img-box img {
+    height: 360px;
+  }
+  .awards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
   .team-grid {
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 1.5rem !important;
@@ -848,9 +839,94 @@
   }
 }
 
-@media (max-width: 640px) {
+/* 2. TABLET PORTRAIT / MEDIUM SCREENS (<= 760px) */
+@media (max-width: 760px) {
+  .hero2-inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .hero2-image-main {
+    width: 320px !important;
+    height: 320px !important;
+    max-width: 85vw !important;
+    max-height: 85vw !important;
+  }
+  .hero2-image-main img {
+    height: 100% !important;
+  }
+  .hero2-floating-card {
+    position: static !important;
+    margin: 1.25rem auto 0 !important;
+    width: 100% !important;
+    max-width: 340px !important;
+    min-width: 0 !important;
+    animation: none !important;
+  }
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+  }
+  .gallery-item:nth-child(1) {
+    grid-column: span 2;
+    height: 230px;
+  }
+  .gallery-item {
+    height: 180px;
+  }
+  .skin-type-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+  }
+  .product-detail {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .checkout-step-card,
+  .checkout-summary-card {
+    padding: 1.5rem;
+  }
+  .shipping-option-card {
+    padding: .75rem 1rem;
+  }
+}
+
+/* 3. MOBILE LANDSCAPE / LARGE PHONES (<= 480px) */
+@media (max-width: 480px) {
+  .hero2-image-main {
+    width: 250px !important;
+    height: 250px !important;
+    max-width: 85vw !important;
+    max-height: 85vw !important;
+  }
+  .hero2-floating-card {
+    max-width: 100% !important;
+    padding: 1rem !important;
+  }
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: .75rem;
+  }
+  .gallery-item:nth-child(1) {
+    grid-column: span 1;
+    height: 190px;
+  }
+  .gallery-item {
+    height: 160px;
+  }
+  .skin-type-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .awards-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .award-card {
+    padding: 1.75rem 1.25rem;
+  }
   .team-grid {
     grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
   }
   .team-name {
     height: auto !important;
@@ -860,4 +936,143 @@
     min-height: auto !important;
     margin-bottom: 0.6rem !important;
   }
+  .consult-form-card {
+    padding: 1.5rem 1rem;
+  }
+  .product-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: .75rem;
+  }
+  .product-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .tab-group {
+    flex-wrap: wrap;
+    gap: .5rem;
+  }
+  .tab-btn {
+    padding: .65rem .9rem;
+    font-size: .75rem;
+  }
+  .checkout-step-card,
+  .checkout-summary-card {
+    padding: 1.25rem 1rem;
+    border-radius: var(--radius-lg);
+  }
+  .payment-tabs {
+    flex-direction: column;
+    width: 100%;
+  }
+  .payment-tab-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .promo-form {
+    flex-direction: column;
+    width: 100%;
+    gap: .6rem;
+  }
+  .promo-form .btn {
+    width: 100%;
+    justify-content: center;
+  }
 }
+
+/* 4. STANDARD MOBILE (<= 360px) */
+@media (max-width: 360px) {
+  .hero2-image-main {
+    width: 210px !important;
+    height: 210px !important;
+    max-width: 88vw !important;
+    max-height: 88vw !important;
+  }
+  .hero2-floating-card {
+    padding: .85rem .75rem !important;
+    font-size: .84rem !important;
+  }
+  .gallery-item {
+    height: 150px;
+  }
+  .skin-type-card {
+    padding: 1.5rem 1rem;
+  }
+  .product-main-image {
+    max-height: 280px;
+  }
+  .award-card {
+    padding: 1.4rem 1rem;
+  }
+  .checkout-step-card,
+  .checkout-summary-card {
+    padding: 1rem .75rem;
+  }
+  .checkout-item {
+    gap: .65rem;
+  }
+  .checkout-item-img {
+    width: 44px;
+    height: 44px;
+  }
+  .checkout-item-title {
+    font-size: .84rem;
+  }
+  .checkout-step-header {
+    gap: .75rem;
+    margin-bottom: 1rem;
+  }
+  .checkout-step-num {
+    width: 28px;
+    height: 28px;
+    font-size: .8rem;
+  }
+}
+
+/* 5. SMALL MOBILE / IPHONE SE (<= 320px) */
+@media (max-width: 320px) {
+  .hero2-image-main {
+    width: 180px !important;
+    height: 180px !important;
+    max-width: 90vw !important;
+    max-height: 90vw !important;
+    border-width: 3px !important;
+  }
+  .hero2-floating-card {
+    padding: .75rem .6rem !important;
+    font-size: .8rem !important;
+  }
+  .gallery-item {
+    height: 135px;
+  }
+  .skin-type-card {
+    padding: 1.25rem .75rem;
+  }
+  .award-card {
+    padding: 1.25rem .75rem;
+  }
+  .team-card {
+    padding: 1.6rem .85rem 1.4rem !important;
+  }
+  .team-avatar {
+    width: 95px !important;
+    height: 95px !important;
+  }
+  .checkout-step-card,
+  .checkout-summary-card {
+    padding: .85rem .65rem;
+    border-radius: var(--radius-md);
+  }
+  .checkout-item-img {
+    width: 40px;
+    height: 40px;
+  }
+  .checkout-item-title {
+    font-size: .8rem;
+  }
+  .shipping-option-card {
+    padding: .65rem .75rem;
+    font-size: .8rem;
+  }
+}
+

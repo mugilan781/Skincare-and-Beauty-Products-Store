@@ -25,8 +25,8 @@ const NAV_HTML = `
   <button id="wishlistClose" class="search-close" aria-label="Close wishlist">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;display:block;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
   </button>
-  <div class="search-box" style="max-width:540px;text-align:left;background:var(--bg-primary);padding:2.5rem 2rem;border-radius:var(--radius-xl);position:relative;border:1px solid var(--border-color);box-shadow:var(--shadow-xl)">
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid var(--border-color)">
+  <div class="search-box wishlist-modal-box">
+    <div class="wishlist-modal-header">
       <h3 style="font-family:var(--font-display);font-size:1.6rem;margin:0;color:var(--text-primary)">Your Saved Wishlist</h3>
       <span id="wishlistCountText" style="font-size:.85rem;color:var(--text-secondary)">0 items</span>
     </div>
