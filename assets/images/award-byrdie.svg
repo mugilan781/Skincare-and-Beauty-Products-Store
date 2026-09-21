@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500">
+  <defs>
+    <!-- Drop Shadow -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#1A1115" flood-opacity="0.25"/>
+    </filter>
+    
+    <!-- Gold Medallion Gradients -->
+    <linearGradient id="goldRim" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF3D1"/>
+      <stop offset="25%" stop-color="#E5BE6C"/>
+      <stop offset="50%" stop-color="#9E6E23"/>
+      <stop offset="75%" stop-color="#F3DC9B"/>
+      <stop offset="100%" stop-color="#805012"/>
+    </linearGradient>
+
+    <radialGradient id="goldFace" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#FAF0D7"/>
+      <stop offset="45%" stop-color="#DFB76C"/>
+      <stop offset="85%" stop-color="#B88628"/>
+      <stop offset="100%" stop-color="#875816"/>
+    </radialGradient>
+
+    <linearGradient id="innerRim" x1="100%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#FFF0CD"/>
+      <stop offset="50%" stop-color="#8F6218"/>
+      <stop offset="100%" stop-color="#E5BE6C"/>
+    </linearGradient>
+  </defs>
+
+  <g filter="url(#shadow)">
+    <!-- Outer Bezel -->
+    <circle cx="250" cy="250" r="230" fill="url(#goldRim)"/>
+    <circle cx="250" cy="250" r="222" fill="#69430F" opacity="0.4"/>
+    <circle cx="250" cy="250" r="218" fill="url(#innerRim)"/>
+
+    <!-- Decorative Beaded Rim -->
+    <circle cx="250" cy="250" r="208" fill="none" stroke="#FAF0D7" stroke-width="2" stroke-dasharray="2,6"/>
+
+    <!-- Main Coin Face -->
+    <circle cx="250" cy="250" r="200" fill="url(#goldFace)"/>
+
+    <!-- Inner Concentric Ring -->
+    <circle cx="250" cy="250" r="172" fill="none" stroke="#7A4E12" stroke-width="3" opacity="0.6"/>
+    <circle cx="250" cy="250" r="170" fill="none" stroke="#FFF3D1" stroke-width="2" opacity="0.8"/>
+
+    <!-- Laurel Wreath Leaves (Left) -->
+    <g fill="#FFF0CD" opacity="0.85" filter="drop-shadow(0 2px 2px rgba(80,50,10,0.5))">
+      <path d="M125,280 C110,260 120,240 135,245 C135,260 130,275 125,280 Z"/>
+      <path d="M115,240 C100,220 110,200 125,205 C125,220 120,235 115,240 Z"/>
+      <path d="M115,195 C105,175 118,155 132,162 C130,178 122,190 115,195 Z"/>
+      <path d="M128,152 C120,135 135,118 148,128 C144,142 135,150 128,152 Z"/>
+      <path d="M152,118 C148,102 165,88 178,100 C172,112 160,118 152,118 Z"/>
+      <path d="M185,92 C185,76 205,68 215,82 C207,92 195,95 185,92 Z"/>
+
+      <!-- Laurel Wreath Leaves (Right) -->
+      <path d="M375,280 C390,260 380,240 365,245 C365,260 370,275 375,280 Z"/>
+      <path d="M385,240 C400,220 390,200 375,205 C375,220 380,235 385,240 Z"/>
+      <path d="M385,195 C395,175 382,155 368,162 C370,178 378,190 385,195 Z"/>
+      <path d="M372,152 C380,135 365,118 352,128 C356,142 365,150 372,152 Z"/>
+      <path d="M348,118 C352,102 335,88 322,100 C328,112 340,118 348,118 Z"/>
+      <path d="M315,92 C315,76 295,68 285,82 C293,92 305,95 315,92 Z"/>
+      
+      <!-- Stem -->
+      <path d="M120,290 C105,200 150,110 250,75 C350,110 395,200 380,290" fill="none" stroke="#FAF0D7" stroke-width="4" stroke-linecap="round"/>
+    </g>
+
+    <!-- Star Top -->
+    <path d="M250,115 L255,130 L270,130 L258,140 L262,155 L250,145 L238,155 L242,140 L230,130 L245,130 Z" fill="#FFF8E7" filter="drop-shadow(0 2px 4px rgba(70,40,10,0.6))"/>
+
+    <!-- Center Typography -->
+    <!-- BYRDIE -->
+    <text x="250" y="215" text-anchor="middle" font-family="'Manrope', -apple-system, sans-serif" font-weight="900" font-size="44" letter-spacing="6" fill="#FFF9E6" filter="drop-shadow(0 3px 3px rgba(60,35,5,0.7))">
+      BYRDIE
+    </text>
+
+    <!-- BEAUTY AWARDS -->
+    <text x="250" y="258" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-weight="700" font-size="28" letter-spacing="3" fill="#FFE8A3" filter="drop-shadow(0 2px 3px rgba(60,35,5,0.7))">
+      BEAUTY AWARDS
+    </text>
+
+    <!-- Ribbon / Divider line -->
+    <path d="M170,280 L330,280" stroke="#FFF3D1" stroke-width="2" stroke-linecap="round" filter="drop-shadow(0 1px 2px rgba(60,35,5,0.6))"/>
+    <circle cx="250" cy="280" r="4" fill="#FFF3D1"/>
+
+    <!-- WINNER / 2026 -->
+    <text x="250" y="320" text-anchor="middle" font-family="'Manrope', -apple-system, sans-serif" font-weight="800" font-size="24" letter-spacing="8" fill="#FFF9E6" filter="drop-shadow(0 2px 2px rgba(60,35,5,0.7))">
+      WINNER
+    </text>
+    <text x="250" y="352" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-weight="700" font-style="italic" font-size="22" letter-spacing="2" fill="#FFEBB5">
+      2026
+    </text>
+  </g>
+</svg>
