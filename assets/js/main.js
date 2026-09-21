@@ -118,10 +118,11 @@ const initNavbar = () => {
   on(window, 'scroll', onScroll, { passive: true });
   onScroll();
 
-  // Hamburger
+  // Hamburger & Mobile Nav
   const ham = $('#navHamburger');
   const mobileNav = $('#mobileNav');
   const mobileOverlay = $('#mobileNavOverlay');
+  const mobileNavClose = $('#mobileNavClose');
 
   const toggleMobile = open => {
     ham?.classList.toggle('active', open);
@@ -130,9 +131,19 @@ const initNavbar = () => {
     document.body.style.overflow = open ? 'hidden' : '';
   };
 
-  on(ham, 'click', () => toggleMobile(!mobileNav.classList.contains('open')));
+  on(ham, 'click', () => toggleMobile(!mobileNav?.classList.contains('open')));
   on(mobileOverlay, 'click', () => toggleMobile(false));
+  on(mobileNavClose, 'click', () => toggleMobile(false));
   $$('.mobile-nav a').forEach(a => on(a, 'click', () => toggleMobile(false)));
+
+  // Auto close mobile nav if viewport expands to desktop (> 1024px)
+  const onResize = () => {
+    if (window.innerWidth > 1024 && (mobileNav?.classList.contains('open') || ham?.classList.contains('active'))) {
+      toggleMobile(false);
+    }
+  };
+  on(window, 'resize', onResize, { passive: true });
+  on(window, 'orientationchange', onResize, { passive: true });
 
   // Active link
   const path = window.location.pathname.split('/').pop() || 'index.html';

@@ -43,30 +43,18 @@ const NAV_HTML = `
 
 <!-- Mobile Nav -->
 <nav id="mobileNav" class="mobile-nav" aria-label="Mobile navigation">
-  <a href="index.html" class="mobile-nav-logo">Velour<span>Skin</span></a>
+  <div class="mobile-nav-top" style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;">
+    <a href="index.html" class="mobile-nav-logo" style="margin-bottom:0;">Velour<span>Skin</span></a>
+    <button id="mobileNavClose" class="nav-icon-btn" aria-label="Close menu" style="width:36px;height:36px;display:inline-flex;align-items:center;justify-content:center;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:20px;height:20px;display:block;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
   <a href="index.html">Home</a>
   <a href="home2.html">Home 2</a>
   <a href="about.html">About</a>
   <a href="services.html">Shop</a>
   <a href="blog.html">Blog</a>
   <a href="contact.html">Contact</a>
-  <a href="privacy.html">Privacy Policy</a>
-  <a href="terms.html">Terms &amp; Conditions</a>
-  <a href="sitemap.html">Sitemap</a>
-  <a href="404.html">404</a>
-  <a href="maintenance.html">Maintenance</a>
-  <a href="login.html">Login</a>
-  <a href="signup.html">Signup</a>
-  <div style="margin-top:2rem;display:flex;gap:.75rem;flex-wrap:wrap;">
-    <button data-theme-toggle class="btn btn-outline-dark btn-sm" style="border-radius:var(--radius-full);display:inline-flex;align-items:center;gap:.4rem;">
-      <span data-theme-icon style="display:inline-flex;width:16px;height:16px;">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-moon" style="width:16px;height:16px;display:block"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-      </span> Mode
-    </button>
-    <button data-rtl-toggle class="btn btn-outline-dark btn-sm" style="border-radius:var(--radius-full);display:inline-flex;align-items:center;gap:.4rem;">
-      <span data-rtl-icon style="font-size:.72rem;font-weight:700;letter-spacing:.05em;">RTL</span>
-    </button>
-  </div>
 </nav>
 
 <!-- Site Header (Unified Header Container) -->
