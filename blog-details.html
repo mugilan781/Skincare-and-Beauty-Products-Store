@@ -60,6 +60,11 @@
       <div class="container">
         <div class="blog-details-layout">
           <article>
+            <!-- Featured Blog Cover Image (Dynamic: matches blog cards) -->
+            <div class="blog-detail-cover" style="border-radius:var(--radius-xl);overflow:hidden;margin-bottom:2.5rem;box-shadow:var(--shadow-md);aspect-ratio:16/9;background:var(--bg-secondary);">
+              <img id="detailCoverImage" src="assets/images/blog-morning-ritual.jpg" alt="Featured Article Cover" style="width:100%;height:100%;object-fit:cover;" loading="eager">
+            </div>
+
             <div id="detailContent" class="blog-content">
               <!-- Dynamically Populated by main.js -->
             </div>

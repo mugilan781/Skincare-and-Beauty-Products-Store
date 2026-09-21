@@ -1270,7 +1270,7 @@ const BLOG_DATA = {
       <blockquote>True Vitamin C efficacy depends on three key formulation factors: acidic pH (below 3.5), optimal concentration (10%-20%), and synergistic antioxidants like Ferulic Acid.</blockquote>
       <h2>L-Ascorbic Acid vs. Vitamin C Derivatives</h2>
       <p>Pure L-Ascorbic Acid is the most biologically active form of Vitamin C. It directly neutralizes reactive oxygen species (ROS) and inhibits tyrosinase, the key enzyme responsible for melanin production. However, L-Ascorbic Acid is notoriously unstable and degrades quickly when exposed to air, light, or water.</p>
-      <img src="assets/images/serum-product.jpg" alt="Vitamin C Serum Bio-Availability" loading="lazy">
+      <img src="assets/images/blog-vitc-guide.jpg" alt="Vitamin C Serum Bio-Availability" loading="lazy">
       <p>Lipid-soluble derivatives such as Tetrahexyldecyl (THD) Ascorbate offer remarkable stability and gentle delivery for reactive skin types. While milder, they convert into active L-Ascorbic Acid within skin cells over time, delivering sustained antioxidant defense.</p>
       <h2>Finding the Golden Concentration Window</h2>
       <p>Dermatological research shows that topical Vitamin C absorption peaks at a 20% concentration. Concentrations below 10% yield significantly slower tone brightening, while concentrations exceeding 20% cause tissue saturation and heightened irritation without boosting results.</p>
@@ -1305,7 +1305,7 @@ const BLOG_DATA = {
         <li><strong>Medium Molecular Weight (500–1000 kDa):</strong> Penetrates into the upper stratum corneum to instantly smooth fine dehydrations lines and refine texture.</li>
         <li><strong>Micro Molecular Weight (&lt; 50 kDa):</strong> Travels into deeper epidermal layers to boost natural mucopolysaccharides and maintain cellular elasticity.</li>
       </ul>
-      <img src="assets/images/moisturizer-product.jpg" alt="Multi-Weight Hyaluronic Acid Technology" loading="lazy">
+      <img src="assets/images/blog-ha-guide.jpg" alt="Multi-Weight Hyaluronic Acid Technology" loading="lazy">
       <h2>The Golden Rule: Damp Skin Application</h2>
       <p>Hyaluronic Acid acts like a biological sponge. To work effectively, it requires water to pull into the skin. Always apply HA serums immediately after cleansing or misting while skin remains damp. Immediately follow with a lipid cream to lock moisture in place.</p>
     `
@@ -1338,7 +1338,7 @@ const BLOG_DATA = {
         <li><strong>Tacky Phase:</strong> The clay gently contracts, drawing out pore congestion and stimulating capillary microcirculation. <em>Rinse off right now!</em></li>
         <li><strong>Bone-Dry Phase:</strong> The clay sucks moisture from deep cellular layers, producing redness and tightness.</li>
       </ol>
-      <img src="assets/images/facemask-product.jpg" alt="French Pink Clay Treatment" loading="lazy">
+      <img src="assets/images/blog-clay-mask.jpg" alt="French Pink Clay Treatment" loading="lazy">
       <h2>Post-Mask Care Routine</h2>
       <p>Rinse gently using lukewarm water and a soft cotton cloth. Follow immediately with a soothing, ceramide-rich moisturizer to replenish lipid levels. Limit clay mask usage to 1–2 times weekly for combination/oily skin, and once bi-weekly for sensitive skin.</p>
     `
@@ -1365,7 +1365,7 @@ const BLOG_DATA = {
       <blockquote>Mineral sunscreens use non-nano Zinc Oxide to create a physical mirror on top of the skin that immediately reflects broad-spectrum UVA and UVB rays.</blockquote>
       <h2>Understanding Mineral Active Filters</h2>
       <p>Mineral formulas rely on active minerals such as Zinc Oxide and Titanium Dioxide. Sitting on the epidermis, they reflect and scatter ultraviolet rays away from the skin surface instantly upon application without requiring absorption time.</p>
-      <img src="assets/images/sunscreen-product.jpg" alt="Mineral Invisible Defense SPF 50" loading="lazy">
+      <img src="assets/images/blog-sunscreen-guide.jpg" alt="Mineral Invisible Defense SPF 50" loading="lazy">
       <h2>Understanding Chemical Active Filters</h2>
       <p>Chemical sunscreens utilize organic carbon compounds like Avobenzone, Octisalate, and Homosalate. These ingredients absorb into the top layers of skin, convert incoming UV radiation into heat energy, and dissipate that heat from the body.</p>
       <h2>Which One Is Right For Your Skin?</h2>
@@ -1400,7 +1400,7 @@ const BLOG_DATA = {
         <li>Wait 5 minutes for skin to dry completely, then apply a pea-sized amount of retinol serum.</li>
         <li>Seal with a second layer of nourishing lipid cream.</li>
       </ol>
-      <img src="assets/images/ingredients-botanical.jpg" alt="Encapsulated Retinol Delivery" loading="lazy">
+      <img src="assets/images/blog-retinol-guide.jpg" alt="Encapsulated Retinol Delivery" loading="lazy">
       <h2>Gradual Frequency Ramp-Up Schedule</h2>
       <p>Begin by applying retinol once weekly for two weeks. If no redness occurs, progress to twice weekly for weeks three and four. By week five, transition to every other night. Always restrict retinol to night use and apply broad-spectrum SPF 50 daily.</p>
     `
@@ -1482,6 +1482,13 @@ const initBlogDetails = () => {
 
   const heroAuthorRole = $('#detailHeroAuthorRole');
   if (heroAuthorRole) heroAuthorRole.textContent = post.authorRole;
+
+  // Featured Cover Image (matches the blog card)
+  const coverImageEl = $('#detailCoverImage');
+  if (coverImageEl && post.heroImage) {
+    coverImageEl.src = post.heroImage;
+    coverImageEl.alt = post.title;
+  }
 
   // Main Content
   const contentEl = $('#detailContent');
