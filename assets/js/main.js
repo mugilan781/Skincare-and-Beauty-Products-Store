@@ -15,12 +15,34 @@ const store = {
 };
 
 /* ── Page Loader ──────────────────────────────────────────── */
+const hidePageLoader = () => {
+  const loader = document.getElementById('pageLoader');
+  if (loader) loader.classList.add('hidden');
+};
+
 const initLoader = () => {
-  const loader = $('#pageLoader');
-  if (!loader) return;
-  window.addEventListener('load', () => {
-    setTimeout(() => loader.classList.add('hidden'), 600);
-  });
+  const hideSoon = (delay = 600) => setTimeout(hidePageLoader, delay);
+
+  // Normal fresh load: hide shortly after all resources are ready.
+  window.addEventListener('load', () => hideSoon(500));
+
+  // Back/forward navigation (bfcache restore): `load` does NOT fire,
+  // but `pageshow` always does — hide the loader immediately there.
+  window.addEventListener('pageshow', e => hideSoon(e.persisted ? 50 : 500));
+
+  // Cache a clean snapshot: never store the page with loader visible.
+  window.addEventListener('pagehide', hidePageLoader);
+
+  // Loader is injected by components.js on DOMContentLoaded; it may
+  // arrive just after this runs — retry hiding for late injection.
+  hideSoon(800);
+
+  // Absolute failsafe: never trap the user behind the loader.
+  setTimeout(hidePageLoader, 2500);
+  setTimeout(hidePageLoader, 4000);
+
+  // If `load` already fired before this init ran, hide right away.
+  if (document.readyState === 'complete') hideSoon(300);
 };
 
 /* ── Theme Toggle ─────────────────────────────────────────── */
@@ -987,15 +1009,55 @@ const initCountdown = () => {
 
 /* ── Smooth Page Transitions ──────────────────────────────── */
 const initPageTransitions = () => {
-  $$('a[href]').forEach(link => {
+  // Delegated (single listener): also covers nav/footer injected later
+  // by components.js, and avoids double-binding on re-init.
+  if (document.body.dataset.pageTransBound) return;
+  document.body.dataset.pageTransBound = 'true';
+
+  let navTimer = null;
+
+  const isInternalNav = href => {
+    if (!href) return false;
+    if (href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) return false;
+    if (/^(https?:|ftp:|javascript:|data:|blob:)/i.test(href)) return false;
+    return true;
+  };
+
+  document.addEventListener('click', e => {
+    if (e.defaultPrevented) return;
+    if (e.button !== 0) return; // ignore middle/right click
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return; // new tab/window
+    const link = e.target.closest ? e.target.closest('a[href]') : null;
+    if (!link || !document.body.contains(link)) return;
+    if (link.target === '_blank' || link.hasAttribute('download')) return;
+
     const href = link.getAttribute('href');
-    if (!href || href.startsWith('#') || href.startsWith('mailto') || href.startsWith('tel') || href.startsWith('http')) return;
-    on(link, 'click', e => {
-      e.preventDefault();
-      const loader = $('#pageLoader');
-      if (loader) { loader.classList.remove('hidden'); }
-      setTimeout(() => { window.location.href = href; }, 400);
-    });
+    if (!isInternalNav(href)) return;
+
+    e.preventDefault();
+    if (navTimer) clearTimeout(navTimer);
+
+    const loader = document.getElementById('pageLoader');
+    if (loader) loader.classList.remove('hidden');
+
+    navTimer = setTimeout(() => {
+      navTimer = null;
+      window.location.href = href;
+    }, 350);
+
+    // Failsafe: if navigation is cancelled/blocked, don't trap UI.
+    setTimeout(hidePageLoader, 2500);
+  });
+
+  // If the user goes Back before the delayed nav fires, cancel it and
+  // make sure the restored page never shows a stuck loader.
+  window.addEventListener('pagehide', () => {
+    if (navTimer) { clearTimeout(navTimer); navTimer = null; }
+    hidePageLoader();
+  });
+  window.addEventListener('pageshow', () => {
+    if (navTimer) { clearTimeout(navTimer); navTimer = null; }
+    hidePageLoader();
   });
 };
 
@@ -1085,8 +1147,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Delayed parallax (avoid layout thrash)
   setTimeout(initParallax, 300);
-  // Page transitions last to avoid blocking
-  setTimeout(initPageTransitions, 800);
+  // Page transitions use delegation, safe to bind immediately (covers
+  // nav/footer injected later by components.js).
+  initPageTransitions();
 
   // Floating particles (Home 2)
   initParticles();
