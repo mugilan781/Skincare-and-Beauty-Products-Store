@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Create your VelourSkin account for faster checkout, order tracking and personalised skincare rituals.">
+  <title>Create Account — VelourSkin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/extended.css">
+  <link rel="stylesheet" href="assets/css/icons.css">
+  <link rel="stylesheet" href="assets/css/auth.css">
+</head>
+<body class="auth-page">
+  <main class="auth-card auth-card-wide" aria-labelledby="signupTitle">
+    <a href="index.html" class="auth-brand" aria-label="VelourSkin home">Velour<span>Skin</span></a>
+
+    <h1 id="signupTitle">Create Account</h1>
+    <p class="auth-subtitle">Create an account to get started.</p>
+
+    <form id="signupForm" class="auth-form" novalidate>
+      <div class="auth-status" data-form-status role="status" aria-live="polite"></div>
+
+      <div class="form-group">
+        <label class="form-label" for="signupName">Full Name</label>
+        <input class="form-control" type="text" id="signupName" name="name"
+               placeholder="Jane Cooper" autocomplete="name" required aria-describedby="signupName-error">
+        <p class="field-error" id="signupName-error" role="alert"></p>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="signupEmail">Email Address</label>
+        <input class="form-control" type="email" id="signupEmail" name="email"
+               placeholder="you@example.com" autocomplete="email" required aria-describedby="signupEmail-error">
+        <p class="field-error" id="signupEmail-error" role="alert"></p>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="signupPhone">Phone Number <span style="font-weight:400;text-transform:none;letter-spacing:0;">(optional)</span></label>
+        <input class="form-control" type="tel" id="signupPhone" name="phone"
+               placeholder="+1 (555) 000-1234" autocomplete="tel" aria-describedby="signupPhone-error">
+        <p class="field-error" id="signupPhone-error" role="alert"></p>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="signupPassword">Password</label>
+        <div class="password-wrap">
+          <input class="form-control" type="password" id="signupPassword" name="password"
+                 placeholder="Minimum 8 characters" autocomplete="new-password" required aria-describedby="signupPassword-error">
+          <button type="button" class="password-toggle" data-password-toggle="signupPassword" aria-label="Show password" aria-pressed="false"></button>
+        </div>
+        <p class="field-error" id="signupPassword-error" role="alert"></p>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="signupConfirm">Confirm Password</label>
+        <div class="password-wrap">
+          <input class="form-control" type="password" id="signupConfirm" name="confirm-password"
+                 placeholder="Re-enter your password" autocomplete="new-password" required aria-describedby="signupConfirm-error">
+          <button type="button" class="password-toggle" data-password-toggle="signupConfirm" aria-label="Show password" aria-pressed="false"></button>
+        </div>
+        <p class="field-error" id="signupConfirm-error" role="alert"></p>
+      </div>
+
+      <label class="terms-check" for="termsCheck">
+        <input type="checkbox" id="termsCheck" name="terms" required aria-describedby="termsCheck-error">
+        <span>I agree to the <a href="terms.html">Terms &amp; Conditions</a> and <a href="privacy.html">Privacy Policy</a>.</span>
+      </label>
+      <p class="field-error" id="termsCheck-error" role="alert" style="margin-top:-0.9rem;margin-bottom:1rem;"></p>
+
+      <button type="submit" class="btn btn-primary auth-submit">Create Account</button>
+    </form>
+
+    <div class="auth-divider" aria-hidden="true">or sign up with</div>
+
+    <div class="auth-social">
+      <button type="button" class="auth-social-btn" data-social="google">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M23.49 12.27c0-.79-.07-1.54-.19-2.27H12v4.51h6.47c-.29 1.48-1.14 2.73-2.4 3.58v3h3.86c2.26-2.09 3.56-5.17 3.56-8.82z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.86-3c-1.08.72-2.45 1.16-4.07 1.16-3.13 0-5.78-2.11-6.73-4.96H1.29v3.09C3.26 21.3 7.31 24 12 24z"/><path fill="#FBBC05" d="M5.27 14.29c-.25-.72-.38-1.49-.38-2.29s.14-1.57.38-2.29V6.62H1.29C.47 8.24 0 10.06 0 12s.47 3.76 1.29 5.38l3.98-3.09z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.31 0 3.26 2.7 1.29 6.62l3.98 3.09C6.22 6.86 8.87 4.75 12 4.75z"/></svg>
+        Google
+      </button>
+      <button type="button" class="auth-social-btn" data-social="facebook">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#1877F2" d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5 3.66 9.15 8.44 9.94v-7.03H7.9v-2.9h2.54V9.85c0-2.52 1.5-3.91 3.78-3.91 1.1 0 2.24.2 2.24.2v2.47h-1.26c-1.24 0-1.63.78-1.63 1.57v1.89h2.78l-.44 2.9h-2.34V22c4.78-.79 8.44-4.94 8.44-9.94z"/></svg>
+        Facebook
+      </button>
+    </div>
+
+    <p class="auth-redirect">Already have an account? <a class="auth-link" href="login.html">Sign In</a></p>
+  </main>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/auth.js"></script>
+</body>
+</html>

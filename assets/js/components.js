@@ -55,6 +55,8 @@ const NAV_HTML = `
   <a href="sitemap.html">Sitemap</a>
   <a href="404.html">404</a>
   <a href="maintenance.html">Maintenance</a>
+  <a href="login.html">Login</a>
+  <a href="signup.html">Signup</a>
   <div style="margin-top:2rem;display:flex;gap:.75rem;flex-wrap:wrap;">
     <button data-theme-toggle class="btn btn-outline-dark btn-sm" style="border-radius:var(--radius-full);display:inline-flex;align-items:center;gap:.4rem;">
       <span data-theme-icon style="display:inline-flex;width:16px;height:16px;">
@@ -124,6 +126,22 @@ const NAV_HTML = `
           <button class="rtl-toggle" data-rtl-toggle aria-label="Toggle RTL direction">
             <span data-rtl-icon style="font-size:.65rem;font-weight:800;letter-spacing:.08em;">RTL</span>
           </button>
+          <div class="profile-wrap" id="profileWrap">
+            <button class="nav-icon-btn" id="profileBtn" aria-label="Account" aria-haspopup="true" aria-expanded="false" aria-controls="profileMenu">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+            </button>
+            <div class="profile-dropdown" id="profileMenu" role="menu" aria-label="Account">
+              <p class="profile-dropdown-header">Profile</p>
+              <a href="login.html" role="menuitem">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+                Login
+              </a>
+              <a href="signup.html" role="menuitem">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
+                Signup
+              </a>
+            </div>
+          </div>
           <button id="navHamburger" class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
             <span></span><span></span><span></span>
           </button>
@@ -273,4 +291,68 @@ document.addEventListener('DOMContentLoaded', () => {
   while (bodyMount.firstChild) document.body.appendChild(bodyMount.firstChild);
 
   if (window.initNavbar) window.initNavbar();
+  initProfileDropdown();
 });
+
+/* ── Profile Dropdown (Login / Signup access) ─────────────── */
+function initProfileDropdown() {
+  const wrap = document.getElementById('profileWrap');
+  const btn = document.getElementById('profileBtn');
+  const menu = document.getElementById('profileMenu');
+  if (!wrap || !btn || !menu || wrap.dataset.bound) return;
+  wrap.dataset.bound = 'true';
+
+  const links = [...menu.querySelectorAll('a')];
+  const setOpen = open => {
+    wrap.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', String(open));
+  };
+  const isOpen = () => wrap.classList.contains('open');
+
+  btn.addEventListener('click', e => {
+    e.stopPropagation();
+    const next = !isOpen();
+    setOpen(next);
+    if (next && links[0]) links[0].focus();
+  });
+
+  btn.addEventListener('keydown', e => {
+    if ((e.key === 'Enter' || e.key === ' ' || e.key === 'ArrowDown') && !isOpen()) {
+      e.preventDefault();
+      setOpen(true);
+      if (links[0]) links[0].focus();
+    } else if (e.key === 'Escape' && isOpen()) {
+      setOpen(false);
+      btn.focus();
+    }
+  });
+
+  menu.addEventListener('keydown', e => {
+    const idx = links.indexOf(document.activeElement);
+    if (e.key === 'Escape') {
+      setOpen(false);
+      btn.focus();
+    } else if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      links[(idx + 1) % links.length].focus();
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      links[(idx - 1 + links.length) % links.length].focus();
+    } else if (e.key === 'Tab' && !e.shiftKey && idx === links.length - 1) {
+      setOpen(false);
+    }
+  });
+
+  document.addEventListener('click', e => {
+    if (isOpen() && !wrap.contains(e.target)) setOpen(false);
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && isOpen()) {
+      setOpen(false);
+      btn.focus();
+    }
+  });
+
+  links.forEach(link => link.addEventListener('click', () => setOpen(false)));
+}
