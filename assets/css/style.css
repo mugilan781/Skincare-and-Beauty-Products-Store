@@ -3625,3 +3625,37 @@ select.form-control {
   height: 16px;
   flex-shrink: 0;
 }
+
+/* ── Brand Intro (Why VelourSkin) — contrast fixes ──────── */
+.brand-intro .about-story-image { overflow: visible; }
+.brand-badge {
+  position: absolute; bottom: 2rem; left: 2rem;
+  background: var(--glass-bg); backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg); padding: 1.25rem 1.5rem; max-width: 220px;
+}
+.brand-badge-value {
+  font-family: var(--font-display); font-size: 2rem; font-weight: 300;
+  color: var(--rosewood); line-height: 1.1;
+}
+.brand-badge-label { font-size: .78rem; color: var(--text-secondary); margin: 0; line-height: 1.6; }
+.brand-intro h2 em { font-style: italic; color: var(--rosewood-light); }
+.brand-intro-lead {
+  font-size: 1.02rem; line-height: 1.9; margin-bottom: 1rem;
+  color: var(--text-primary) !important;
+}
+.brand-intro-sub { margin-bottom: 1.75rem; color: var(--text-secondary) !important; }
+/* Icon glyph sits on a light gradient in BOTH themes, so keep it dark */
+.brand-intro .ingredient-icon { color: #4A2633 !important; }
+.brand-intro .ingredient-info h4 { color: var(--text-primary) !important; }
+.brand-intro .ingredient-info p { color: var(--text-secondary) !important; }
+
+[data-theme="dark"] .brand-badge-value { color: var(--champagne) !important; }
+[data-theme="dark"] .brand-badge-label { color: rgba(251,247,242,.82) !important; }
+[data-theme="dark"] .brand-intro h2 em { color: var(--blush) !important; }
+[data-theme="dark"] .brand-intro-lead { color: #F2E8E8 !important; }
+[data-theme="dark"] .brand-intro-sub { color: rgba(251,247,242,.8) !important; }
+[data-theme="dark"] .brand-intro .ingredient-item { background: rgba(251,247,242,.03); }
+[data-theme="dark"] .brand-intro .ingredient-info h4 { color: #F2E8E8 !important; }
+[data-theme="dark"] .brand-intro .ingredient-info p { color: rgba(251,247,242,.78) !important; }
