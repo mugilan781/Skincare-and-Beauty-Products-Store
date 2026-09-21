@@ -4,25 +4,29 @@
    Standalone pages: no navbar, no footer, no extra sections.
    ============================================================ */
 
-/* ── Page background ─────────────────────────────────────── */
+/* ── Page background ───────────────────────────────────────
+   NOTE: No overflow property here on purpose. Setting
+   overflow-x on <body> would force overflow-y to compute to
+   `auto`, turning the body into a nested scroll container and
+   producing a second vertical scrollbar next to the page one. */
 .auth-page {
   min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
-  align-items: center;
-  justify-content: center;
   padding: 2.5rem 1.25rem;
-  position: relative;
-  overflow-x: hidden;
   background: var(--bg-secondary);
 }
 
 .auth-page::before,
 .auth-page::after {
   content: '';
-  position: absolute;
+  /* Fixed (viewport-anchored) so the glows can never extend any
+     scrollable overflow area or spawn an extra scrollbar. */
+  position: fixed;
   border-radius: 50%;
   pointer-events: none;
   filter: blur(90px);
+  z-index: 0;
 }
 
 .auth-page::before {
@@ -49,10 +53,14 @@
   background: radial-gradient(circle, rgba(201,166,107,0.12) 0%, transparent 70%);
 }
 
-/* ── Card ────────────────────────────────────────────────── */
+/* ── Card ──────────────────────────────────────────────────
+   margin:auto (instead of align/justify-center on the flex body)
+   keeps the card centered without clipping its top when the form
+   is taller than the viewport. */
 .auth-card {
   position: relative;
   z-index: 1;
+  margin: auto;
   width: 100%;
   max-width: 480px;
   background: var(--bg-primary);
@@ -259,8 +267,8 @@
 /* Social */
 .auth-social {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: .75rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: .65rem;
 }
 
 .auth-social-btn {
