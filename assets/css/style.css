@@ -3057,6 +3057,9 @@ html, body {
 }
 
 /* ── Bundle Deals Straight Alignment Fix ─────────────────── */
+.bundle-section {
+  padding-block: var(--space-2xl);
+}
 .bundle-grid {
   display: grid !important;
   grid-template-columns: repeat(3, 1fr) !important;
@@ -3067,6 +3070,8 @@ html, body {
   display: flex !important;
   flex-direction: column !important;
   height: 100% !important;
+  border-radius: var(--radius-xl) !important;
+  overflow: hidden !important;
 }
 .bundle-image {
   height: 220px !important;
@@ -3080,33 +3085,34 @@ html, body {
   object-fit: cover !important;
 }
 .bundle-body {
-  padding: 2rem !important;
+  padding: 2rem 1.75rem !important;
   display: flex !important;
   flex-direction: column !important;
-  flex: 1 0 auto !important;
+  flex: 1 1 auto !important;
 }
 .bundle-name {
   font-family: var(--font-display) !important;
   font-size: 1.5rem !important;
-  min-height: 2.2rem !important;
+  line-height: 1.25 !important;
   margin-bottom: .4rem !important;
 }
 .bundle-body > p {
   font-size: .88rem !important;
   line-height: 1.6 !important;
-  min-height: 3rem !important;
   margin-bottom: 1rem !important;
   color: var(--text-secondary) !important;
 }
 .bundle-card.featured .bundle-body > p {
   color: rgba(251,247,242,0.9) !important;
 }
+.bundle-card.featured .bundle-original {
+  color: rgba(251,247,242,0.65) !important;
+}
 .bundle-items {
   display: flex !important;
   flex-wrap: wrap !important;
   align-content: flex-start !important;
   gap: .4rem !important;
-  min-height: 3.6rem !important;
   margin-bottom: 1.2rem !important;
 }
 .bundle-pricing {
@@ -3115,12 +3121,20 @@ html, body {
   gap: .8rem !important;
   margin-top: auto !important;
   margin-bottom: 1.2rem !important;
-  height: 2.4rem !important;
+  height: auto !important;
+  min-height: 2.4rem !important;
 }
 .bundle-body .btn {
   width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
   justify-content: center !important;
+  text-align: center !important;
   margin-top: auto !important;
+  padding: .85rem 1.25rem !important;
+  font-size: .8rem !important;
+  letter-spacing: .08em !important;
+  white-space: nowrap !important;
 }
 
 /* ── FAQ Section Refined Accordion Styling ────────────────── */
@@ -4223,21 +4237,70 @@ img, svg, video, canvas, audio, iframe, embed, object {
   }
 
   /* Home 2 - Save & Glow Bundles (1024px) */
+  .bundle-section {
+    padding-block: var(--space-xl) !important;
+  }
   .bundle-grid {
     grid-template-columns: repeat(3, 1fr) !important;
     gap: 1.25rem !important;
+  }
+  .bundle-card {
+    height: 100% !important;
+  }
+  .bundle-image {
+    height: 200px !important;
   }
   .bundle-body {
     padding: 1.6rem 1.2rem !important;
   }
   .bundle-name {
     font-size: 1.35rem !important;
+    min-height: auto !important;
+  }
+  .bundle-body > p {
+    font-size: .85rem !important;
+    min-height: auto !important;
+  }
+  .bundle-items {
+    min-height: auto !important;
+    gap: .35rem !important;
+    margin-bottom: 1rem !important;
+  }
+  .bundle-item-tag {
+    font-size: .65rem !important;
+    padding: .2rem .55rem !important;
   }
   .bundle-pricing {
-    gap: .6rem !important;
+    gap: .5rem !important;
+    height: auto !important;
+    min-height: auto !important;
+    flex-wrap: wrap !important;
+    margin-bottom: 1rem !important;
   }
   .bundle-price {
-    font-size: 1.7rem !important;
+    font-size: 1.65rem !important;
+  }
+  .bundle-original {
+    font-size: .9rem !important;
+  }
+  .bundle-save {
+    font-size: .65rem !important;
+    padding: .18rem .5rem !important;
+  }
+  .bundle-body .btn {
+    width: 100% !important;
+    padding: .75rem .85rem !important;
+    font-size: .76rem !important;
+    letter-spacing: .06em !important;
+    white-space: nowrap !important;
+    margin-top: auto !important;
+  }
+  .bundle-tag {
+    top: 1rem !important;
+    right: 1rem !important;
+    padding: .3rem .75rem !important;
+    font-size: .62rem !important;
+    z-index: 2 !important;
   }
 
   /* Blog Page - Featured & Grid (1024px) */
@@ -4287,6 +4350,29 @@ img, svg, video, canvas, audio, iframe, embed, object {
   }
 }
 
+/* ── Mid-Tablet (<= 900px) Fallback for Bundles ─────────── */
+@media (max-width: 900px) {
+  .bundle-grid {
+    grid-template-columns: 1fr !important;
+    max-width: 520px !important;
+    margin-inline: auto !important;
+    gap: 2rem !important;
+  }
+  .bundle-card {
+    width: 100% !important;
+  }
+  .bundle-image {
+    height: 230px !important;
+  }
+  .bundle-body {
+    padding: 1.75rem 1.5rem !important;
+  }
+  .bundle-body .btn {
+    padding: .85rem 1.25rem !important;
+    font-size: .82rem !important;
+    letter-spacing: .08em !important;
+  }
+}
 
 /* ──────────────────────────────────────────────────────────────────────────
    2. TABLET PORTRAIT / MEDIUM SCREENS (<= 760px)
@@ -4626,11 +4712,24 @@ img, svg, video, canvas, audio, iframe, embed, object {
   }
 
   /* Home 2 - Save & Glow Bundles (760px) */
+  .bundle-section {
+    padding-block: var(--space-lg) !important;
+  }
+  .bundle-section .section-header {
+    margin-bottom: 2rem !important;
+  }
+  .bundle-section .section-header h2 {
+    font-size: 1.95rem !important;
+  }
   .bundle-grid {
     grid-template-columns: 1fr !important;
     max-width: 520px !important;
+    width: 100% !important;
     margin-inline: auto !important;
     gap: 2rem !important;
+  }
+  .bundle-card {
+    width: 100% !important;
   }
   .bundle-image {
     height: 240px !important;
@@ -4650,12 +4749,40 @@ img, svg, video, canvas, audio, iframe, embed, object {
   }
   .bundle-items {
     min-height: auto !important;
+    gap: .4rem !important;
     margin-bottom: 1rem !important;
+  }
+  .bundle-item-tag {
+    font-size: .68rem !important;
+    padding: .22rem .65rem !important;
   }
   .bundle-pricing {
     height: auto !important;
-    margin-top: 1rem !important;
-    margin-bottom: 1rem !important;
+    min-height: auto !important;
+    gap: .75rem !important;
+    flex-wrap: wrap !important;
+    margin-top: .8rem !important;
+    margin-bottom: 1.1rem !important;
+  }
+  .bundle-price {
+    font-size: 1.85rem !important;
+  }
+  .bundle-original {
+    font-size: .95rem !important;
+  }
+  .bundle-body .btn {
+    width: 100% !important;
+    padding: .85rem 1.25rem !important;
+    font-size: .82rem !important;
+    letter-spacing: .08em !important;
+    justify-content: center !important;
+  }
+  .bundle-tag {
+    top: 1.15rem !important;
+    right: 1.15rem !important;
+    padding: .32rem .8rem !important;
+    font-size: .64rem !important;
+    z-index: 2 !important;
   }
 
   /* Blog Page - Featured & Grid (760px) */
@@ -5046,10 +5173,28 @@ img, svg, video, canvas, audio, iframe, embed, object {
   }
 
   /* Home 2 - Save & Glow Bundles (480px) */
+  .bundle-section {
+    padding-block: 2.75rem !important;
+  }
+  .bundle-section .section-header {
+    margin-bottom: 1.75rem !important;
+  }
+  .bundle-section .section-header h2 {
+    font-size: 1.65rem !important;
+  }
+  .bundle-section .section-header p {
+    font-size: .88rem !important;
+    line-height: 1.6 !important;
+  }
   .bundle-grid {
     grid-template-columns: 1fr !important;
-    gap: 1.6rem !important;
+    gap: 1.5rem !important;
     max-width: 100% !important;
+    width: 100% !important;
+  }
+  .bundle-card {
+    border-radius: var(--radius-lg) !important;
+    width: 100% !important;
   }
   .bundle-image {
     height: 200px !important;
@@ -5060,10 +5205,13 @@ img, svg, video, canvas, audio, iframe, embed, object {
   .bundle-name {
     font-size: 1.35rem !important;
     min-height: auto !important;
+    margin-bottom: .35rem !important;
   }
   .bundle-body > p {
     font-size: .86rem !important;
+    line-height: 1.55 !important;
     min-height: auto !important;
+    margin-bottom: .8rem !important;
   }
   .bundle-items {
     min-height: auto !important;
@@ -5076,18 +5224,35 @@ img, svg, video, canvas, audio, iframe, embed, object {
   }
   .bundle-pricing {
     height: auto !important;
+    min-height: auto !important;
     gap: .7rem !important;
-    margin-top: .8rem !important;
+    flex-wrap: wrap !important;
+    margin-top: .75rem !important;
     margin-bottom: 1rem !important;
   }
   .bundle-price {
     font-size: 1.65rem !important;
   }
+  .bundle-original {
+    font-size: .92rem !important;
+  }
+  .bundle-save {
+    font-size: .66rem !important;
+    padding: .18rem .55rem !important;
+  }
+  .bundle-body .btn {
+    width: 100% !important;
+    padding: .8rem 1rem !important;
+    font-size: .8rem !important;
+    letter-spacing: .08em !important;
+    justify-content: center !important;
+  }
   .bundle-tag {
     top: 1rem !important;
     right: 1rem !important;
-    padding: .3rem .75rem !important;
+    padding: .28rem .7rem !important;
     font-size: .62rem !important;
+    z-index: 2 !important;
   }
 
   /* Blog Page - Featured & Grid (480px) */
@@ -5448,8 +5613,27 @@ img, svg, video, canvas, audio, iframe, embed, object {
   }
 
   /* Home 2 - Save & Glow Bundles (360px) */
+  .bundle-section {
+    padding-block: 2.25rem !important;
+  }
+  .bundle-section .section-header {
+    margin-bottom: 1.5rem !important;
+  }
+  .bundle-section .section-header h2 {
+    font-size: 1.45rem !important;
+  }
+  .bundle-section .section-header p {
+    font-size: .84rem !important;
+    line-height: 1.5 !important;
+  }
   .bundle-grid {
+    grid-template-columns: 1fr !important;
     gap: 1.35rem !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  .bundle-card {
+    border-radius: var(--radius-lg) !important;
   }
   .bundle-image {
     height: 180px !important;
@@ -5459,15 +5643,54 @@ img, svg, video, canvas, audio, iframe, embed, object {
   }
   .bundle-name {
     font-size: 1.25rem !important;
+    min-height: auto !important;
+    margin-bottom: .3rem !important;
   }
   .bundle-body > p {
     font-size: .84rem !important;
+    min-height: auto !important;
+    margin-bottom: .75rem !important;
+  }
+  .bundle-items {
+    min-height: auto !important;
+    gap: .3rem !important;
+    margin-bottom: .85rem !important;
+  }
+  .bundle-item-tag {
+    font-size: .64rem !important;
+    padding: .2rem .55rem !important;
+  }
+  .bundle-pricing {
+    height: auto !important;
+    min-height: auto !important;
+    gap: .6rem !important;
+    flex-wrap: wrap !important;
+    margin-top: .7rem !important;
+    margin-bottom: .95rem !important;
   }
   .bundle-price {
     font-size: 1.5rem !important;
   }
   .bundle-original {
     font-size: .9rem !important;
+  }
+  .bundle-save {
+    font-size: .65rem !important;
+    padding: .18rem .5rem !important;
+  }
+  .bundle-body .btn {
+    width: 100% !important;
+    padding: .75rem .9rem !important;
+    font-size: .78rem !important;
+    letter-spacing: .06em !important;
+    justify-content: center !important;
+  }
+  .bundle-tag {
+    top: .85rem !important;
+    right: .85rem !important;
+    padding: .25rem .65rem !important;
+    font-size: .6rem !important;
+    z-index: 2 !important;
   }
 
   /* Blog Page - Featured & Grid (360px) */
@@ -5843,8 +6066,28 @@ img, svg, video, canvas, audio, iframe, embed, object {
   }
 
   /* Home 2 - Save & Glow Bundles (320px) */
+  .bundle-section {
+    padding-block: 2rem !important;
+  }
+  .bundle-section .section-header {
+    margin-bottom: 1.25rem !important;
+  }
+  .bundle-section .section-header h2 {
+    font-size: 1.3rem !important;
+    word-break: break-word !important;
+  }
+  .bundle-section .section-header p {
+    font-size: .8rem !important;
+    line-height: 1.45 !important;
+  }
   .bundle-grid {
+    grid-template-columns: 1fr !important;
     gap: 1.15rem !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  .bundle-card {
+    border-radius: var(--radius-md) !important;
   }
   .bundle-image {
     height: 160px !important;
@@ -5855,18 +6098,31 @@ img, svg, video, canvas, audio, iframe, embed, object {
   .bundle-name {
     font-size: 1.15rem !important;
     word-break: break-word !important;
+    min-height: auto !important;
+    margin-bottom: .25rem !important;
   }
   .bundle-body > p {
     font-size: .8rem !important;
-    line-height: 1.5 !important;
+    line-height: 1.45 !important;
+    min-height: auto !important;
+    margin-bottom: .65rem !important;
+  }
+  .bundle-items {
+    min-height: auto !important;
+    gap: .25rem !important;
+    margin-bottom: .75rem !important;
   }
   .bundle-item-tag {
     font-size: .62rem !important;
     padding: .18rem .5rem !important;
   }
   .bundle-pricing {
+    height: auto !important;
+    min-height: auto !important;
     gap: .5rem !important;
     flex-wrap: wrap !important;
+    margin-top: .6rem !important;
+    margin-bottom: .85rem !important;
   }
   .bundle-price {
     font-size: 1.35rem !important;
@@ -5879,8 +6135,18 @@ img, svg, video, canvas, audio, iframe, embed, object {
     padding: .15rem .5rem !important;
   }
   .bundle-body .btn {
-    padding: .65rem .85rem !important;
-    font-size: .8rem !important;
+    width: 100% !important;
+    padding: .65rem .75rem !important;
+    font-size: .75rem !important;
+    letter-spacing: .04em !important;
+    justify-content: center !important;
+  }
+  .bundle-tag {
+    top: .75rem !important;
+    right: .75rem !important;
+    padding: .22rem .55rem !important;
+    font-size: .58rem !important;
+    z-index: 2 !important;
   }
 
   /* Blog Page - Featured & Grid (320px) */
