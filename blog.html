@@ -32,23 +32,23 @@
     <!-- ── SECTION 2: Featured Post ─────────────────────────── -->
     <section>
       <div class="container">
-        <div style="display:grid;grid-template-columns:1.5fr 1fr;gap:4rem;align-items:center;" class="reveal">
-          <div style="border-radius:var(--radius-xl);overflow:hidden;aspect-ratio:16/9;">
+        <div class="blog-featured-post reveal">
+          <div class="blog-featured-media">
             <a href="blog-details.html?id=morning-skincare-ritual">
-              <img src="assets/images/blog-morning-ritual.jpg" alt="Featured: The Ultimate Morning Skincare Routine" style="width:100%;height:100%;object-fit:cover;" loading="eager">
+              <img src="assets/images/blog-morning-ritual.jpg" alt="Featured: The Ultimate Morning Skincare Routine" loading="eager">
             </a>
           </div>
-          <div>
-            <div style="display:flex;gap:.75rem;margin-bottom:1rem;flex-wrap:wrap;align-items:center;">
+          <div class="blog-featured-content">
+            <div class="blog-featured-meta">
               <span class="blog-card-tag">Routines</span>
-              <span style="font-size:.78rem;color:var(--text-secondary)">August 20, 2026</span>
-              <span style="font-size:.78rem;color:var(--text-secondary)">· 8 min read</span>
+              <span class="blog-featured-date">August 20, 2026</span>
+              <span class="blog-featured-read">· 8 min read</span>
             </div>
-            <h2 style="font-size:clamp(1.8rem,3vw,2.8rem);margin-bottom:1rem;line-height:1.2;">
-              <a href="blog-details.html?id=morning-skincare-ritual" style="transition:color .3s;" onmouseover="this.style.color='var(--rosewood)'" onmouseout="this.style.color=''">The Ultimate Morning Skincare Ritual for Radiant, Glowing Skin</a>
+            <h2 class="blog-featured-title">
+              <a href="blog-details.html?id=morning-skincare-ritual">The Ultimate Morning Skincare Ritual for Radiant, Glowing Skin</a>
             </h2>
-            <p style="margin-bottom:1.5rem;color:var(--text-secondary);line-height:1.7;">Your morning routine sets the tone for the entire day. We walk you through the optimal 6-step ritual with our favourite products, layering secrets and pro tips from our Chief Formulator.</p>
-            <a href="blog-details.html?id=morning-skincare-ritual" class="btn btn-primary">Read Full Story →</a>
+            <p class="blog-featured-desc">Your morning routine sets the tone for the entire day. We walk you through the optimal 6-step ritual with our favourite products, layering secrets and pro tips from our Chief Formulator.</p>
+            <a href="blog-details.html?id=morning-skincare-ritual" class="btn btn-primary blog-featured-btn">Read Full Story →</a>
           </div>
         </div>
       </div>
@@ -64,7 +64,7 @@
         </div>
 
         <!-- Category Filters -->
-        <div class="skin-type-tabs reveal" style="margin-bottom:3rem">
+        <div class="skin-type-tabs reveal">
           <button class="skin-tab active" onclick="filterBlog('all', this)">All</button>
           <button class="skin-tab" onclick="filterBlog('Ingredients', this)">Ingredients</button>
           <button class="skin-tab" onclick="filterBlog('Routines', this)">Routines</button>
@@ -72,7 +72,7 @@
           <button class="skin-tab" onclick="filterBlog('Lifestyle', this)">Lifestyle</button>
         </div>
 
-        <div class="blog-grid-container" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:2rem;">
+        <div class="blog-grid-container">
           <article class="blog-card reveal reveal-delay-1" data-category="Ingredients">
             <div class="blog-card-image">
               <a href="blog-details.html?id=vit-c-guide">
