@@ -1030,15 +1030,16 @@ section { padding-block: var(--space-xl); }
 /* ── Page Hero ────────────────────────────────────────────── */
 .page-hero {
   position: relative;
-  min-height: 420px;
-  padding-top: 165px;
-  padding-bottom: var(--space-2xl);
+  min-height: clamp(440px, 48vh, 520px);
+  padding-top: calc(105px + 3.8rem);
+  padding-bottom: 3.8rem;
   background-color: #170f13;
   overflow: hidden;
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-sizing: border-box;
 }
 
 .page-hero-bg {
@@ -1817,7 +1818,9 @@ html, body {
     pointer-events: none !important;
   }
   .page-hero {
-    padding: 110px 0 40px;
+    min-height: 400px;
+    padding-top: calc(90px + 2.5rem);
+    padding-bottom: 2.5rem;
   }
   .hero2 {
     padding-top: 110px;
@@ -2076,7 +2079,9 @@ html, body {
     object-fit: cover !important;
   }
   .page-hero {
-    padding: 100px 0 30px;
+    min-height: 360px;
+    padding-top: calc(85px + 2.2rem);
+    padding-bottom: 2.2rem;
   }
   .page-hero h1 {
     font-size: 1.85rem;
@@ -4186,7 +4191,9 @@ img, svg, video, canvas, audio, iframe, embed, object {
     pointer-events: none !important;
   }
   .page-hero {
-    padding: 120px 0 40px !important;
+    min-height: 380px !important;
+    padding-top: calc(85px + 2.5rem) !important;
+    padding-bottom: 2.5rem !important;
   }
   .hero2 {
     padding-top: 120px !important;
@@ -4444,7 +4451,9 @@ img, svg, video, canvas, audio, iframe, embed, object {
     max-height: 85vw !important;
   }
   .page-hero {
-    padding: 110px 0 30px !important;
+    min-height: 350px !important;
+    padding-top: calc(80px + 2rem) !important;
+    padding-bottom: 2rem !important;
   }
   .hero2 {
     padding-top: 110px !important;
@@ -4670,7 +4679,9 @@ img, svg, video, canvas, audio, iframe, embed, object {
     animation: none !important;
   }
   .page-hero {
-    padding: 105px 0 25px !important;
+    min-height: 330px !important;
+    padding-top: calc(75px + 1.8rem) !important;
+    padding-bottom: 1.8rem !important;
   }
   .hero2 {
     padding-top: 105px !important;
@@ -4878,7 +4889,9 @@ img, svg, video, canvas, audio, iframe, embed, object {
     font-size: 1.45rem;
   }
   .page-hero {
-    padding: 98px 0 25px !important;
+    min-height: 310px !important;
+    padding-top: calc(70px + 1.5rem) !important;
+    padding-bottom: 1.5rem !important;
   }
   .hero2 {
     padding-top: 98px !important;
